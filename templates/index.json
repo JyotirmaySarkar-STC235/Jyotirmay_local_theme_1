@@ -1,1 +1,381 @@
-{"sections":{"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"Browse our latest products","heading_size":"h0"}},"button":{"type":"buttons","settings":{"button_label_1":"Go to shopping","button_link_1":"shopify:\/\/collections\/all","button_style_secondary_1":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading","button"],"settings":{"image":"shopify:\/\/shop_images\/Bradley_MG_0023_500be83c-9991-4333-8239-ebd8aaa8d13c.jpg","image_overlay_opacity":20,"image_height":"large","image_behavior":"none","desktop_content_position":"bottom-center","desktop_content_alignment":"center","show_text_box":false,"color_scheme":"scheme-4","stack_images_on_mobile":false,"mobile_content_alignment":"center","show_text_below":false}},"featured_collection":{"type":"featured-collection","settings":{"collection":"shoes-copy","products_to_show":8,"title":"Featured products","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":false,"padding_top":44,"padding_bottom":36}},"rich_text_rFwfPq":{"type":"rich-text","blocks":{"heading_WXPckE":{"type":"heading","settings":{"heading":"Be the first one to get...","heading_size":"h1"}},"text_wjhXaA":{"type":"text","settings":{"text":"<p>Go bellow and grab your dream item.<\/p>"}},"button_jMJyXd":{"type":"button","settings":{"button_label":"","button_link":"","button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading_WXPckE","text_wjhXaA","button_jMJyXd"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"scheme-4","full_width":true,"padding_top":40,"padding_bottom":52}},"slideshow_9PY7YE":{"type":"slideshow","blocks":{"slide_fiAYaK":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/peter-shire-bike.jpg","image_overlay_opacity":0,"heading":"","heading_size":"h1","subheading":"","button_label":"Let's grab it","link":"shopify:\/\/collections\/new-arrivals","button_style_secondary":false,"show_text_box":false,"box_align":"middle-center","text_alignment":"left","text_alignment_mobile":"left","color_scheme":""}}},"block_order":["slide_fiAYaK"],"name":"t:sections.slideshow.presets.name","settings":{"layout":"full_bleed","slide_height":"medium","slider_visual":"counter","auto_rotate":false,"change_slides_speed":5,"image_behavior":"none","show_text_below":true,"accessibility_info":"Slideshow about our brand"}},"multirow_zU9GDj":{"type":"multirow","blocks":{"row_JCy6Ne":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/Bradeley-charlie-lifestyle-brick-web.jpg","caption":"By-cycle","heading":"The best bikes","text":"","button_label":"Check it out","button_link":"shopify:\/\/collections\/shoes-copy"}},"row_YwjjJM":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/50mm-Wheels_Celest_Front_WEB_b2dddd1c-aab8-4d90-ad55-9a211769c171.jpg","caption":"","heading":"Look at our wheels","text":"","button_label":"Click to visit store","button_link":"shopify:\/\/collections\/wheels"}},"row_eTJpKR":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/siva-lifestyle-1.jpg","caption":"Look at the store","heading":"Get your identity","text":"","button_label":"Visit store","button_link":"shopify:\/\/collections\/all"}}},"block_order":["row_JCy6Ne","row_YwjjJM","row_eTJpKR"],"name":"t:sections.multirow.presets.name","settings":{"image_height":"medium","desktop_image_width":"medium","image_layout":"alternate-left","heading_size":"h1","text_style":"body","button_style":"secondary","desktop_content_position":"middle","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"","row_color_scheme":"","padding_top":36,"padding_bottom":36}},"multicolumn_MJqjMh":{"type":"multicolumn","blocks":{"column_xkpDPG":{"type":"column","settings":{"title":"Quality","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}},"column_FEweVb":{"type":"column","settings":{"title":"24 x 7 Customer service","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}},"column_NHmHFq":{"type":"column","settings":{"title":"Fast delivery","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}}},"block_order":["column_xkpDPG","column_FEweVb","column_NHmHFq"],"name":"t:sections.multicolumn.presets.name","settings":{"title":"Why us?","heading_size":"h1","image_width":"full","image_ratio":"adapt","button_label":"Try our products","button_link":"shopify:\/\/collections\/all","columns_desktop":3,"column_alignment":"left","background_style":"primary","color_scheme":"scheme-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"custom_banner_4fAdJr":{"type":"custom-banner","blocks":{"button_y4bUqX":{"type":"button","settings":{"button_text":"Shop All","button_link":"shopify:\/\/collections\/all"}},"button_PpRiei":{"type":"button","settings":{"button_text":"Hello, world!","button_link":""}},"button_KnAQ4f":{"type":"button","settings":{"button_text":"Hello, world!","button_link":""}},"button_RwHMie":{"type":"button","settings":{"button_text":"Hello, world!","button_link":""}}},"block_order":["button_y4bUqX","button_PpRiei","button_KnAQ4f","button_RwHMie"],"name":"Custom banner","settings":{"bgimage":"shopify:\/\/shop_images\/Hero.jpg","heading":"Add your heading here.","subheading":"Add your subheading heading here.","content_text":"Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go.","horizontal_alignment":"flex-start","vertical_alignment":"flex-start","color_scheme":"scheme-4"}}},"order":["image_banner","featured_collection","rich_text_rFwfPq","slideshow_9PY7YE","multirow_zU9GDj","multicolumn_MJqjMh","custom_banner_4fAdJr"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Go to shopping",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Bradley_MG_0023_500be83c-9991-4333-8239-ebd8aaa8d13c.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "shoes-copy",
+        "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_rFwfPq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_WXPckE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Be the first one to get...",
+            "heading_size": "h1"
+          }
+        },
+        "text_wjhXaA": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Go bellow and grab your dream item.</p>"
+          }
+        },
+        "button_jMJyXd": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WXPckE",
+        "text_wjhXaA",
+        "button_jMJyXd"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "slideshow_9PY7YE": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_fiAYaK": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/peter-shire-bike.jpg",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "Let's grab it",
+            "link": "shopify://collections/new-arrivals",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_fiAYaK"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "multirow_zU9GDj": {
+      "type": "multirow",
+      "blocks": {
+        "row_JCy6Ne": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/Bradeley-charlie-lifestyle-brick-web.jpg",
+            "caption": "By-cycle",
+            "heading": "The best bikes",
+            "text": "",
+            "button_label": "Check it out",
+            "button_link": "shopify://collections/shoes-copy"
+          }
+        },
+        "row_YwjjJM": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/50mm-Wheels_Celest_Front_WEB_b2dddd1c-aab8-4d90-ad55-9a211769c171.jpg",
+            "caption": "",
+            "heading": "Look at our wheels",
+            "text": "",
+            "button_label": "Click to visit store",
+            "button_link": "shopify://collections/wheels"
+          }
+        },
+        "row_eTJpKR": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/siva-lifestyle-1.jpg",
+            "caption": "Look at the store",
+            "heading": "Get your identity",
+            "text": "",
+            "button_label": "Visit store",
+            "button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "row_JCy6Ne",
+        "row_YwjjJM",
+        "row_eTJpKR"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_MJqjMh": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_xkpDPG": {
+          "type": "column",
+          "settings": {
+            "title": "Quality",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_FEweVb": {
+          "type": "column",
+          "settings": {
+            "title": "24 x 7 Customer service",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NHmHFq": {
+          "type": "column",
+          "settings": {
+            "title": "Fast delivery",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_xkpDPG",
+        "column_FEweVb",
+        "column_NHmHFq"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "Why us?",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Try our products",
+        "button_link": "shopify://collections/all",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_banner_4fAdJr": {
+      "type": "custom-banner",
+      "blocks": {
+        "button_y4bUqX": {
+          "type": "button",
+          "settings": {
+            "button_text": "Shop All",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "button_PpRiei": {
+          "type": "button",
+          "settings": {
+            "button_text": "Hello, world!",
+            "button_link": ""
+          }
+        },
+        "button_KnAQ4f": {
+          "type": "button",
+          "settings": {
+            "button_text": "Hello, world!",
+            "button_link": ""
+          }
+        },
+        "button_RwHMie": {
+          "type": "button",
+          "settings": {
+            "button_text": "Hello, world!",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "button_y4bUqX",
+        "button_PpRiei",
+        "button_KnAQ4f",
+        "button_RwHMie"
+      ],
+      "name": "Custom banner",
+      "settings": {
+        "bgimage": "shopify://shop_images/Hero.jpg",
+        "heading": "Add your heading here.",
+        "subheading": "Add your subheading heading here.",
+        "content_text": "Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go.",
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "flex-start",
+        "color_scheme": "scheme-4"
+      }
+    },
+    "image_with_text_4haKWD": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_qph8at": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let's go",
+            "heading_size": "h1"
+          }
+        },
+        "text_BJTYhq": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "button_bWYWnt": {
+          "type": "button",
+          "settings": {
+            "button_label": "Try one",
+            "button_link": "shopify://products/harding",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_qph8at",
+        "text_BJTYhq",
+        "button_bWYWnt"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/siva-lifestyle-2.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "rich_text_rFwfPq",
+    "slideshow_9PY7YE",
+    "multirow_zU9GDj",
+    "multicolumn_MJqjMh",
+    "custom_banner_4fAdJr",
+    "image_with_text_4haKWD"
+  ]
+}
