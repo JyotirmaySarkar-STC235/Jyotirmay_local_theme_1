@@ -36,14 +36,14 @@
         "button"
       ],
       "settings": {
-        "image": "shopify://shop_images/Bradley_MG_0023_500be83c-9991-4333-8239-ebd8aaa8d13c.jpg",
-        "image_overlay_opacity": 20,
-        "image_height": "large",
+        "image": "shopify://shop_images/Muri_Lelu_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
         "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
+        "desktop_content_position": "top-left",
+        "desktop_content_alignment": "left",
         "show_text_box": false,
-        "color_scheme": "scheme-4",
+        "color_scheme": "scheme-0d3d03ed-54a8-41bc-99d9-48373730c57f",
         "stack_images_on_mobile": false,
         "mobile_content_alignment": "center",
         "show_text_below": false
