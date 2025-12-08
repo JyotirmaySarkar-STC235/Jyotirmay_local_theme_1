@@ -103,22 +103,10 @@
         "padding_bottom": 36
       }
     },
-    "collection_list_F6kV4p": {
-      "type": "collection-list",
+    "home_page_featured_collection_T6dqxB": {
+      "type": "home-page-featured-collection",
       "blocks": {
-        "featured_collection_LXqbeB": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "featured_collection_LK3cgt": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "featured_collection_bKC4M3": {
+        "featured_collection_7kLaUX": {
           "type": "featured_collection",
           "settings": {
             "collection": ""
@@ -126,28 +114,17 @@
         }
       },
       "block_order": [
-        "featured_collection_LXqbeB",
-        "featured_collection_LK3cgt",
-        "featured_collection_bKC4M3"
+        "featured_collection_7kLaUX"
       ],
-      "name": "t:sections.collection-list.presets.name",
+      "name": "Home page featured collection",
       "settings": {
-        "title": "Collections",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "section_heading": "Featured collection"
       }
     }
   },
   "order": [
     "image_banner",
     "multicolumn_MJqjMh",
-    "collection_list_F6kV4p"
+    "home_page_featured_collection_T6dqxB"
   ]
 }

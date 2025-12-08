@@ -40,7 +40,7 @@
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "left",
-        "menu": "jyotirmay_desk_header",
+        "menu": "centella_header_menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
