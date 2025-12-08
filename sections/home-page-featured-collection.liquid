@@ -1,0 +1,36 @@
+<div>
+
+</div>
+
+<style></style>
+
+{% schema %}
+{
+  "name": "home_featured_collection",
+  "class": "homepage__featured-collection",
+  "tag": "section",
+  "max_blocks": 4,
+
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading",
+      "default": "Featured collection"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_collection",
+      "name": "featured_collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Add collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
