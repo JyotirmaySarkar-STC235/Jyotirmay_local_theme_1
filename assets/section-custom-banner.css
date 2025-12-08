@@ -1,0 +1,85 @@
+.custom-banner-wrapper {
+  /* COLOR SCHEME SUPPORT */
+  
+
+  padding: 48px 24px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* CONTENT LAYOUT */
+  display: flex;
+  flex-direction: column;
+  
+}
+
+/* TEXT CONTENT WRAPPER */
+.text-content-wrapper {
+  width: 400px;
+  border: 1px solid white;
+}
+
+/* HEADINGS */
+.custom-banner-wrapper h4,
+.custom-banner-wrapper h3 {
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.custom-banner-wrapper h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.custom-banner-wrapper h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* PARAGRAPH */
+.custom-banner-wrapper p {
+  max-width: 600px;
+  margin: 12px 0 24px;
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* BUTTON WRAPPER */
+.custombanner__buttons-wrapper {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* BUTTON STYLING */
+.custombanner__buttons-wrapper a {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 6px;
+
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  transition: all 0.25s ease, transform 0.2s ease;
+}
+
+.custombanner__buttons-wrapper a:hover {
+  background-color: #434343;
+  transform: translateY(-2px) scale(1.12);
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .custom-banner-wrapper {
+    padding: 64px 48px;
+  }
+
+  .custom-banner-wrapper h3 {
+    font-size: 2.4rem;
+  }
+}
