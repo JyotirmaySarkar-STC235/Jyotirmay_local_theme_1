@@ -1,13 +1,51 @@
 <div>
+    <h2 class="home__collections-heading">{{ section.settings.section_heading }}</h2>
 
+    <div class="home__featured-collections-container">
+        {% for block in section.blocks %}
+            <div class="home__featured-collection">
+                {{ block.featured_image | image_url: width: 381, height: 418 | image_tag }}
+                <p class="home__featured-collection-title">{{ block.title }}</p>
+            </div>
+          
+        {% endfor %}
+    </div>
 </div>
 
-<style></style>
+<style>
+    .home_featured_collection{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+    }
+
+    .home__collections-heading {
+        font-size: 28px !important;
+        font-weight: 600 !important;
+    }
+
+    .home__featured-collections-container{
+        display: flex;
+        gap: 12px;
+        border-radius: 60px 0 0 60px;
+        overflow: hidden;
+    }
+
+    .home__featured-collection-title {
+        font-size: 24px;
+        font-weight: 300;
+    }
+
+
+</style>
 
 {% schema %}
 {
   "name": "home_featured_collection",
-  "class": "homepage__featured-collection",
+  "class": "homepage__featured-collection-wrapper",
   "tag": "section",
   "max_blocks": 4,
 
