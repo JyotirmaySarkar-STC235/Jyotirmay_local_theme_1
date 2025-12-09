@@ -51,111 +51,116 @@
 </div>
 
 <style>
-      .home__conditional-collection {
-          min-height: 400px;
-          width: 100%;
-          background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
-          background-size: cover;
-          padding: 2rem;
+        .home__conditional-collection {
+            min-height: 400px;
+            width: 100%;
+            background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
+            background-size: cover;
+            padding: 2rem;
+        }
+
+        .home__conditional-collection-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            /* align-items: center; */
+        }
+
+        .home__conditional-collection-row-1 {
+          display: flex;
+          flex-direction: row-reverse;
       }
 
-      .home__conditional-collection-wrapper {
-          width: 100%;
+        .home__conditional-collection-options-container {
+            background-color: #F7841D;
+            color: #FFFFFF;
+            width: 280px;
+            height: 80px;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+        }
+
+        .option-btn{
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .active-option {
+            background-color: #FFFFFF;
+            color:  #F7841D;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+        }
+
+        .home__conditional-collection-row-2 {
+            width: 100%;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* PRODUCT CARD gpt */
+      .conditional-product-card {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
-          /* align-items: center; */
-      }
-
-      .home__conditional-collection-row-1 {
-        display: flex;
-        flex-direction: row-reverse;
+          align-items: center !important;
+          width: 250px !important;          /* Swiper handles actual width */
+          padding: 15px;
+          border-radius: 12px;
+          background: #fff;
+          gap: 10px;
+          text-align: center;
     }
 
-      .home__conditional-collection-options-container {
-          background-color: #F7841D;
-          color: #FFFFFF;
-          width: 280px;
-          height: 80px;
-          border-radius: 1rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 1rem;
-
-      }
-
-      .option-btn{
-          border: none;
-          outline: none;
-          background-color: transparent;
-          color: #FFFFFF;
-          font-size: 1.8rem;
-          font-weight: 500;
-          cursor: pointer;
-      }
-
-      .active-option {
-          background-color: #FFFFFF;
-          color:  #F7841D;
-          padding: 1rem 1.5rem;
-          border-radius: 10px;
-      }
-
-      .home__conditional-collection-row-2 {
+    .conditional-product-card__image-wrapper {
           width: 100%;
-      }
+          display: block;
+    }
 
-      .hidden {
-          display: none;
-      }
+    .conditional-product-card__image {
+          width: 100%;
+          height: auto;
+          border-radius: 12px;
+    }
 
-      /* PRODUCT CARD gpt */
-    .conditional-product-card {
-        display: flex;
-        flex-direction: column;
-        align-items: center !important;
-        width: 250px !important;          /* Swiper handles actual width */
-        padding: 15px;
-        border-radius: 12px;
-        background: #fff;
-        gap: 10px;
-        text-align: center;
+    .conditional-product-card__title {
+          font-size: 16px;
+          font-weight: 600;
+          margin: 0;
+    }
+
+    .conditional-product-card__price {
+          font-size: 14px;
+          margin: 0;
+    }
+
+    .conditional-product-card form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  .conditional-product-card__image-wrapper {
-        width: 100%;
-        display: block;
-  }
-
-  .conditional-product-card__image {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-  }
-
-  .conditional-product-card__title {
-        font-size: 16px;
-        font-weight: 600;
-        margin: 0;
-  }
-
-  .conditional-product-card__price {
-        font-size: 14px;
-        margin: 0;
-  }
-
-  .conditional-product-card__button {
-        padding: 10px 18px;
-        border: none;
-        outline: 2px solid orange;
-        background: transparent;
-        color: orange;
-        border-radius: 2rem;
-        cursor: pointer;
-        {% comment %} width: 100%;
-        margin: auto; {% endcomment %}
-  }
+    .conditional-product-card__button {
+          padding: 10px 18px;
+          border: none;
+          outline: 2px solid orange;
+          background: transparent;
+          color: orange;
+          border-radius: 2rem;
+          cursor: pointer;
+          width: 100%;
+    }
 </style>
 
 {% comment %} Button active class toggler script {% endcomment %}
