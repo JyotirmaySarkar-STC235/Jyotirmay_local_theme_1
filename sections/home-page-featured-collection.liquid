@@ -35,15 +35,18 @@
 
 
 <style>
-    .section-home-featured-collection {
-    width: 100vw;
+  .section-home-featured-collection {
+    width: 100%;
+    padding: 40px 20px; /* added padding */
     display: flex;
     justify-content: center;
-    padding: 2rem;
-
+    box-sizing: border-box;
+    overflow: hidden; /* stops overflow */
   }
 
   .featured-collection {
+    max-width: 1200px; /* keeps layout centered and clean */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,23 +61,28 @@
 
   .featured-collection__list {
     display: flex;
-    gap: 12px;
+    flex-wrap: wrap; /* responsive fix */
+    justify-content: center;
+    gap: 20px; /* more breathing space */
   }
 
+  /* CARD */
   .featured-collection__card {
-    width: 323px;
-    height: 462px;
+    width: 280px; /* smaller than before */
+    height: auto; /* allow natural growth */
     display: flex;
     flex-direction: column;
     gap: 15px;
     align-items: center;
   }
 
+  /* IMAGE */
   .featured-collection__image {
-    width: 323px;
-    height: 400px;
+    width: 100%;
+    height: 360px; /* smaller & proportional */
     object-fit: cover;
     display: block;
+    border-radius: 8px; /* minimal rounding for normal cards */
   }
 
   /* modifiers */
@@ -87,11 +95,31 @@
   }
 
   .featured-collection__title {
-    font-size: 20px;
-    font-weight: 300;
+    font-size: 18px;
+    font-weight: 400;
     text-align: center;
   }
 
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .featured-collection__card {
+      width: 45%;
+    }
+
+    .featured-collection__image {
+      height: 260px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .featured-collection__card {
+      width: 100%;
+    }
+
+    .featured-collection__image {
+      height: 220px;
+    }
+  }
 </style>
 
 
