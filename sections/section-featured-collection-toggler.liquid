@@ -1,6 +1,7 @@
-[section.settings.toggle_collection_1] - {{ section.settings.toggle_collection_1.title }}
+[section.settings.toggle_collection_1] - {{ section.settings.toggle_collection_1 }}
 
 <div class="home__featured-collection-toggler-wrapper">
+
   <div class="home__featured-collection-toggler-container">
     {% comment %} Options {% endcomment %}
     <div class="home__featured-collection-toggler-options-container">
@@ -11,15 +12,6 @@
     </div>
 
     {% comment %} Conditional Cards {% endcomment %}
-    {% assign collection1 = collections[section.settings.toggle_collection_1] %}
-    {% assign collection2 = collections[section.settings.toggle_collection_2] %}
-{% comment %} 
-    Products
-    Collections
-    Articles / Blogs
-
-{% endcomment %}
-
     {% comment %} Cards of Collection 1 {% endcomment %}
     <div id="toggler-card-list-1" class="home__featured-collection-toggler-cards-list">
         {% for product in section.settings.toggle_collection_1.products limit:3 %}
@@ -43,6 +35,7 @@
     </div>
     
   </div>
+
 </div>
 
 <style>
