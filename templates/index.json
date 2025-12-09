@@ -92,6 +92,13 @@
     "section_home_positive_branding_NUbymA": {
       "type": "section-home-positive-branding",
       "blocks": {
+        "image_text_block_GewgRb": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/non-toxic.png",
+            "image_text": "Non Toxic"
+          }
+        },
         "image_text_block_ba4VnY": {
           "type": "image_text_block",
           "settings": {
@@ -135,6 +142,7 @@
         }
       },
       "block_order": [
+        "image_text_block_GewgRb",
         "image_text_block_ba4VnY",
         "image_text_block_dghQC7",
         "image_text_block_tmPAK8",
