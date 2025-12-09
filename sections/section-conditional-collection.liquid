@@ -198,7 +198,7 @@
 </style>
 
 {% comment %} Button active class toggler script {% endcomment %}
-<script>
+{% comment %} <script>
   let buttons = document.getElementsByClassName('option-btn');
   let button1 = document.getElementById('toggle-option-btn-1');
   let button2 = document.getElementById('toggle-option-btn-2');
@@ -219,8 +219,8 @@
 
       
     });
-  }
-</script>
+  } {% endcomment %}
+{% comment %} </script> {% endcomment %}
 
 <!-- Initialize Swiper 1 -->
 <script>
@@ -251,6 +251,40 @@
     });
   });
 </script>
+
+{% comment %} Active and hidden class toggle script {% endcomment %}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    let button1 = document.getElementById('toggle-option-btn-1');
+    let button2 = document.getElementById('toggle-option-btn-2');
+
+    let row2 = document.getElementById('conditional-row-2-{{ section.id }}');
+    let row3 = document.getElementById('conditional-row-3-{{ section.id }}');
+
+    // BUTTON 1 — Show Collection 1
+    button1.addEventListener('click', () => {
+
+      button1.classList.add('active-option');
+      button2.classList.remove('active-option');
+
+      row2.classList.remove('hidden');
+      row3.classList.add('hidden');
+    });
+
+    // BUTTON 2 — Show Collection 2
+    button2.addEventListener('click', () => {
+
+      button2.classList.add('active-option');
+      button1.classList.remove('active-option');
+
+      row3.classList.remove('hidden');
+      row2.classList.add('hidden');
+    });
+
+  });
+</script>
+
 
 {% schema %}
 {
