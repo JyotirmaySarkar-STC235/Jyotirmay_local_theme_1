@@ -3609,5 +3609,8 @@ h1, h2, h3 {
   width: 1rem;
 }
 ::-webkit-scrollbar-track {
-  background:rgb(215, 32, 32);
+  background:rgba(215, 157, 32, 0.66);
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
 }
