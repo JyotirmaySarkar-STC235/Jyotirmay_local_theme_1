@@ -154,7 +154,7 @@
       "name": "Conditional collections",
       "settings": {
         "toggle_collection_bg_img": "shopify://shop_images/skincare-essentials-bg.png",
-        "toggle_collection_1": "bike-rack",
+        "toggle_collection_1": "featured-products",
         "toggle_collection_2": "seats",
         "toggle_collection_color_scheme": ""
       }
