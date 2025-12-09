@@ -150,7 +150,7 @@
           "type": "image_text_block",
           "settings": {
             "image": "shopify://shop_images/recyclable-packaging.jpg",
-            "image_text": ""
+            "image_text": "Recyclable packaging"
           }
         }
       },
