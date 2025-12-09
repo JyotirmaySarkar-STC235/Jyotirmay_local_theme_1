@@ -49,6 +49,45 @@
         "show_text_below": false
       }
     },
+    "home_page_featured_collection_T6dqxB": {
+      "type": "home-page-featured-collection",
+      "blocks": {
+        "collection_block_pD6mN3": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "seats"
+          }
+        },
+        "collection_block_AnKBb4": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "bike-rack"
+          }
+        },
+        "collection_block_nzLiyU": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "best-seller"
+          }
+        },
+        "collection_block_MwQPwx": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "trousers-pants-copy"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_pD6mN3",
+        "collection_block_AnKBb4",
+        "collection_block_nzLiyU",
+        "collection_block_MwQPwx"
+      ],
+      "name": "Home page featured collection",
+      "settings": {
+        "section_heading": "GET STARTED"
+      }
+    },
     "multicolumn_MJqjMh": {
       "type": "multicolumn",
       "blocks": {
@@ -102,50 +141,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "home_page_featured_collection_T6dqxB": {
-      "type": "home-page-featured-collection",
-      "blocks": {
-        "featured_collection_jd8CRL": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "shoes-copy"
-          }
-        },
-        "featured_collection_mqWVHB": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "wheels"
-          }
-        },
-        "featured_collection_BfbKMV": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "seats"
-          }
-        },
-        "featured_collection_xJE6Er": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "best-seller"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_jd8CRL",
-        "featured_collection_mqWVHB",
-        "featured_collection_BfbKMV",
-        "featured_collection_xJE6Er"
-      ],
-      "name": "Home page featured collection",
-      "settings": {
-        "section_heading": "GET STARTED"
-      }
     }
   },
   "order": [
     "image_banner",
-    "multicolumn_MJqjMh",
-    "home_page_featured_collection_T6dqxB"
+    "home_page_featured_collection_T6dqxB",
+    "multicolumn_MJqjMh"
   ]
 }
