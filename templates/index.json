@@ -149,58 +149,14 @@
         "color_scheme_1": "scheme-95b4c094-4c34-4734-9109-fa86a8ad3091"
       }
     },
-    "multicolumn_MJqjMh": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_xkpDPG": {
-          "type": "column",
-          "settings": {
-            "title": "Quality",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_FEweVb": {
-          "type": "column",
-          "settings": {
-            "title": "24 x 7 Customer service",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_NHmHFq": {
-          "type": "column",
-          "settings": {
-            "title": "Fast delivery",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_xkpDPG",
-        "column_FEweVb",
-        "column_NHmHFq"
-      ],
-      "name": "t:sections.multicolumn.presets.name",
+    "section_featured_collection_toggler_FQ9U84": {
+      "type": "section-featured-collection-toggler",
+      "name": "Collection toggler",
       "settings": {
-        "title": "Why us?",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "Try our products",
-        "button_link": "shopify://collections/all",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "primary",
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "toggle_collection_bg_img": "shopify://shop_images/skincare-essentials-bg.png",
+        "toggle_collection_1": "",
+        "toggle_collection_2": "",
+        "toggle_collection_color_scheme": ""
       }
     }
   },
@@ -208,6 +164,6 @@
     "image_banner",
     "home_page_featured_collection_T6dqxB",
     "section_home_positive_branding_NUbymA",
-    "multicolumn_MJqjMh"
+    "section_featured_collection_toggler_FQ9U84"
   ]
 }
