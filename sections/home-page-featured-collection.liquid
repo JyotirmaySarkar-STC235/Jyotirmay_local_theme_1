@@ -37,16 +37,18 @@
 <style>
   .section-home-featured-collection {
     width: 100%;
-    padding: 40px 20px; /* added padding */
+     
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-    overflow: hidden; /* stops overflow */
+    overflow: hidden; 
   }
 
   .featured-collection {
-    max-width: 1200px; /* keeps layout centered and clean */
+    max-width: 1200px;
+
     width: 100%;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,16 +63,16 @@
 
   .featured-collection__list {
     display: flex;
-    flex-wrap: wrap; /* responsive fix */
+    flex-wrap: wrap; 
     justify-content: center;
-    gap: 20px; /* more breathing space */
+    gap: 20px; 
     padding: 1rem;
   }
 
   /* CARD */
   .featured-collection__card {
-    width: 280px; /* smaller than before */
-    height: auto; /* allow natural growth */
+    width: 280px;
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -80,10 +82,10 @@
   /* IMAGE */
   .featured-collection__image {
     width: 100%;
-    height: 360px; /* smaller & proportional */
+    height: 360px; 
     object-fit: cover;
     display: block;
-    border-radius: 8px; /* minimal rounding for normal cards */
+    border-radius: 8px; 
   }
 
   /* modifiers */
@@ -101,7 +103,7 @@
     text-align: center;
   }
 
-  /* RESPONSIVE */
+  /* MEDIA QUERIES..... */
   @media (max-width: 768px) {
     .featured-collection__card {
       width: 45%;
