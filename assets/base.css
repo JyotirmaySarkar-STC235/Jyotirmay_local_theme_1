@@ -3604,3 +3604,7 @@ details-disclosure > details {
 h1, h2, h3 {
   font-family: My-custom-font !important;
 } */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
