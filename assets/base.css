@@ -3606,7 +3606,7 @@ h1, h2, h3 {
 } */
 
 ::-webkit-scrollbar {
-  width: 1rem;
+  width: 0.8rem;
 }
 ::-webkit-scrollbar-track {
   background:rgba(215, 157, 32, 0.66);
