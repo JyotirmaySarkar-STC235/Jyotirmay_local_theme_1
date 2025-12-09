@@ -12,9 +12,9 @@
 
     {% comment %} Cards of Collection 1 {% endcomment %}
     <div id="toggler-card-list-1" class="home__featured-collection-toggler-cards-list">
-        {% for collection in section.settings.toggle_collection_1 %}
+        {% for product in section.settings.toggle_collection_1.products limit:3 %}
             <div class="home__featured-collection-toggler-card">
-                <p>{{ collection.title }}</p>
+                <p>{{ product.title }}</p>
             </div>
         {% endfor %}
     </div>
@@ -22,7 +22,7 @@
 
     {% comment %} Cards of Collection 2 {% endcomment %}
     <div id="toggler-card-list-2" class="home__featured-collection-toggler-cards-list">
-        {% for product in section.settings.toggle_collection_1.products limit: 3 %}
+        {% for product in section.settings.toggle_collection_2.products limit: 3 %}
             <div class="home__featured-collection-toggler-card">
                 <p>{{ product.title }}</p>
             </div>
