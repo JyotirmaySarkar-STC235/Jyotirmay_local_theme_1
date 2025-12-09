@@ -92,12 +92,6 @@
     "section_home_positive_branding_NUbymA": {
       "type": "section-home-positive-branding",
       "blocks": {
-        "image_text_block_dghQC7": {
-          "type": "image_text_block",
-          "settings": {
-            "image_text": "Text for card"
-          }
-        },
         "image_text_block_tmPAK8": {
           "type": "image_text_block",
           "settings": {
@@ -142,7 +136,6 @@
         }
       },
       "block_order": [
-        "image_text_block_dghQC7",
         "image_text_block_tmPAK8",
         "image_text_block_htAhXz",
         "image_text_block_LA7k9h",
