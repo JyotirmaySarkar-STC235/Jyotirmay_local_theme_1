@@ -148,22 +148,11 @@
         "section_heading": "Make a good choice",
         "color_scheme_1": "scheme-95b4c094-4c34-4734-9109-fa86a8ad3091"
       }
-    },
-    "section_featured_collection_toggler_FQ9U84": {
-      "type": "section-featured-collection-toggler",
-      "name": "Collection toggler",
-      "settings": {
-        "toggle_collection_bg_img": "shopify://shop_images/skincare-essentials-bg.png",
-        "toggle_collection_1": "trousers-pants-copy",
-        "toggle_collection_2": "best-seller",
-        "toggle_collection_color_scheme": ""
-      }
     }
   },
   "order": [
     "image_banner",
     "home_page_featured_collection_T6dqxB",
-    "section_home_positive_branding_NUbymA",
-    "section_featured_collection_toggler_FQ9U84"
+    "section_home_positive_branding_NUbymA"
   ]
 }
