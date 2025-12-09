@@ -8,12 +8,12 @@
           {{
             block.settings.image
             | image_url: width: 97, height: 102
-            | image_tag: class: 'ome__positive-branding-container__card-image'
+            | image_tag: class: 'home__positive-branding-container__card-image'
           }}
         {% endif %}
 
         {% if block.settings.image_text != blank %}
-          <p>{{ block.settings.image_text }}</p>
+          <p class="home__positive-branding-container__card-text">{{ block.settings.image_text }}</p>
         {% endif %}
       </div>
     {% endfor %}
@@ -56,13 +56,11 @@
         align-items: center;
     }
 
-
-
-
-
-
-    
-    
+    .home__positive-branding-container__card-text{
+        font-weight: 400;
+        font-size: 21px;
+        text-align: center;
+  }
 </style>
 
 {% schema %}
