@@ -8,7 +8,27 @@
       </button>
     </div>
 
-    {% comment %} Cards {% endcomment %}
+    {% comment %} Conditional Cards {% endcomment %}
+
+    {% comment %} Cards of Collection 1 {% endcomment %}
+    <div id="toggler-card-list-1" class="home__featured-collection-toggler-cards-list">
+        {% for collection in section.settings.toggle_collection_1 %}
+            <div class="home__featured-collection-toggler-card">
+                <p>{{ collection.title }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+
+    {% comment %} Cards of Collection 2 {% endcomment %}
+    <div id="toggler-card-list-2" class="home__featured-collection-toggler-cards-list">
+        {% for collection in section.settings.toggle_collection_1 %}
+            <div class="home__featured-collection-toggler-card">
+                <p>{{ collection.title }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    
   </div>
 </div>
 
@@ -77,6 +97,9 @@
     let button1 = document.getElementById("toggle-option-btn-1");
     let button2 = document.getElementById("toggle-option-btn-2");
 
+    let collection1 = document.getElementById("toggler-card-list-1");
+    let collection2 = document.getElementById("toggler-card-list-2");
+
     for (let i = 0; i < buttons.length; i++) {
         let button = buttons[i];
 
@@ -88,6 +111,19 @@
 
             // Add active class to clicked one
             button.classList.add("active-option");
+
+            if(button1.classList.contains("active-option")){
+                // grab the second options cards and make their display none
+                collection2.style.display = "none";
+                // grab the first options cards and make their display flex/block
+                collection1.style.display = "block";
+            } else {
+                // grab the first options cards and make their display none
+                collection1.style.display = "none";
+                // grab the second options cards and make their display flex/block
+                collection2.style.display = "block";
+            }
+
         });
     }
 
