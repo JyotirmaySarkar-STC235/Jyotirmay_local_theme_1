@@ -3,14 +3,18 @@
 
     <div class="home__featured-collections-container">
         {% for block in section.blocks %}
-            <div class="home__featured-collection">
-                {{ block.featured_image | image_url: width: 381, height: 418 | image_tag }}
-                <p class="home__featured-collection-title">{{ block.title }}</p>
-            </div>
-          
+            {% assign collection = block.settings.collection %}
+
+            {% if collection %}
+                <div class="home__featured-collection">
+                    {{ collection.featured_image | image_url: width: 381, height: 418 | image_tag }}
+                    <p class="home__featured-collection-title">{{ collection.title }}</p>
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
 </div>
+
 
 <style>
     .home_featured_collection{
@@ -63,15 +67,16 @@
       "default": "Featured collection"
     }
   ],
+
   "blocks": [
     {
       "type": "featured_collection",
-      "name": "featured_collection",
+      "name": "Featured Collection",
       "settings": [
         {
           "type": "collection",
           "id": "collection",
-          "label": "Add collection"
+          "label": "Select a collection"
         }
       ]
     }
@@ -79,7 +84,7 @@
 
   "presets": [
     {
-        "name": "Home page featured collection"
+      "name": "Home page featured collection"
     }
   ]
 }
