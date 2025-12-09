@@ -68,6 +68,96 @@
         font-size: 21px;
         text-align: center;
   }
+  /* ===========================
+   📌 1240px and below
+   =========================== */
+@media (max-width: 1240px) {
+    .home__positive-branding__card-list {
+        gap: 40px;
+    }
+
+    .home__positive-branding__heading {
+        font-size: 26px;
+    }
+
+    .home__positive-branding__card > img {
+        width: 240px;
+    }
+
+    .home__positive-branding-container__card-text {
+        font-size: 20px;
+    }
+}
+
+
+/* ===========================
+   📌 768px and below (Tablet)
+   =========================== */
+@media (max-width: 768px) {
+    .home__positive-branding {
+        min-height: auto;
+    }
+
+    .home__positive-branding__card-list {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .home__positive-branding__heading {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .home__positive-branding__card > img {
+        width: 200px;
+    }
+
+    .home__positive-branding-container__card-text {
+        font-size: 18px;
+    }
+}
+
+
+/* ===========================
+   📌 400px and below (Mobile)
+   =========================== */
+@media (max-width: 400px) {
+    .home__positive-branding__card-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .home__positive-branding__heading {
+        font-size: 22px;
+    }
+
+    .home__positive-branding__card > img {
+        width: 160px;
+    }
+
+    .home__positive-branding-container__card-text {
+        font-size: 16px;
+    }
+}
+
+
+/* ===========================
+   📌 350px and below — ensure stability
+   =========================== */
+@media (max-width: 350px) {
+    .home__positive-branding__heading {
+        font-size: 20px;
+    }
+
+    .home__positive-branding__card > img {
+        width: 140px;
+    }
+
+    .home__positive-branding-container__card-text {
+        font-size: 15px;
+    }
+}
+
 </style>
 
 {% schema %}
