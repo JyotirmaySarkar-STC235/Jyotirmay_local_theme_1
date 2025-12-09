@@ -2,16 +2,20 @@
   {% comment %} row for buttons {% endcomment %}
   <div class="home__conditional-collection-row-1">
     <div class="home__conditional-collection-options-container">
-      <button id="toggle-option-btn-1" class="option-btn">
+      <button id="toggle-option-btn-1" class="option-btn active-option">
         {{ section.settings.toggle_collection_1.title }}
       </button>
 
-      <button id="toggle-option-btn-2" class="option-btn active-option">
+      <button id="toggle-option-btn-2" class="option-btn">
         {{ section.settings.toggle_collection_2.title }}
       </button>
     </div>
   </div>
   {% comment %} row for cards {% endcomment %}
+  <div class="home__conditional-collection-row-2"></div>
+  <div></div>
+  
+
 </div>
 
 <style>
@@ -27,6 +31,7 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        gap: 2rem;
         /* align-items: center; */
     }
 
@@ -63,6 +68,10 @@
         color:  #F7841D;
         padding: 1rem 1.5rem;
         border-radius: 10px;
+    }
+
+    .hidden {
+        display: none;
     }
 </style>
 
