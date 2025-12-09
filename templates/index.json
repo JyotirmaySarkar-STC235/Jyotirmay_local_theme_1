@@ -106,15 +106,36 @@
     "home_page_featured_collection_T6dqxB": {
       "type": "home-page-featured-collection",
       "blocks": {
-        "featured_collection_7kLaUX": {
+        "featured_collection_jd8CRL": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "shoes-copy"
+          }
+        },
+        "featured_collection_mqWVHB": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "wheels"
+          }
+        },
+        "featured_collection_BfbKMV": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "seats"
+          }
+        },
+        "featured_collection_xJE6Er": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "best-seller"
           }
         }
       },
       "block_order": [
-        "featured_collection_7kLaUX"
+        "featured_collection_jd8CRL",
+        "featured_collection_mqWVHB",
+        "featured_collection_BfbKMV",
+        "featured_collection_xJE6Er"
       ],
       "name": "Home page featured collection",
       "settings": {
