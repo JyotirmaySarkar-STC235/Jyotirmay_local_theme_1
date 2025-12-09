@@ -26,7 +26,8 @@
     <div id="toggler-card-list-2" class="home__featured-collection-toggler-cards-list">
         {% for product in section.settings.toggle_collection_2.products limit: 3 %}
             <div class="home__featured-collection-toggler-card">
-                <p>{{ product.title }}</p>
+                {% comment %} <p>{{ product.title }}</p> {% endcomment %}
+                {% render 'card-product', product: product %}
             </div>
         {% endfor %}
     </div>
