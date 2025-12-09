@@ -1,0 +1,67 @@
+<div class="home__positive-branding-container color--{{ section.settings.color_scheme }}">
+  <h2>{{ section.settings.section_heading }}</h2>
+
+  <div class="home__positive-branding-container__card-list">
+    {% for block in section.blocks %}
+      <div class="home__positive-branding-container__card">
+        {% if block.settings.image != blank %}
+          {{
+            block.settings.image
+            | image_url: width: 97, height: 102
+            | image_tag: class: 'ome__positive-branding-container__card-image'
+          }}
+        {% endif %}
+
+        {% if block.settings.image_text != blank %}
+          <p>{{ block.settings.image_text }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style></style>
+
+{% schema %}
+{
+  "name": "Home positive branding",
+  "class": "home__positive-branding",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading",
+      "default": "Make a good choice"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Select color scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_text_block",
+      "name": "Image + Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home positive branding"
+    }
+  ]
+}
+{% endschema %}
