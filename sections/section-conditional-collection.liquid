@@ -15,57 +15,78 @@
 </div>
 
 <style>
-  .home__conditional-collection {
-      min-height: 400px;
-      width: 100%;
-      background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
-      background-size: cover;
-      padding: 2rem;
-  }
+    .home__conditional-collection {
+        min-height: 400px;
+        width: 100%;
+        background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
+        background-size: cover;
+        padding: 2rem;
+    }
 
-  .home__conditional-collection-wrapper {
-      width: 100%;
+    .home__conditional-collection-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+    }
+
+    .home__conditional-collection-row-1 {
       display: flex;
-      flex-direction: column;
-      /* align-items: center; */
+      flex-direction: row-reverse;
   }
 
-  .home__conditional-collection-row-1 {
-    display: flex;
-    flex-direction: row-reverse;
+    .home__conditional-collection-options-container {
+        background-color: #F7841D;
+        color: #FFFFFF;
+        width: 280px;
+        height: 80px;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
 
-}
+    }
 
-  .home__conditional-collection-options-container {
-      background-color: #F7841D;
-      color: #FFFFFF;
-      width: 280px;
-      height: 80px;
-      border-radius: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
+    .option-btn{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-size: 1.8rem;
+        font-weight: 500;
+        cursor: pointer;
+    }
 
-   }
-
-  .option-btn{
-      border: none;
-      outline: none;
-      background-color: transparent;
-      color: #FFFFFF;
-      font-size: 1.8rem;
-      font-weight: 500;
-      cursor: pointer;
-  }
-
-  .active-option {
-      background-color: #FFFFFF;
-      color:  #F7841D;
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
-  }
+    .active-option {
+        background-color: #FFFFFF;
+        color:  #F7841D;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+    }
 </style>
+
+<script>
+  let buttons = document.getElementsByClassName('option-btn');
+  let button1 = document.getElementById('toggle-option-btn-1');
+  let button2 = document.getElementById('toggle-option-btn-2');
+
+  let collection1 = document.getElementById('toggler-card-list-1');
+  let collection2 = document.getElementById('toggler-card-list-2');
+
+  for (let i = 0; i < buttons.length; i++) {
+    let button = buttons[i];
+
+    button.addEventListener('click', () => {
+      // Remove active class from both buttons
+      button1.classList.remove('active-option');
+      button2.classList.remove('active-option');
+
+      // Add active class to clicked one
+      button.classList.add('active-option');
+    });
+  }
+</script>
 
 {% schema %}
 {
