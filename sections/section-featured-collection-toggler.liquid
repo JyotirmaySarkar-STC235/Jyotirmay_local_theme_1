@@ -1,7 +1,7 @@
 <div class="home__featured-collection-togger-wrapper">
     <div class="home__featured-collection-togger-container">
         {% comment %} Options {% endcomment %}
-        <div class="home__featured-collection-togger-options">
+        <div class="home__featured-collection-togger-options-container">
             <button class="option-btn">{{ section.settings.toggle_collection_1.title }}</button>
             <button class="option-btn active-option">{{ section.settings.toggle_collection_2.title }}</button>
         </div>
@@ -39,9 +39,11 @@
         align-items: center;
     }
 
-    .home__featured-collection-togger-options {
+    .home__featured-collection-togger-options-container {
         background-color: #F7841D;
         color: #FFFFFF;
+        width: 383px;
+        height: 93px;
 
     }
 
