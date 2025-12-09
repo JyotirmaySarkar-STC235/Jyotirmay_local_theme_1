@@ -85,7 +85,8 @@
       ],
       "name": "Home page featured collection",
       "settings": {
-        "section_heading": "GET STARTED"
+        "section_heading": "GET STARTED",
+        "color_scheme": "scheme-4"
       }
     },
     "multicolumn_MJqjMh": {
