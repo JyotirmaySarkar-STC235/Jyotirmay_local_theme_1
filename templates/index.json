@@ -105,11 +105,19 @@
             "image": "shopify://shop_images/recyclable-packaging.jpg",
             "image_text": "Recyclable packaging"
           }
+        },
+        "image_text_block_LA7k9h": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/clean-beauty.png",
+            "image_text": "Clean Beauty"
+          }
         }
       },
       "block_order": [
         "image_text_block_tmPAK8",
-        "image_text_block_htAhXz"
+        "image_text_block_htAhXz",
+        "image_text_block_LA7k9h"
       ],
       "name": "Home positive branding",
       "settings": {
