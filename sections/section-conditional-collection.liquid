@@ -1,16 +1,55 @@
-<div class=""></div>
+<div class="home__conditional-collection-wrapper">
+  {% comment %} row for buttons {% endcomment %}
+  <div class="home__conditional-collection-row-1">
+    <div class="home__conditional-collection-options-container">
+      <button id="toggle-option-btn-1" class="option-btn">
+        {{ section.settings.toggle_collection_1.title }}
+      </button>
 
+      <button id="toggle-option-btn-2" class="option-btn active-option">
+        {{ section.settings.toggle_collection_2.title }}
+      </button>
+    </div>
+  </div>
+  {% comment %} row for cards {% endcomment %}
+</div>
 
 <style>
-    .home__conditional-collection {
-        min-height: 400px;
-        width: 100%;
-        background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
-        background-size: cover;
+  .home__conditional-collection {
+      min-height: 400px;
+      width: 100%;
+      background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
+      background-size: cover;
+  }
+
+  .home__conditional-collection-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .home__conditional-collection-options-container {
+        border: 1px solid black;
     }
+
+  .option-btn{
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1.8rem;
+      font-weight: 500;
+      cursor: pointer;
+  }
+
+  .active-option {
+      background-color: #FFFFFF;
+      color:  #F7841D;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+  }
 </style>
-
-
 
 {% schema %}
 {
