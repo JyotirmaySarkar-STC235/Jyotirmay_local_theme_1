@@ -13,11 +13,21 @@
   </div>
 
   {% comment %} rows for cards sliders {% endcomment %}
-  <div id="conditional-row-2-{{ section.id }}" class="home__conditional-collection-row-2">
+  <div id="conditional-row-2-{{ section.id }}" class="home__conditional-collection-row-2 mySwiper">
     <div class="home__conditional-collection-row-2 swiper-wrapper">
       {% for product in section.settings.toggle_collection_1.products %}
         <div class="conditional-product-card swiper-slide">
           {% comment %} card content {% endcomment %}
+          <a href="{{ product.url }}" class="conditional-product-card__image-wrapper">
+            {% if product.featured_image != blank %}
+              {{  
+                product.featured_image 
+                | image_url: width: 400 
+                | image_tag: alt: 'Product Image', class: 'conditional-product-card__image'
+                
+              }}
+            {% endif %}
+          </a>
         </div>
       {% endfor %}
     </div>
@@ -117,7 +127,6 @@
 <!-- Initialize Swiper -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-
     var swiper = new Swiper('#conditional-row-2-{{ section.id }}', {
       slidesPerView: 3,
       spaceBetween: 10,
@@ -127,7 +136,6 @@
         clickable: true,
       },
     });
-
   });
 </script>
 
