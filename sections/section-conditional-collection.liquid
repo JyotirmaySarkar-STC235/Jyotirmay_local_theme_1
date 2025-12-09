@@ -45,7 +45,7 @@
     </div>
   </div>
 {% comment %}  {% endcomment %}
-  <div id="conditional-row-3-{{ section.id }}" class="home__conditional-collection-row-3 mySwiper">
+  <div id="conditional-row-3-{{ section.id }}" class="home__conditional-collection-row-3 mySwiper hidden">
     {% comment %} section 2 collection>product cards {% endcomment %}
     <div class="home__conditional-collection-row-2 swiper-wrapper">
       {% for product in section.settings.toggle_collection_2.products %}
@@ -216,6 +216,8 @@
 
       // Add active class to clicked one
       button.classList.add('active-option');
+
+      
     });
   }
 </script>
