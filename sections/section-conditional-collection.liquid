@@ -1,0 +1,48 @@
+<div class=""></div>
+
+
+<style>
+    .home__conditional-collection {
+        min-height: 400px;
+        width: 100%;
+        background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
+        background-size: cover;
+    }
+</style>
+
+
+
+{% schema %}
+{
+  "name": "Collection toggler",
+  "tag": "section",
+  "class": "home__conditional-collection",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "toggle_collection_bg_img",
+      "label": "Select image"
+    },
+    {
+      "type": "collection",
+      "id": "toggle_collection_1",
+      "label": "Select a collection"
+    },
+    {
+      "type": "collection",
+      "id": "toggle_collection_2",
+      "label": "Select a collection"
+    },
+    {
+      "type": "color_scheme",
+      "id": "toggle_collection_color_scheme",
+      "label": "Select color scheme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection toggler"
+    }
+  ]
+}
+{% endschema %}
