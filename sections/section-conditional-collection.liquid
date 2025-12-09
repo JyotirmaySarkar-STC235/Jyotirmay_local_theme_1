@@ -44,9 +44,38 @@
       {% endfor %}
     </div>
   </div>
-
-  <div id="conditional-row-3" class="home__conditional-collection-row-3 hidden">
+{% comment %}  {% endcomment %}
+  <div id="conditional-row-3-{{ section.id }}" class="home__conditional-collection-row-3 mySwiper">
     {% comment %} section 2 collection>product cards {% endcomment %}
+    <div class="home__conditional-collection-row-2 swiper-wrapper">
+      {% for product in section.settings.toggle_collection_2.products %}
+        <div class="conditional-product-card swiper-slide">
+          {% comment %} card content {% endcomment %}
+          <a href="{{ product.url }}" class="conditional-product-card__image-wrapper">
+            {% if product.featured_image != blank %}
+              {{
+                product.featured_image
+                | image_url: width: 400
+                | image_tag: alt: 'Product Image', class: 'conditional-product-card__image'
+              }}
+            {% endif %}
+          </a>
+
+          <h3 class="conditional-product-card__title">
+            <a href="{{ product.url }}">{{ product.title }}</a>
+          </h3>
+
+          <p class="conditional-product-card__price">
+            {{ product.price | money }}
+          </p>
+
+          <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <button type="submit" class="conditional-product-card__button">Add to bag</button>
+          </form>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 
@@ -102,7 +131,7 @@
             border-radius: 10px;
         }
 
-        .home__conditional-collection-row-2 {
+        .home__conditional-collection-row-2, .home__conditional-collection-row-3 {
             width: 100%;
         }
 
@@ -191,10 +220,25 @@
   }
 </script>
 
-<!-- Initialize Swiper -->
+<!-- Initialize Swiper 1 -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     var swiper = new Swiper('#conditional-row-2-{{ section.id }}', {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      centeredSlides: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  });
+</script>
+
+<!-- Initialize Swiper 2 -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    var swiper = new Swiper('#conditional-row-3-{{ section.id }}', {
       slidesPerView: 3,
       spaceBetween: 10,
       centeredSlides: true,
