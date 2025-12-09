@@ -14,11 +14,13 @@
 
   {% comment %} rows for cards sliders {% endcomment %}
   <div id="conditional-row-2-{{ section.id }}" class="home__conditional-collection-row-2">
-      <div  class="home__conditional-collection-row-2 swiper-wrapper">
-    {% for product in section.settings.toggle_collection_1.products %}
-      <div class="conditional-product-card"></div>
-    {% endfor %}
-  </div>
+    <div class="home__conditional-collection-row-2 swiper-wrapper">
+      {% for product in section.settings.toggle_collection_1.products %}
+        <div class="conditional-product-card swiper-slide">
+          {% comment %} card content {% endcomment %}
+        </div>
+      {% endfor %}
+    </div>
   </div>
 
   <div id="conditional-row-3" class="home__conditional-collection-row-3 hidden">
@@ -89,6 +91,7 @@
     }
 </style>
 
+{% comment %} Button active class toggler script {% endcomment %}
 <script>
   let buttons = document.getElementsByClassName('option-btn');
   let button1 = document.getElementById('toggle-option-btn-1');
@@ -113,14 +116,18 @@
 
 <!-- Initialize Swiper -->
 <script>
-  var swiper = new Swiper('.mySwiper', {
-    slidesPerView: 3,
-    spaceBetween: 10,
-    centeredSlides: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
+  document.addEventListener('DOMContentLoaded', () => {
+
+    var swiper = new Swiper('#conditional-row-2-{{ section.id }}', {
+      slidesPerView: 3,
+      spaceBetween: 10,
+      centeredSlides: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+
   });
 </script>
 
