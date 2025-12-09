@@ -20,14 +20,26 @@
           {% comment %} card content {% endcomment %}
           <a href="{{ product.url }}" class="conditional-product-card__image-wrapper">
             {% if product.featured_image != blank %}
-              {{  
-                product.featured_image 
-                | image_url: width: 400 
+              {{
+                product.featured_image
+                | image_url: width: 400
                 | image_tag: alt: 'Product Image', class: 'conditional-product-card__image'
-                
               }}
             {% endif %}
           </a>
+
+          <h3 class="conditional-product-card__title">
+            <a href="{{ product.url }}">{{ product.title }}</a>
+          </h3>
+
+          <p class="conditional-product-card__price">
+            {{ product.price | money }}
+          </p>
+
+          <form method="post" action="/cart/add">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <button type="submit" class="conditional-product-card__button">Add to Cart</button>
+          </form>
         </div>
       {% endfor %}
     </div>
@@ -39,66 +51,111 @@
 </div>
 
 <style>
-    .home__conditional-collection {
-        min-height: 400px;
-        width: 100%;
-        background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
-        background-size: cover;
-        padding: 2rem;
+      .home__conditional-collection {
+          min-height: 400px;
+          width: 100%;
+          background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
+          background-size: cover;
+          padding: 2rem;
+      }
+
+      .home__conditional-collection-wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+          /* align-items: center; */
+      }
+
+      .home__conditional-collection-row-1 {
+        display: flex;
+        flex-direction: row-reverse;
     }
 
-    .home__conditional-collection-wrapper {
-        width: 100%;
+      .home__conditional-collection-options-container {
+          background-color: #F7841D;
+          color: #FFFFFF;
+          width: 280px;
+          height: 80px;
+          border-radius: 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 1rem;
+
+      }
+
+      .option-btn{
+          border: none;
+          outline: none;
+          background-color: transparent;
+          color: #FFFFFF;
+          font-size: 1.8rem;
+          font-weight: 500;
+          cursor: pointer;
+      }
+
+      .active-option {
+          background-color: #FFFFFF;
+          color:  #F7841D;
+          padding: 1rem 1.5rem;
+          border-radius: 10px;
+      }
+
+      .home__conditional-collection-row-2 {
+          border: 1px solid red;
+          width: 100%;
+          background-color: red;
+      }
+
+      .hidden {
+          display: none;
+      }
+
+      /* PRODUCT CARD gpt */
+    .conditional-product-card {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-        /* align-items: center; */
-    }
-
-    .home__conditional-collection-row-1 {
-      display: flex;
-      flex-direction: row-reverse;
+        align-items: center;
+        width: 100%;            /* Swiper handles actual width */
+        padding: 15px;
+        border-radius: 12px;
+        background: #fff;
+        gap: 10px;
+        text-align: center;
   }
 
-    .home__conditional-collection-options-container {
-        background-color: #F7841D;
-        color: #FFFFFF;
-        width: 280px;
-        height: 80px;
-        border-radius: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-
-    }
-
-    .option-btn{
-        border: none;
-        outline: none;
-        background-color: transparent;
-        color: #FFFFFF;
-        font-size: 1.8rem;
-        font-weight: 500;
-        cursor: pointer;
-    }
-
-    .active-option {
-        background-color: #FFFFFF;
-        color:  #F7841D;
-        padding: 1rem 1.5rem;
-        border-radius: 10px;
-    }
-
-    .home__conditional-collection-row-2 {
-        border: 1px solid red;
+  .conditional-product-card__image-wrapper {
         width: 100%;
-        background-color: red;
-    }
+        display: block;
+  }
 
-    .hidden {
-        display: none;
-    }
+  .conditional-product-card__image {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+  }
+
+  .conditional-product-card__title {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+  }
+
+  .conditional-product-card__price {
+        font-size: 14px;
+        margin: 0;
+  }
+
+  .conditional-product-card__button {
+        padding: 10px 18px;
+        border: none;
+        background: #000;
+        color: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+  }
 </style>
 
 {% comment %} Button active class toggler script {% endcomment %}
