@@ -154,7 +154,7 @@
       "name": "Collection toggler",
       "settings": {
         "toggle_collection_bg_img": "shopify://shop_images/skincare-essentials-bg.png",
-        "toggle_collection_1": "",
+        "toggle_collection_1": "trousers-pants-copy",
         "toggle_collection_2": "",
         "toggle_collection_color_scheme": ""
       }
