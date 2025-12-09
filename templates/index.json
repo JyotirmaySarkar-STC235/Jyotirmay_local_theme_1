@@ -146,6 +146,13 @@
     "section_home_positive_branding_NUbymA": {
       "type": "section-home-positive-branding",
       "blocks": {
+        "image_text_block_tmPAK8": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/cruelty-free.jpg",
+            "image_text": "Cruelty Free"
+          }
+        },
         "image_text_block_htAhXz": {
           "type": "image_text_block",
           "settings": {
@@ -155,6 +162,7 @@
         }
       },
       "block_order": [
+        "image_text_block_tmPAK8",
         "image_text_block_htAhXz"
       ],
       "name": "Home positive branding",
