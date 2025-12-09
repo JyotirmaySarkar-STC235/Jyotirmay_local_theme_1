@@ -1,61 +1,102 @@
-<div>
-    <h2 class="home__collections-heading">{{ section.settings.section_heading }}</h2>
+<section class="">
+  <div class="featured-collection">
+    
+    <h2 class="featured-collection__heading">
+      {{ section.settings.section_heading }}
+    </h2>
 
-    <div class="home__featured-collections-container">
-        {% for block in section.blocks %}
-            {% assign collection = block.settings.collection %}
+    <div class="featured-collection__list">
+      {% for block in section.blocks %}
+        {% assign collection = block.settings.collection %}
 
-            {% if collection %}
-                <div class="home__featured-collection">
-                    {{ collection.featured_image | image_url: width: 381, height: 418 | image_tag }}
-                    <p class="home__featured-collection-title">{{ collection.title }}</p>
-                </div>
+        {% if collection %}
+          <div class="featured-collection__card 
+            {% if forloop.first %} featured-collection__card--first 
+            {% elsif forloop.last %} featured-collection__card--last 
             {% endif %}
-        {% endfor %}
+          ">
+
+            {% if collection.featured_image %}
+              {{ collection.featured_image 
+                | image_url: width: 323, height: 400 
+                | image_tag: class: 'featured-collection__image'
+              }}
+            {% endif %}
+
+            <p class="featured-collection__title">{{ collection.title }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
     </div>
-</div>
+
+  </div>
+</section>
+
 
 
 <style>
-    .home_featured_collection{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 100px;
-    }
+    .section-home-featured-collection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
-    .home__collections-heading {
-        font-size: 28px !important;
-        font-weight: 600 !important;
-    }
+  .featured-collection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 
-    .home__featured-collections-container{
-        display: flex;
-        gap: 12px;
-        border-radius: 60px 0 0 60px;
-        overflow: hidden;
-    }
+  .featured-collection__heading {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+  }
 
-    .home__featured-collection {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
+  .featured-collection__list {
+    display: flex;
+    gap: 15px;
+  }
 
-    .home__featured-collection-title {
-        font-size: 24px;
-        font-weight: 300;
-    }
+  .featured-collection__card {
+    width: 323px;
+    height: 462px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
 
+  .featured-collection__image {
+    width: 323px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* modifiers */
+  .featured-collection__card--first .featured-collection__image {
+    border-top-left-radius: 60px;
+  }
+
+  .featured-collection__card--last .featured-collection__image {
+    border-bottom-right-radius: 60px;
+  }
+
+  .featured-collection__title {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+  }
 
 </style>
 
+
 {% schema %}
-{
-  "name": "home_featured_collection",
-  "class": "homepage__featured-collection-wrapper",
+  {
+  "name": "Home Featured Collection",
+  "class": "section-home-featured-collection",
   "tag": "section",
   "max_blocks": 4,
 
@@ -64,14 +105,14 @@
       "type": "text",
       "id": "section_heading",
       "label": "Section heading",
-      "default": "Featured collection"
+      "default": "Featured Collection"
     }
   ],
 
   "blocks": [
     {
-      "type": "featured_collection",
-      "name": "Featured Collection",
+      "type": "collection_block",
+      "name": "Collection block",
       "settings": [
         {
           "type": "collection",
@@ -84,8 +125,9 @@
 
   "presets": [
     {
-      "name": "Home page featured collection"
+      "name": "Home Page Featured Collection"
     }
   ]
 }
+
 {% endschema %}
