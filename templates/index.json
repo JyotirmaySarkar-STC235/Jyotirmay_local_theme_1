@@ -89,6 +89,34 @@
         "color_scheme": "scheme-4"
       }
     },
+    "section_home_positive_branding_NUbymA": {
+      "type": "section-home-positive-branding",
+      "blocks": {
+        "image_text_block_tmPAK8": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/cruelty-free.jpg",
+            "image_text": "Cruelty Free"
+          }
+        },
+        "image_text_block_htAhXz": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/recyclable-packaging.jpg",
+            "image_text": "Recyclable packaging"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_tmPAK8",
+        "image_text_block_htAhXz"
+      ],
+      "name": "Home positive branding",
+      "settings": {
+        "section_heading": "Make a good choice",
+        "color_scheme": "scheme-0d3d03ed-54a8-41bc-99d9-48373730c57f"
+      }
+    },
     "multicolumn_MJqjMh": {
       "type": "multicolumn",
       "blocks": {
@@ -142,40 +170,12 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "section_home_positive_branding_NUbymA": {
-      "type": "section-home-positive-branding",
-      "blocks": {
-        "image_text_block_tmPAK8": {
-          "type": "image_text_block",
-          "settings": {
-            "image": "shopify://shop_images/cruelty-free.jpg",
-            "image_text": "Cruelty Free"
-          }
-        },
-        "image_text_block_htAhXz": {
-          "type": "image_text_block",
-          "settings": {
-            "image": "shopify://shop_images/recyclable-packaging.jpg",
-            "image_text": "Recyclable packaging"
-          }
-        }
-      },
-      "block_order": [
-        "image_text_block_tmPAK8",
-        "image_text_block_htAhXz"
-      ],
-      "name": "Home positive branding",
-      "settings": {
-        "section_heading": "Make a good choice",
-        "color_scheme": "scheme-0d3d03ed-54a8-41bc-99d9-48373730c57f"
-      }
     }
   },
   "order": [
     "image_banner",
     "home_page_featured_collection_T6dqxB",
-    "multicolumn_MJqjMh",
-    "section_home_positive_branding_NUbymA"
+    "section_home_positive_branding_NUbymA",
+    "multicolumn_MJqjMh"
   ]
 }
