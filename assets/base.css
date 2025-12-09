@@ -3606,5 +3606,5 @@ h1, h2, h3 {
 } */
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 1rem;
 }
