@@ -1,9 +1,9 @@
 <div class="home__positive-branding-container color--{{ section.settings.color_scheme }}">
-  <h2>{{ section.settings.section_heading }}</h2>
+  <h2 class="home__positive-branding__heading">{{ section.settings.section_heading }}</h2>
 
-  <div class="home__positive-branding-container__card-list">
+  <div class="home__positive-branding__card-list">
     {% for block in section.blocks %}
-      <div class="home__positive-branding-container__card">
+      <div class="home__positive-branding__card">
         {% if block.settings.image != blank %}
           {{
             block.settings.image
@@ -20,7 +20,50 @@
   </div>
 </div>
 
-<style></style>
+<style>
+    .home__positive-branding{
+        box-sizing: border-box;
+        overflow-y: hidden;
+        overflow-x: scroll;
+    }
+
+    .home__positive-branding-container{
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .home__positive-branding__heading{
+        font-weight: 500;
+        fint-size: 28px;
+    }
+
+    .home__positive-branding__card-list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+    }
+
+    .home__positive-branding__card{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+
+
+
+    
+    
+</style>
 
 {% schema %}
 {
