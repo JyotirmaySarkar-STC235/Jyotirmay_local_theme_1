@@ -22,7 +22,7 @@
             {% if product.featured_image != blank %}
               {{
                 product.featured_image
-                | image_url: width: 250
+                | image_url: width: 400
                 | image_tag: alt: 'Product Image', class: 'conditional-product-card__image'
               }}
             {% endif %}
