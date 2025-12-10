@@ -302,7 +302,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     /> {% endcomment %}
-    {{ 'swiper-bundle.min.js' | asset_url | stylesheet_tag }}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
