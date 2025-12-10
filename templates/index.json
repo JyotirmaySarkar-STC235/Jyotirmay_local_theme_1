@@ -162,6 +162,30 @@
     "section_know_our_story_zKVjaY": {
       "type": "section-know-our-story",
       "blocks": {
+        "policy_item_m8dEEe": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/secure-payment.png",
+            "text": "Secure payment",
+            "url": ""
+          }
+        },
+        "policy_item_3J88e4": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/arrow_back_left_icon_123728_1.png",
+            "text": "15 day return",
+            "url": ""
+          }
+        },
+        "policy_item_Ytca46": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/cube.png",
+            "text": "Discrit Packaging",
+            "url": "shopify://policies/shipping-policy"
+          }
+        },
         "quality_card_HWU6WD": {
           "type": "quality_card",
           "settings": {
@@ -188,6 +212,9 @@
         }
       },
       "block_order": [
+        "policy_item_m8dEEe",
+        "policy_item_3J88e4",
+        "policy_item_Ytca46",
         "quality_card_HWU6WD",
         "quality_card_7FL6pz",
         "quality_card_LzPUtF"
