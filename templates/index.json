@@ -162,12 +162,12 @@
     "section_know_our_story_zKVjaY": {
       "type": "section-know-our-story",
       "blocks": {
-        "policy_item_m8dEEe": {
+        "policy_item_Ytca46": {
           "type": "policy_item",
           "settings": {
-            "icon": "shopify://shop_images/secure-payment.png",
-            "text": "Secure payment",
-            "url": ""
+            "icon": "shopify://shop_images/cube.png",
+            "text": "Discrit Packaging",
+            "url": "shopify://policies/shipping-policy"
           }
         },
         "policy_item_3J88e4": {
@@ -178,12 +178,12 @@
             "url": ""
           }
         },
-        "policy_item_Ytca46": {
+        "policy_item_m8dEEe": {
           "type": "policy_item",
           "settings": {
-            "icon": "shopify://shop_images/cube.png",
-            "text": "Discrit Packaging",
-            "url": "shopify://policies/shipping-policy"
+            "icon": "shopify://shop_images/secure-payment.png",
+            "text": "100% Secure payment",
+            "url": ""
           }
         },
         "quality_card_HWU6WD": {
@@ -212,9 +212,9 @@
         }
       },
       "block_order": [
-        "policy_item_m8dEEe",
-        "policy_item_3J88e4",
         "policy_item_Ytca46",
+        "policy_item_3J88e4",
+        "policy_item_m8dEEe",
         "quality_card_HWU6WD",
         "quality_card_7FL6pz",
         "quality_card_LzPUtF"
