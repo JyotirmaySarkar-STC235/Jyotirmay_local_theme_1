@@ -7,7 +7,82 @@
   "name": "Know our story",
   "tag": "section",
   "class": "home__know-our-story",
-  "settings": [],
-  "blocks": []
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "know_our_story_color_scheme",
+      "label": "Select color scheme"
+    },
+    {
+      "type": "video",
+      "id": "know_our_story_video",
+      "label": "Add a video"
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_heading",
+      "label": "Enter heading",
+      "default": "Know our story"
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_text_1",
+      "label": "Enter text content",
+      "default": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured."
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_text_2",
+      "label": "Enter text content",
+      "default": "Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes."
+    },
+    {
+      "type": "text",
+      "id": "story_read_more_button_label",
+      "label": "Enter button label",
+      "default": "Read more ->"
+    },
+    {
+      "type": "url",
+      "id": "story_read_more_button_url",
+      "label": "Enter button label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quality_card",
+      "name": "Quality card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "quality_card_image",
+          "label": "Select image"
+        },
+        {
+          "type": "text",
+          "id": "quality_card_heading",
+          "label": "Enter heading",
+          "default": "Quality"
+        },
+        {
+          "type": "text",
+          "id": "quality_card_text_content",
+          "label": "Enter text content for the card",
+          "default": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+        }
+      ]
+    },
+
+    {
+      "type": "policy_item",
+      "name": "Policy Item",
+      "limit": 3,
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "text", "label": "Policy Text" },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    }
+  ]
 }
 {% endschema %}
