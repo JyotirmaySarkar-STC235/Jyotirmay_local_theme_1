@@ -1,7 +1,17 @@
 <div class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}">
   {% comment %} ROW 1 {% endcomment %}
   <div class="know-our-story-section__row-1">
-    <div class="know-our-story-section__row-1-video-wrapper"></div>
+    <div class="know-our-story-section__row-1-video-wrapper">
+      {{
+        section.settings.know_our_story_video
+        | video_tag:
+          autoplay: true,
+          loop: true,
+          muted: true,
+          controls: true,
+          class: 'know-our-story-section__row-1-video'
+      }}
+    </div>
     <div class="know-our-story-section__row-1-content-wrapper"></div>
   </div>
   {% comment %} ROW 2 {% endcomment %}
@@ -15,7 +25,7 @@
   }
 
   .know-our-story-section-wrapper {
-    width: 100%;
+      width: 100%;
       padding: 2rem;
       display: flex;
       flex-direction: column;
@@ -23,9 +33,20 @@
   }
 
   .know-our-story-section__row-1 {
+      display: felx
 
-    display: felx
   }
+  .know-our-story-section__row-1-video-wrapper,
+  .know-our-story-section__row-1-content-wrapper {
+    width: 50%;
+    height: 400px;
+    overflow: auto;
+  }
+
+  .know-our-story-section__row-1-video {
+    width: 100%;
+    height: 100%;
+}
 </style>
 
 {% schema %}
