@@ -24,7 +24,7 @@
         </span>
         {% if section.settings.story_read_more_button_label_arrow != blank %}
           <span>
-            {{ section.settings.story_read_more_button_label_arrow | image_url: width: 18 }}
+            {{ section.settings.story_read_more_button_label_arrow | image_url: width: 18 | image_tag }}
           </span>
         {% endif %}
       </a>
