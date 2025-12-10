@@ -1,12 +1,32 @@
-<div></div>
+<div class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}">
+  {% comment %} ROW 1 {% endcomment %}
+  <div class="know-our-story-section__row-1">
+    <div class="know-our-story-section__row-1-video-wrapper"></div>
+    <div class="know-our-story-section__row-1-content-wrapper"></div>
+  </div>
+  {% comment %} ROW 2 {% endcomment %}
+  <div class="know-our-story-section__row-2"></div>
+</div>
 
-<style></style>
+<style>
+  .home__know-our-story-section {
+      box-sizing: border-box;
+  }
+
+  .know-our-story-section-wrapper {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+  }
+</style>
 
 {% schema %}
 {
   "name": "Know our story",
   "tag": "section",
-  "class": "home__know-our-story",
+  "class": "home__know-our-story-section",
   "settings": [
     {
       "type": "color_scheme",
