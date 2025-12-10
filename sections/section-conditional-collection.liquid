@@ -13,7 +13,7 @@
   </div>
 
   {% comment %} rows for cards sliders {% endcomment %}
-  <div id="conditional-row-2-{{ section.id }}" class="home__conditional-collection-row-2 mySwiper">
+  <div id="conditional-row-2-{{ section.id }}" class="home__conditional-collection-row-2 mySwiper swiper ">
     <div class="home__conditional-collection-row-2 swiper-wrapper">
       {% for product in section.settings.toggle_collection_1.products %}
         <div class="conditional-product-card swiper-slide">
@@ -44,7 +44,7 @@
       {% endfor %}
     </div>
   </div>
-{% comment %}  {% endcomment %}
+  {% comment %}  {% endcomment %}
   <div id="conditional-row-3-{{ section.id }}" class="home__conditional-collection-row-3 mySwiper hidden">
     {% comment %} section 2 collection>product cards {% endcomment %}
     <div class="home__conditional-collection-row-2 swiper-wrapper">
@@ -131,9 +131,9 @@
             border-radius: 10px;
         }
 
-        .home__conditional-collection-row-2, .home__conditional-collection-row-3 {
+        {% comment %} .home__conditional-collection-row-2, .home__conditional-collection-row-3 {
             width: 100%;
-        }
+        } {% endcomment %}
 
         .hidden {
             display: none;
@@ -144,7 +144,9 @@
           display: flex;
           flex-direction: column;
           align-items: center !important;
-          width: 235px !important;          /* Swiper handles actual width */
+          {% comment %} width: 235px !important;          /* Swiper handles actual width */ {% endcomment %}
+          width: auto;
+          max-width: 235px;
           padding: 15px;
           border-radius: 12px;
           background: #fff;
@@ -229,8 +231,7 @@
 
 {% comment %} Active and hidden class toggle script {% endcomment %}
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-
+  document.addEventListener('DOMContentLoaded', () => {
     let button1 = document.getElementById('toggle-option-btn-1');
     let button2 = document.getElementById('toggle-option-btn-2');
 
@@ -239,7 +240,6 @@
 
     // BUTTON 1 — Show Collection 1
     button1.addEventListener('click', () => {
-
       button1.classList.add('active-option');
       button2.classList.remove('active-option');
 
@@ -249,17 +249,14 @@
 
     // BUTTON 2 — Show Collection 2
     button2.addEventListener('click', () => {
-
       button2.classList.add('active-option');
       button1.classList.remove('active-option');
 
       row3.classList.remove('hidden');
       row2.classList.add('hidden');
     });
-
   });
 </script>
-
 
 {% schema %}
 {
