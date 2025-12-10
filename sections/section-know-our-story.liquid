@@ -130,12 +130,12 @@
     var swiper = new Swiper('#quality-cards-list-{{ section.id }}', {
       cssMode: true,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '#swiper-button-next-{{section.id }}',
+        prevEl: '#swiper-button-prev-{{section.id }}',
       },
-      pagination: {
+      {% comment %} pagination: {
         el: '.swiper-pagination',
-      },
+      }, {% endcomment %}
       mousewheel: true,
       keyboard: true,
     });
