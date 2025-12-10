@@ -165,6 +165,7 @@
         "quality_card_LzPUtF": {
           "type": "quality_card",
           "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
             "quality_card_heading": "Quality",
             "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
           }
