@@ -31,6 +31,19 @@
 
       <div id="quality-cards-list-{{ section.id }}" class="quality-cards-list swiper mySwiper">
         {% comment %} cards {% endcomment %}
+        <div class="swiper-wrapper">
+          {% comment %} slides {% endcomment %}
+          {% for block in section.blocks %}
+            {% if block.type == 'quality_card' %}
+              {% comment %} card {% endcomment %}
+              <div class="quality-card swiper-slide">
+                {% comment %} fill {% endcomment %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div id="swiper-button-next-{{section.id }}" class="swiper-button-next"></div>
+        <div id="swiper-button-prev-{{section.id }}" class="swiper-button-prev"></div>
       </div>
     </div>
   </div>
@@ -39,74 +52,95 @@
 </div>
 
 <style>
-        .know-our-story-section-wrapper {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      box-sizing: border-box;
-    }
+          .know-our-story-section-wrapper {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        box-sizing: border-box;
+      }
 
-    /* Fix: felx → flex */
-    .know-our-story-section__row-1 {
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch; /* ensures equal height */
-      gap: 2rem;
-    }
+      /* Fix: felx → flex */
+      .know-our-story-section__row-1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch; /* ensures equal height */
+        gap: 2rem;
+      }
 
-    .know-our-story-section__row-1-video-wrapper,
-    .know-our-story-section__row-1-content-wrapper {
-      width: 48%;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+      .know-our-story-section__row-1-video-wrapper,
+      .know-our-story-section__row-1-content-wrapper {
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
 
-    /* Make video automatically scale & match height */
-    .know-our-story-section__row-1-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Video fills area properly */
-      border-radius: 16px;
-    }
+      /* Make video automatically scale & match height */
+      .know-our-story-section__row-1-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Video fills area properly */
+        border-radius: 16px;
+      }
 
-    .know-our-story-section__row-1-content__heading {
-      font-size: 2rem;
-      font-weight: 400;
-    }
+      .know-our-story-section__row-1-content__heading {
+        font-size: 2rem;
+        font-weight: 400;
+      }
 
-    /* Optional: Style content elements neatly */
-    .know-our-story-section__row-1-content__content p {
-      margin: 1rem 0;
-      font-size: 1.1 rem;
-      font-weight: 400;
-    }
+      /* Optional: Style content elements neatly */
+      .know-our-story-section__row-1-content__content p {
+        margin: 1rem 0;
+        font-size: 1.1 rem;
+        font-weight: 400;
+      }
 
-    /* Read more butotn */
-    .know-our-story-section__row-1-content__btn {
-      text-decoration: none;
-      color: #FFFFFF;
-      border: none;
-      outline: none;
-      background-color: #DB763F;
+      /* Read more butotn */
+      .know-our-story-section__row-1-content__btn {
+        text-decoration: none;
+        color: #FFFFFF;
+        border: none;
+        outline: none;
+        background-color: #DB763F;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        width: 160px;
+    }
+    .know-our-story-section__row-1-content__btn span {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 8px;
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      width: 160px;
   }
-  .know-our-story-section__row-1-content__btn span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.know-our-story-section__row-1-content__btn img {
-    display: inline-block;
-}
+  .know-our-story-section__row-1-content__btn img {
+      display: inline-block;
+  }
+
+  .quality-cards-list {
+      width: 100%;
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    var swiper = new Swiper('#quality-cards-list-{{ section.id }}', {
+      cssMode: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      mousewheel: true,
+      keyboard: true,
+    });
+  });
+</script>
 
 {% schema %}
 {
