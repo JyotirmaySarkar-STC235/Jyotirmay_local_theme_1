@@ -23,7 +23,12 @@
         class="know-our-story-section__row-1-content__btn"
         href="{{ section.settings.story_read_more_button_url }}"
       >
-        {{- section.settings.story_read_more_button_label -}}
+        <span>
+            {{- section.settings.story_read_more_button_label -}} 
+        </span>
+        <span>
+            {{ section.settings.story_read_more_button_label_arrow | image_url: width: 18  }}
+        </span>
       </a>
 
       <div class="quality-cards-list"></div>
