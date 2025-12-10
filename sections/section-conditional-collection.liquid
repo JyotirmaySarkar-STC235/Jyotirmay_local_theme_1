@@ -197,31 +197,6 @@
     }
 </style>
 
-{% comment %} Button active class toggler script {% endcomment %}
-{% comment %} <script>
-  let buttons = document.getElementsByClassName('option-btn');
-  let button1 = document.getElementById('toggle-option-btn-1');
-  let button2 = document.getElementById('toggle-option-btn-2');
-
-  let collection1 = document.getElementById('toggler-card-list-1');
-  let collection2 = document.getElementById('toggler-card-list-2');
-
-  for (let i = 0; i < buttons.length; i++) {
-    let button = buttons[i];
-
-    button.addEventListener('click', () => {
-      // Remove active class from both buttons
-      button1.classList.remove('active-option');
-      button2.classList.remove('active-option');
-
-      // Add active class to clicked one
-      button.classList.add('active-option');
-
-      
-    });
-  } {% endcomment %}
-{% comment %} </script> {% endcomment %}
-
 <!-- Initialize Swiper 1 -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
