@@ -298,10 +298,11 @@
     </script>
 
     {% comment %} SWIPER CDN {% endcomment %}
-    <link
+    {% comment %} <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    /> {% endcomment %}
+    {{ 'swiper-bundle.min.js' | asset_url | stylesheet_tag }}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
@@ -381,6 +382,6 @@
 
     <!-- Swiper JS -->
     {% comment %} <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> {% endcomment %}
-    <script src="../assets/swiper-bundle.min.js" defer></script>
+     <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>
