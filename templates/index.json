@@ -173,6 +173,7 @@
       "block_order": [
         "quality_card_LzPUtF"
       ],
+      "disabled": true,
       "name": "Know our story section",
       "settings": {
         "know_our_story_color_scheme": "scheme-95b4c094-4c34-4734-9109-fa86a8ad3091",
