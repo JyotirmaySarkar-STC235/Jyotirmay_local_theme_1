@@ -4,11 +4,7 @@
     <div class="know-our-story-section__row-1-video-wrapper">
       {{
         section.settings.know_our_story_video
-        | video_tag:
-          autoplay: false,
-          loop: true,
-          controls: true,
-          class: 'know-our-story-section__row-1-video'
+        | video_tag: autoplay: false, loop: true, controls: true, class: 'know-our-story-section__row-1-video'
       }}
     </div>
     <div class="know-our-story-section__row-1-content-wrapper">
@@ -24,11 +20,13 @@
         href="{{ section.settings.story_read_more_button_url }}"
       >
         <span>
-            {{- section.settings.story_read_more_button_label -}} 
+          {{- section.settings.story_read_more_button_label -}}
         </span>
-        <span>
-            {{ section.settings.story_read_more_button_label_arrow | image_url: width: 18  }}
-        </span>
+        {% if section.settings.story_read_more_button_label_arrow != blank %}
+          <span>
+            {{ section.settings.story_read_more_button_label_arrow | image_url: width: 18 }}
+          </span>
+        {% endif %}
       </a>
 
       <div class="quality-cards-list"></div>
@@ -39,66 +37,64 @@
 </div>
 
 <style>
-      .know-our-story-section-wrapper {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    box-sizing: border-box;
+        .know-our-story-section-wrapper {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      box-sizing: border-box;
+    }
+
+    /* Fix: felx → flex */
+    .know-our-story-section__row-1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch; /* ensures equal height */
+      gap: 2rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Make video automatically scale & match height */
+    .know-our-story-section__row-1-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Video fills area properly */
+      border-radius: 16px;
+    }
+
+    .know-our-story-section__row-1-content__heading {
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    /* Optional: Style content elements neatly */
+    .know-our-story-section__row-1-content__content p {
+      margin: 1rem 0;
+      font-size: 1.1 rem;
+      font-weight: 400;
+    }
+
+    /* Read more butotn */
+    .know-our-story-section__row-1-content__btn {
+      text-decoration: none;
+      color: #FFFFFF;
+      border: none;
+      outline: none;
+      background-color: #DB763F;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      width: 150px;
   }
-
-  /* Fix: felx → flex */
-  .know-our-story-section__row-1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch; /* ensures equal height */
-    gap: 2rem;
-  }
-
-  .know-our-story-section__row-1-video-wrapper,
-  .know-our-story-section__row-1-content-wrapper {
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  /* Make video automatically scale & match height */
-  .know-our-story-section__row-1-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Video fills area properly */
-    border-radius: 16px;
-  }
-
-  .know-our-story-section__row-1-content__heading {
-    font-size: 2rem;
-    font-weight: 400;
-  }
-
-  /* Optional: Style content elements neatly */
-  .know-our-story-section__row-1-content__content p {
-    margin: 1rem 0;
-    font-size: 1.1 rem;
-    font-weight: 400;
-  }
-
-  /* Read more butotn */
-  .know-our-story-section__row-1-content__btn {
-    text-decoration: none;
-    color: #FFFFFF;
-    border: none;
-    outline: none;
-    background-color: #DB763F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    width: 150px;
-}
-
-
 </style>
 
 {% schema %}
@@ -142,9 +138,9 @@
       "default": "Read more"
     },
     {
-        "type": "image_picker",
-        "id": "story_read_more_button_label_arrow",
-        "label": "Add the arrow image"
+      "type": "image_picker",
+      "id": "story_read_more_button_label_arrow",
+      "label": "Add the arrow image"
     },
     {
       "type": "url",
