@@ -1,11 +1,21 @@
-<div class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}">
+<div
+  id="know-our-story-{{ section.id }}"
+  class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}"
+>
   {% comment %} ROW 1 {% endcomment %}
   <div class="know-our-story-section__row-1">
+    {% comment %} Working on video wraper construction .... {% endcomment %}
+
     <div class="know-our-story-section__row-1-video-wrapper">
-      {{ section.settings.know_our_story_video
- | video_tag: autoplay: false, loop: true, controls: true, class: 'know-our-story-section__row-1-video'
+      {{
+        section.settings.know_our_story_video
+        | video_tag: autoplay: false, controls: false, class: 'know-our-story-section__row-1-video', id: 'custom-video'
       }}
+      <button class="video-toggle-btn" id="video-toggle-btn">Play</button>
     </div>
+
+    {% comment %} {% endcomment %}
+
     <div class="know-our-story-section__row-1-content-wrapper">
       <h2 class="know-our-story-section__row-1-content__heading">{{ section.settings.know_our_story_heading }}</h2>
 
@@ -34,9 +44,10 @@
                 {% comment %} fill {% endcomment %}
                 {% if block.settings.quality_card_image != blank %}
                   <div class="quality-card__icon-wrapper">
-                    {{ block.settings.quality_card_image
- | image_url: width: 200
- | image_tag: class: 'quality-card__icon', alt: block.settings.quality_card_heading
+                    {{
+                      block.settings.quality_card_image
+                      | image_url: width: 200
+                      | image_tag: class: 'quality-card__icon', alt: block.settings.quality_card_heading
                     }}
                   </div>
                 {% endif %}
@@ -107,11 +118,34 @@
     align-items: flex-start;
     gap: 1.5rem;
   }
-  
-  .know-our-story-section__row-1-video-wrapper{
+
+  .know-our-story-section__row-1-video-wrapper {
     /* height: 400px !important; */
     height: auto !important;
+    position: relative;
   }
+
+  /* Construction.... */
+  .video-toggle-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0.8rem 1.6rem;
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .video-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  /* */
 
   /* Make video automatically scale & match height */
   .know-our-story-section__row-1-video {
@@ -149,14 +183,17 @@
     border-radius: 2rem;
     width: 160px;
   }
+
   .know-our-story-section__row-1-content__btn span {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .know-our-story-section__row-1-content__btn img {
     display: inline-block;
   }
+
   /* SLIDES */
   .quality-cards-list {
     width: 100%;
@@ -223,8 +260,20 @@
 
   }
 
-  #swiper-button-prev-{{ section.id }}
-  , #swiper-button-next-{{ section.id }} {
+  #swiper-button-prev- {
+      {
+      section.id
+    }
+  }
+
+  ,
+  #swiper-button-next- {
+      {
+      section.id
+    }
+  }
+
+    {
     display: block !important;
   }
 
@@ -265,107 +314,183 @@
         prevEl: '#swiper-button-prev-{{section.id }}',
       },
       {% comment %} pagination: {
-        el: '.swiper-pagination',
-      }, {% endcomment %}
-      mousewheel: true,
-      keyboard: true,
+    el: '.swiper-pagination',
+  }, {% endcomment %}
+    mousewheel: true,
+    keyboard: true,
     });
   });
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Construction ......
+    const currentSection = document.getElementById('know-our-story-{{ section.id }}');
+    const videos = currentSection.querySelectorAll('video');
+
+    videos.forEach((video) => {
+      // pause all videos and reset to start then play the curent video
+    });
+
+    //
+    const video = document.getElementById('custom-video');
+    const btn = document.getElementById('video-toggle-btn');
+
+    btn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        btn.textContent = 'Pause';
+      } else {
+        video.pause();
+        btn.textContent = 'Play';
+      }
+    });
+  });
+</script>
+
+{% comment %} VIDEO PLAY-PAUSE EDGE CASE SCRIPT {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const fraction = 0.8; // 80% visible required to autoplay
+    const currentSection = document.getElementById('know-our-story-{{ section.id }}');
+    const videos = currentSection.querySelectorAll('video');
+
+    // play-pause on scroll
+    function handleScroll() {
+      videos.forEach((video) => checkScroll(video));
+    }
+
+    function checkScroll(video) {
+      const rect = video.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
+
+      // visible width & height
+      const visibleX = Math.max(0, Math.min(rect.width, windowWidth - rect.left, rect.right));
+      const visibleY = Math.max(0, Math.min(rect.height, windowHeight - rect.top, rect.bottom));
+
+      const visibleArea = visibleX * visibleY;
+      const totalArea = rect.width * rect.height;
+      const visible = totalArea > 0 ? visibleArea / totalArea : 0;
+
+      if (visible > fraction) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+
+    // initial check
+    handleScroll();
+
+    // event listeners
+    window.addEventListener('scroll', handleScroll, false);
+    window.addEventListener('resize', handleScroll, false);
+  });
+</script>
+
 {% schema %}
-  {
-    "name": "Know our story",
-    "tag": "section",
-    "class": "home__know-our-story-section",
-    "settings": [
-      {
-        "type": "color_scheme",
-        "id": "know_our_story_color_scheme",
-        "label": "Select color scheme"
-      },
-      {
-        "type": "video",
-        "id": "know_our_story_video",
-        "label": "Add a video"
-      },
-      {
-        "type": "text",
-        "id": "know_our_story_heading",
-        "label": "Enter heading",
-        "default": "Know our story"
-      },
-      {
-        "type": "text",
-        "id": "know_our_story_text_1",
-        "label": "Enter text content",
-        "default": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured."
-      }, {
-        "type": "text",
-        "id": "know_our_story_text_2",
-        "label": "Enter text content",
-        "default": "Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes."
-      }, {
-        "type": "text",
-        "id": "story_read_more_button_label",
-        "label": "Enter button label",
-        "default": "Read more"
-      }, {
-        "type": "image_picker",
-        "id": "story_read_more_button_label_arrow",
-        "label": "Add the arrow image"
-      }, {
-        "type": "url",
-        "id": "story_read_more_button_url",
-        "label": "Enter button label"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "quality_card",
-        "name": "Quality card",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "quality_card_image",
-            "label": "Select image"
-          }, {
-            "type": "text",
-            "id": "quality_card_heading",
-            "label": "Enter heading",
-            "default": "Quality"
-          }, {
-            "type": "text",
-            "id": "quality_card_text_content",
-            "label": "Enter text content for the card",
-            "default": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
-          }
-        ]
-      }, {
-        "type": "policy_item",
-        "name": "Policy Item",
-        "limit": 3,
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "icon",
-            "label": "Icon"
-          }, {
-            "type": "text",
-            "id": "text",
-            "label": "Policy Text"
-          }, {
-            "type": "url",
-            "id": "url",
-            "label": "Link"
-          }
-        ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "Know our story section"
-      }
-    ]
-  }
+{
+  "name": "Know our story",
+  "tag": "section",
+  "class": "home__know-our-story-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "know_our_story_color_scheme",
+      "label": "Select color scheme"
+    },
+    {
+      "type": "video",
+      "id": "know_our_story_video",
+      "label": "Add a video"
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_heading",
+      "label": "Enter heading",
+      "default": "Know our story"
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_text_1",
+      "label": "Enter text content",
+      "default": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured."
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_text_2",
+      "label": "Enter text content",
+      "default": "Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes."
+    },
+    {
+      "type": "text",
+      "id": "story_read_more_button_label",
+      "label": "Enter button label",
+      "default": "Read more"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_read_more_button_label_arrow",
+      "label": "Add the arrow image"
+    },
+    {
+      "type": "url",
+      "id": "story_read_more_button_url",
+      "label": "Enter button label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quality_card",
+      "name": "Quality card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "quality_card_image",
+          "label": "Select image"
+        },
+        {
+          "type": "text",
+          "id": "quality_card_heading",
+          "label": "Enter heading",
+          "default": "Quality"
+        },
+        {
+          "type": "text",
+          "id": "quality_card_text_content",
+          "label": "Enter text content for the card",
+          "default": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+        }
+      ]
+    },
+    {
+      "type": "policy_item",
+      "name": "Policy Item",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Policy Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Know our story section"
+    }
+  ]
+}
 {% endschema %}
