@@ -316,13 +316,13 @@
     const buttons = document.querySelectorAll('.video-toggle-btn');
     const videos = document.querySelectorAll('.know-our-story-section__row-1-video');
 
-    buttons.forEach((button, index) => {
+    buttons.forEach((button, btnIndex) => {
       button.addEventListener('click', () => {
-        const currentVideo = videos[index];
+        const currentVideo = videos[btnIndex];
 
         // Pause all other videos
         videos.forEach((vid, vidIndex) => {
-          if (index !== vidIndex) {
+          if (btnIndex !== vidIndex) {
             vid.pause();
             vid.currentTime = 0;
             buttons[vidIndex].textContent = 'Play';
