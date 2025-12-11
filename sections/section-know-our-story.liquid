@@ -11,7 +11,7 @@
         section.settings.know_our_story_video
         | video_tag: autoplay: false, controls: false, class: 'know-our-story-section__row-1-video', id: 'custom-video'
       }}
-      <button class="video-toggle-btn" id="video-toggle-btn">Play</button>
+      <button class="video-toggle-btn" id="video-toggle-btn" data-video="know-our-story-video">Play</button>
     </div>
 
     {% comment %} {% endcomment %}
@@ -322,72 +322,40 @@
   });
 </script>
 
+{% comment %} ONE VIDEO AT A TIME SCRIPT {% endcomment %}
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Construction ......
-    const currentSection = document.getElementById('know-our-story-{{ section.id }}');
-    const videos = currentSection.querySelectorAll('video');
+    const buttons = document.querySelectorAll('.video-toggle-btn');
+    const videos = document.querySelectorAll('video');
 
-    videos.forEach((video) => {
-      // pause all videos and reset to start then play the curent video
-    });
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        const currentVideo = videos[index];
 
-    //
-    const video = document.getElementById('custom-video');
-    const btn = document.getElementById('video-toggle-btn');
+        // Pause all other videos
+        videos.forEach((vid, vidIndex) => {
+          if (index !== vidIndex) {
+            vid.pause();
+            vid.currentTime = 0;
+            buttons[vidIndex].textContent = 'Play';
+          }
+        });
 
-    btn.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        btn.textContent = 'Pause';
-      } else {
-        video.pause();
-        btn.textContent = 'Play';
-      }
+        // Toggle current video
+        if (currentVideo.paused) {
+          currentVideo.play();
+          button.textContent = 'Pause';
+        } else {
+          currentVideo.pause();
+          button.textContent = 'Play';
+        }
+      });
     });
   });
 </script>
 
-{% comment %} VIDEO PLAY-PAUSE EDGE CASE SCRIPT {% endcomment %}
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const fraction = 0.8; // 80% visible required to autoplay
-    const currentSection = document.getElementById('know-our-story-{{ section.id }}');
-    const videos = currentSection.querySelectorAll('video');
+{% comment %} VIDEO PLAY-PAUSE ON SCROLL EDGE CASE SCRIPT {% endcomment %}
 
-    // play-pause on scroll
-    function handleScroll() {
-      videos.forEach((video) => checkScroll(video));
-    }
-
-    function checkScroll(video) {
-      const rect = video.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const windowWidth = window.innerWidth;
-
-      // visible width & height
-      const visibleX = Math.max(0, Math.min(rect.width, windowWidth - rect.left, rect.right));
-      const visibleY = Math.max(0, Math.min(rect.height, windowHeight - rect.top, rect.bottom));
-
-      const visibleArea = visibleX * visibleY;
-      const totalArea = rect.width * rect.height;
-      const visible = totalArea > 0 ? visibleArea / totalArea : 0;
-
-      if (visible > fraction) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    }
-
-    // initial check
-    handleScroll();
-
-    // event listeners
-    window.addEventListener('scroll', handleScroll, false);
-    window.addEventListener('resize', handleScroll, false);
-  });
-</script>
 
 {% schema %}
 {
