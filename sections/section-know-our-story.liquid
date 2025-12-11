@@ -1,6 +1,6 @@
 <div
-  id="know-our-story-{{ section.id }}"
-  class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}"
+    id="know-our-story-{{ section.id }}"
+    class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}"
 >
   {% comment %} ROW 1 {% endcomment %}
   <div class="know-our-story-section__row-1">
@@ -9,9 +9,9 @@
     <div class="know-our-story-section__row-1-video-wrapper">
       {{
         section.settings.know_our_story_video
-        | video_tag: autoplay: false, controls: false, class: 'know-our-story-section__row-1-video'
+        | video_tag: autoplay: false, controls: false, class: 'know-our-story-section__row-1-video', data-section-id: section.id 
       }}
-      <button class="video-toggle-btn" id="video-toggle-btn" data-video="know-our-story-video">Play</button>
+      <button class="video-toggle-btn" id="video-toggle-btn-{{ section.id }}" data-video="know-our-story-video">Play</button>
     </div>
 
     {% comment %} {% endcomment %}
@@ -291,6 +291,7 @@
   }
 </style>
 
+{% comment %} SWIPER INITIALIZER {% endcomment %}
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     var swiper = new Swiper('#quality-cards-list-{{ section.id }}', {
@@ -310,38 +311,60 @@
   });
 </script>
 
-{% comment %} ONE VIDEO AT A TIME SCRIPT {% endcomment %}
+
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.video-toggle-btn');
-    const videos = document.querySelectorAll('.know-our-story-section__row-1-video');
+  document.addEventListener("DOMContentLoaded", initVideoController)
+  document.addEventListener("shopify:section:load", initVideoController);
 
-    buttons.forEach((button, btnIndex) => {
-      button.addEventListener('click', () => {
-        const currentVideo = videos[btnIndex];
+  function initVideoController (){
+    console.log("SECTION ---->");
+    
+    const allVideos = Array.from(document.querySelectorAll("video"))
+    
+    console.log("All videos: ", allVideos);
 
-        // Pause all other videos
-        videos.forEach((vid, vidIndex) => {
-          if (btnIndex !== vidIndex) {
+    const buttons = Array.from(document.querySelectorAll(".video-toggle-btn"))
+    console.log("All buttons: ",buttons);
+
+    buttons.forEach((btn)=>{
+      btn.addEventListener("click", async(e)=>{
+        e.stopImmediatePropagation();
+        console.log("Button clicked -> ", btn);
+
+        // Pausing previously played videos
+        allVideos.forEach((vid)=>{
+          if(!vid.paused){
             vid.pause();
-            vid.currentTime = 0;
-            buttons[vidIndex].textContent = 'Play';
           }
-        });
+        })
 
-        // Toggle current video
-        if (currentVideo.paused) {
-          currentVideo.play();
-          button.textContent = 'Pause';
-        } else {
-          currentVideo.pause();
-          button.textContent = 'Play';
-        }
-      });
-    });
-  });
+        // ✅ Reset all button texts here
+        buttons.forEach(b => b.textContent = "Play");
+
+        const video = btn.closest(".know-our-story-section__row-1-video-wrapper").querySelector("video");
+        console.log("Target video -> ", video);
+
+        try {
+          if(video.paused){
+            await video.play()
+            btn.textContent = "Pause"
+          } else {
+            video.pause()
+            btn.textContent = "Play"
+          }
+        } catch (error) {
+          console.error("Error in playing the video.......", error);
+          return;
+        } // try-catch
+        
+      }) // btn evnt
+    }) // btns foreach
+    
+
+  } // fnc
 </script>
+
 
 {% comment %} VIDEO PLAY-PAUSE ON SCROLL EDGE CASE SCRIPT {% endcomment %}
 
