@@ -1,6 +1,6 @@
 <div
-    id="know-our-story-{{ section.id }}"
-    class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}"
+  id="know-our-story-{{ section.id }}"
+  class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}"
 >
   {% comment %} ROW 1 {% endcomment %}
   <div class="know-our-story-section__row-1">
@@ -9,9 +9,15 @@
     <div class="know-our-story-section__row-1-video-wrapper">
       {{
         section.settings.know_our_story_video
-        | video_tag: autoplay: false, controls: false, class: 'know-our-story-section__row-1-video', data-section-id: section.id 
+        | video_tag:
+          autoplay: false,
+          controls: false,
+          class: 'know-our-story-section__row-1-video',
+          data-section-id: section.id
       }}
-      <button class="video-toggle-btn" id="video-toggle-btn-{{ section.id }}" data-video="know-our-story-video">Play</button>
+      <button class="video-toggle-btn" id="video-toggle-btn-{{ section.id }}" data-video="know-our-story-video">
+        Play
+      </button>
     </div>
 
     {% comment %} {% endcomment %}
@@ -260,7 +266,7 @@
 
   }
 
-  #swiper-button-prev-{{section.id }}, 
+  #swiper-button-prev-{{section.id }},
   #swiper-button-next-{{section.id }} {
     display: block !important;
   }
@@ -311,63 +317,46 @@
   });
 </script>
 
-
-
 <script>
-  document.addEventListener("DOMContentLoaded", initVideoController)
-  document.addEventListener("shopify:section:load", initVideoController);
+  document.addEventListener('DOMContentLoaded', initVideoController);
 
-  function initVideoController (){
-    console.log("SECTION ---->");
-    
-    const allVideos = Array.from(document.querySelectorAll("video"))
-    
-    console.log("All videos: ", allVideos);
-
-    const buttons = Array.from(document.querySelectorAll(".video-toggle-btn"))
-    console.log("All buttons: ",buttons);
-
-    buttons.forEach((btn)=>{
-      btn.addEventListener("click", async(e)=>{
-        e.stopImmediatePropagation();
-        console.log("Button clicked -> ", btn);
+  function initVideoController() {
+    const allVideos = Array.from(document.querySelectorAll('video'));
+    const buttons = Array.from(document.querySelectorAll('.video-toggle-btn'));
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        let video = e.currentTarget.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video');
+        console.log('Target video -> ', video);
+        console.log('Clicking when video is', e.currentTarget.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video'));
+        console.log('Clicking when video is', e.currentTarget.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video').paused);
+        if (e.currentTarget.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video').paused) {
+          await video.play();
+          btn.textContent = 'Pause';
+        } else {
+          console.log('ELSE Clicking when video is played');
+          video.pause();
+          btn.textContent = 'Play';
+        }
 
         // Pausing previously played videos
-        allVideos.forEach((vid)=>{
-          if(!vid.paused){
+        allVideos.forEach((vid) => {
+          console.log('Checking video -> ', vid);
+          if (!vid.paused) {
             vid.pause();
           }
-        })
+        });
 
-        // ✅ Reset all button texts here
-        buttons.forEach(b => b.textContent = "Play");
+        //  Reset all button texts here
+        buttons.forEach((b) => {
+          b.textContent = 'Play';
+        });
 
-        const video = btn.closest(".know-our-story-section__row-1-video-wrapper").querySelector("video");
-        console.log("Target video -> ", video);
-
-        try {
-          if(video.paused){
-            await video.play()
-            btn.textContent = "Pause"
-          } else {
-            video.pause()
-            btn.textContent = "Play"
-          }
-        } catch (error) {
-          console.error("Error in playing the video.......", error);
-          return;
-        } // try-catch
-        
-      }) // btn evnt
-    }) // btns foreach
-    
-
+      }); // btn evnt
+    }); // btns foreach
   } // fnc
 </script>
 
-
 {% comment %} VIDEO PLAY-PAUSE ON SCROLL EDGE CASE SCRIPT {% endcomment %}
-
 
 {% schema %}
 {
