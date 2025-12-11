@@ -260,20 +260,8 @@
 
   }
 
-  #swiper-button-prev- {
-      {
-      section.id
-    }
-  }
-
-  ,
-  #swiper-button-next- {
-      {
-      section.id
-    }
-  }
-
-    {
+  #swiper-button-prev-{{section.id }}, 
+  #swiper-button-prev-{{section.id }} {
     display: block !important;
   }
 
@@ -310,8 +298,8 @@
       slidesPerView: 1.5,
       spaceBetween: 10,
       navigation: {
-        nextEl: '.swiper-button-prev',
-        prevEl: '.swiper-button-prev',
+        nextEl: '#swiper-button-next-{{section.id }}',
+        prevEl: '#swiper-button-prev-{{section.id }}',
       },
       {% comment %} pagination: {
     el: '.swiper-pagination',
