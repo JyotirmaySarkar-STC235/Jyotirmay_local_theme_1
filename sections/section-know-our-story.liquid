@@ -311,6 +311,7 @@
 </script>
 
 {% comment %} ONE VIDEO AT A TIME SCRIPT {% endcomment %}
+{% comment %}
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.video-toggle-btn');
@@ -341,6 +342,41 @@
     });
   });
 </script>
+{% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.know-our-story-section-wrapper').forEach(section => {
+
+      const buttons = section.querySelectorAll('.video-toggle-btn');
+      const videos  = section.querySelectorAll('.know-our-story-section__row-1-video');
+
+      buttons.forEach((button, btnIndex) => {
+        button.addEventListener('click', () => {
+          const currentVideo = videos[btnIndex];
+
+          // Pause other videos only inside this section
+          videos.forEach((vid, vidIndex) => {
+            if (vidIndex !== btnIndex) {
+              vid.pause();
+              vid.currentTime = 0;
+              buttons[vidIndex].textContent = 'Play';
+            }
+          });
+
+          // Toggle current video
+          if (currentVideo.paused) {
+            currentVideo.play();
+            button.textContent = 'Pause';
+          } else {
+            currentVideo.pause();
+            button.textContent = 'Play';
+          }
+        });
+      });
+    });
+  });
+</script>
+
 
 {% comment %} VIDEO PLAY-PAUSE ON SCROLL EDGE CASE SCRIPT {% endcomment %}
 
