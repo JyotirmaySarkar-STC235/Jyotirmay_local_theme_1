@@ -99,201 +99,336 @@
 </div>
 
 <style>
-  .know-our-story-section-wrapper {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    box-sizing: border-box;
+    .know-our-story-section-wrapper {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      box-sizing: border-box;
+    }
+
+
+    .know-our-story-section__row-1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper {
+      /* height: 400px !important; */
+      height: auto !important;
+      position: relative;
+    }
+
+    /* Construction.... */
+    .video-toggle-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0.8rem 1.6rem;
+      font-size: 1.2rem;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .video-toggle-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* */
+
+    /* Make video automatically scale & match height */
+    .know-our-story-section__row-1-video {
+      width: 100%;
+      /* height: 100%; */
+      object-fit: cover;
+      /* Video fills area properly */
+    }
+
+    .know-our-story-section__row-1-content__heading {
+      font-size: 2rem;
+      font-weight: 400;
+      margin: 0 !important
+    }
+
+    /* Optional: Style content elements neatly */
+    .know-our-story-section__row-1-content__content p {
+      margin: 1rem 0;
+      font-size: 1.1 rem;
+      font-weight: 400;
+    }
+
+    /* Read more butotn */
+    .know-our-story-section__row-1-content__btn {
+      text-decoration: none;
+      color: #FFFFFF;
+      border: none;
+      outline: none;
+      background-color: #DB763F;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      width: 160px;
+    }
+
+    .know-our-story-section__row-1-content__btn span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .know-our-story-section__row-1-content__btn img {
+      display: inline-block;
+    }
+
+    /* SLIDES */
+    .quality-cards-list {
+      width: 100%;
+
+    }
+
+    /* QUALITY CARD */
+    .quality-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      height: auto;
+      /* Swiper will auto-adjust */
+      cursor: pointer !important;
+    }
+
+    .quality-card__icon-wrapper {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quality-card__icon {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .quality-card__heading {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .quality-card__text {
+      font-size: 15px;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 85%;
+    }
+
+    /* POLICY CARDS */
+    .know-our-story-section__row-2 {
+      display: flex;
+      gap: 20px;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .policy-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+
+    }
+
+    #swiper-button-prev-{{section.id }},
+    #swiper-button-next-{{section.id }} {
+      display: block !important;
+    }
+
+    /* Icon container */
+    .policy-card__icon-wrapper {
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Shopify image_tag */
+    .policy-card__icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* ensures full image visible */
+    }
+
+    /* Text */
+    .policy-card__text {
+      font-size: 14px;
+      color: #E16A28;
+      text-align: center;
+    }
+
+    /* ------------------------------------------------------
+     TABLETS (max-width: 1024px)
+  ------------------------------------------------------ */
+  @media (max-width: 1024px) {
+    .know-our-story-section__row-1 {
+      gap: 1.5rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 50%;
+    }
+
+    .quality-card {
+      padding: 20px;
+    }
+
+    .quality-card__text {
+      max-width: 100%;
+    }
   }
 
 
-  .know-our-story-section__row-1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
+  /* ------------------------------------------------------
+     LARGE MOBILE (max-width: 768px)
+  ------------------------------------------------------ */
+  @media (max-width: 768px) {
+
+    .know-our-story-section-wrapper {
+      padding: 1.5rem;
+    }
+
+    .know-our-story-section__row-1 {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 100%;
+    }
+
+    .know-our-story-section__row-1-content__heading {
+      font-size: 1.6rem;
+    }
+
+    .know-our-story-section__row-1-content__btn {
+      width: auto;
+      padding: 0.6rem 1.4rem;
+    }
+
+    .policy-card__text {
+      font-size: 12px;
+    }
+
+    /* Row 2 - Policy cards */
+    .know-our-story-section__row-2 {
+      gap: 12px;
+    }
   }
 
-  .know-our-story-section__row-1-video-wrapper,
-  .know-our-story-section__row-1-content-wrapper {
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 1.5rem;
+
+  /* ------------------------------------------------------
+     SMALL MOBILE (max-width: 576px)
+  ------------------------------------------------------ */
+  @media (max-width: 576px) {
+
+    .know-our-story-section-wrapper {
+      padding: 1rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper {
+      height: auto;
+    }
+
+    .video-toggle-btn {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+
+    .quality-card {
+      padding: 16px;
+    }
+
+    .quality-card__heading {
+      font-size: 18px;
+    }
+
+    .quality-card__text {
+      font-size: 14px;
+    }
+
+    .policy-card__icon-wrapper {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    .policy-card__text {
+      font-size: 12px;
+    }
   }
 
-  .know-our-story-section__row-1-video-wrapper {
-    /* height: 400px !important; */
-    height: auto !important;
-    position: relative;
-  }
 
-  /* Construction.... */
-  .video-toggle-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 0.8rem 1.6rem;
-    font-size: 1.2rem;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    z-index: 10;
-  }
+  /* ------------------------------------------------------
+     EXTRA SMALL MOBILE (max-width: 420px)
+  ------------------------------------------------------ */
+  @media (max-width: 420px) {
 
-  .video-toggle-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
-  }
+    .know-our-story-section__row-1-content__heading {
+      font-size: 1.4rem;
+    }
 
-  /* */
+    .know-our-story-section__row-1-content__content p {
+      font-size: 0.95rem;
+    }
 
-  /* Make video automatically scale & match height */
-  .know-our-story-section__row-1-video {
-    width: 100%;
-    /* height: 100%; */
-    object-fit: cover;
-    /* Video fills area properly */
-  }
+    .quality-card {
+      padding: 14px;
+      gap: 10px;
+    }
 
-  .know-our-story-section__row-1-content__heading {
-    font-size: 2rem;
-    font-weight: 400;
-    margin: 0 !important
-  }
+    .quality-card__heading {
+      font-size: 16px;
+    }
 
-  /* Optional: Style content elements neatly */
-  .know-our-story-section__row-1-content__content p {
-    margin: 1rem 0;
-    font-size: 1.1 rem;
-    font-weight: 400;
-  }
+    .quality-card__text {
+      font-size: 13px;
+    }
 
-  /* Read more butotn */
-  .know-our-story-section__row-1-content__btn {
-    text-decoration: none;
-    color: #FFFFFF;
-    border: none;
-    outline: none;
-    background-color: #DB763F;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    width: 160px;
-  }
-
-  .know-our-story-section__row-1-content__btn span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .know-our-story-section__row-1-content__btn img {
-    display: inline-block;
-  }
-
-  /* SLIDES */
-  .quality-cards-list {
-    width: 100%;
-
-  }
-
-  /* QUALITY CARD */
-  .quality-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-    height: auto;
-    /* Swiper will auto-adjust */
-    cursor: pointer !important;
-  }
-
-  .quality-card__icon-wrapper {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .quality-card__icon {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .quality-card__heading {
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0;
-  }
-
-  .quality-card__text {
-    font-size: 15px;
-    line-height: 1.5;
-    margin: 0;
-    max-width: 85%;
-  }
-
-  /* POLICY CARDS */
-  .know-our-story-section__row-2 {
-    display: flex;
-    gap: 20px;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-
-  .policy-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-
-  }
-
-  #swiper-button-prev-{{section.id }},
-  #swiper-button-next-{{section.id }} {
-    display: block !important;
-  }
-
-  /* Icon container */
-  .policy-card__icon-wrapper {
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  /* Shopify image_tag */
-  .policy-card__icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    /* ensures full image visible */
-  }
-
-  /* Text */
-  .policy-card__text {
-    font-size: 14px;
-    color: #E16A28;
-    text-align: center;
+    .policy-card {
+      gap: 0.5rem;
+    }
   }
 </style>
 
@@ -318,64 +453,59 @@
 </script>
 
 <script>
-  document.addEventListener("DOMContentLoaded", initVideoController);
-  document.addEventListener("shopify:section:load", initVideoController);
+  document.addEventListener('DOMContentLoaded', initVideoController);
+  document.addEventListener('shopify:section:load', initVideoController);
 
   function initVideoController() {
-    console.log("SECTION ---->");
+    console.log('SECTION ---->');
 
-    const allVideos = Array.from(document.querySelectorAll("video"));
-    console.log("All videos: ", allVideos);
+    const allVideos = Array.from(document.querySelectorAll('video'));
+    console.log('All videos: ', allVideos);
 
-    const buttons = Array.from(document.querySelectorAll(".video-toggle-btn"));
+    const buttons = Array.from(document.querySelectorAll('.video-toggle-btn'));
     // console.log("All buttons: ", buttons);
 
     buttons.forEach((btn) => {
-
       // ❗ Prevent multiple event bindings when section reloads
-      if (btn.dataset.initialized === "true") {
+      if (btn.dataset.initialized === 'true') {
         return;
       }
-      btn.dataset.initialized = "true";
+      btn.dataset.initialized = 'true';
 
-      btn.addEventListener("click", async (e) => {
+      btn.addEventListener('click', async (e) => {
         e.stopPropagation();
         // console.log("Button clicked -> ", btn);
 
-
-
         // Reset all button labels
-        buttons.forEach((b) => (b.textContent = "Play"));
+        buttons.forEach((b) => (b.textContent = 'Play'));
 
-        const video = btn
-          .closest(".know-our-story-section__row-1-video-wrapper")
-          .querySelector("video");
+        const video = btn.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video');
 
         // Pause all other videos
         allVideos.forEach((vid) => {
-          if(vid == video){
-            console.log("Apna vdo chal raha hai.....");
+          if (vid == video) {
+            console.log('Apna vdo chal raha hai.....');
             return;
           }
           if (!vid.paused) vid.pause();
         });
 
-        console.log("Target video -> ", video);
-        console.log("Video paused state -> ", video.paused);
+        console.log('Target video -> ', video);
+        console.log('Video paused state -> ', video.paused);
 
         try {
           if (video.paused) {
-            console.log("Button clicked when vdo is paused");
+            console.log('Button clicked when vdo is paused');
 
             await video.play();
-            btn.textContent = "Pause";
+            btn.textContent = 'Pause';
           } else {
-            console.log("Button clicked when vdo is playing");
+            console.log('Button clicked when vdo is playing');
             video.pause();
-            btn.textContent = "Play";
+            btn.textContent = 'Play';
           }
         } catch (error) {
-          console.error("Error playing the video.......", error);
+          console.error('Error playing the video.......', error);
           return;
         }
       }); // click handler ends
