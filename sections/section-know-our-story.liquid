@@ -104,6 +104,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    box-sizing: border-box;
   }
 
 
@@ -294,143 +295,6 @@
     color: #E16A28;
     text-align: center;
   }
-
-  /* MEDIA QUERY */
-  /* ------------------------------------------------------
-   TABLETS (max-width: 1024px)
------------------------------------------------------- */
-  @media (max-width: 1024px) {
-    .know-our-story-section__row-1 {
-      gap: 1.5rem;
-    }
-
-    .know-our-story-section__row-1-video-wrapper,
-    .know-our-story-section__row-1-content-wrapper {
-      width: 50%;
-    }
-
-    .quality-card {
-      padding: 20px;
-    }
-
-    .quality-card__text {
-      max-width: 100%;
-    }
-  }
-
-
-  /* ------------------------------------------------------
-    LARGE MOBILE (max-width: 768px)
-  ------------------------------------------------------ */
-  @media (max-width: 768px) {
-
-    .know-our-story-section-wrapper {
-      padding: 1.5rem;
-    }
-
-    .know-our-story-section__row-1 {
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .know-our-story-section__row-1-video-wrapper,
-    .know-our-story-section__row-1-content-wrapper {
-      width: 100%;
-    }
-
-    .know-our-story-section__row-1-content__heading {
-      font-size: 1.6rem;
-    }
-
-    .know-our-story-section__row-1-content__btn {
-      width: auto;
-      padding: 0.6rem 1.4rem;
-    }
-
-    .policy-card__text {
-      font-size: 12px;
-    }
-
-    /* Row 2 - Policy cards */
-    .know-our-story-section__row-2 {
-      gap: 12px;
-    }
-  }
-
-
-  /* ------------------------------------------------------
-    SMALL MOBILE (max-width: 576px)
-  ------------------------------------------------------ */
-  @media (max-width: 576px) {
-
-    .know-our-story-section-wrapper {
-      padding: 1rem;
-    }
-
-    .know-our-story-section__row-1-video-wrapper {
-      height: auto;
-    }
-
-    .video-toggle-btn {
-      font-size: 1rem;
-      padding: 0.6rem 1.2rem;
-    }
-
-    .quality-card {
-      padding: 16px;
-    }
-
-    .quality-card__heading {
-      font-size: 18px;
-    }
-
-    .quality-card__text {
-      font-size: 14px;
-    }
-
-    .policy-card__icon-wrapper {
-      width: 1.8rem;
-      height: 1.8rem;
-    }
-
-    .policy-card__text {
-      font-size: 12px;
-    }
-  }
-
-
-  /* ------------------------------------------------------
-    EXTRA SMALL MOBILE (max-width: 420px)
-  ------------------------------------------------------ */
-  @media (max-width: 420px) {
-
-    .know-our-story-section__row-1-content__heading {
-      font-size: 1.4rem;
-    }
-
-    .know-our-story-section__row-1-content__content p {
-      font-size: 0.95rem;
-    }
-
-    .quality-card {
-      padding: 14px;
-      gap: 10px;
-    }
-
-    .quality-card__heading {
-      font-size: 16px;
-    }
-
-    .quality-card__text {
-      font-size: 13px;
-    }
-
-    .policy-card {
-      gap: 0.5rem;
-    }
-  }
-
 </style>
 
 {% comment %} SWIPER INITIALIZER {% endcomment %}
@@ -454,27 +318,40 @@
 </script>
 
 <script>
-  document.addEventListener('DOMContentLoaded', initVideoController);
+  document.addEventListener("DOMContentLoaded", initVideoController);
+  document.addEventListener("shopify:section:load", initVideoController);
 
   function initVideoController() {
-    const allVideos = Array.from(document.querySelectorAll('video'));
-    const buttons = Array.from(document.querySelectorAll('.video-toggle-btn'));
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        let video = e.currentTarget.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video');
-        console.log('Target video -> ', video);
-        console.log('Clicking when video is', e.currentTarget.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video'));
-        console.log('Clicking when video is', e.currentTarget.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video').paused);
-        if (e.currentTarget.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video').paused) {
-          await video.play();
-          btn.textContent = 'Pause';
-        } else {
-          console.log('ELSE Clicking when video is played');
-          video.pause();
-          btn.textContent = 'Play';
-        }
+    console.log("SECTION ---->");
 
-        // Pausing previously played videos
+    const allVideos = Array.from(document.querySelectorAll("video"));
+    console.log("All videos: ", allVideos);
+
+    const buttons = Array.from(document.querySelectorAll(".video-toggle-btn"));
+    // console.log("All buttons: ", buttons);
+
+    buttons.forEach((btn) => {
+
+      // ❗ Prevent multiple event bindings when section reloads
+      if (btn.dataset.initialized === "true") {
+        return;
+      }
+      btn.dataset.initialized = "true";
+
+      btn.addEventListener("click", async (e) => {
+        e.stopPropagation();
+        // console.log("Button clicked -> ", btn);
+
+
+
+        // Reset all button labels
+        buttons.forEach((b) => (b.textContent = "Play"));
+
+        const video = btn
+          .closest(".know-our-story-section__row-1-video-wrapper")
+          .querySelector("video");
+
+        // Pause all other videos
         allVideos.forEach((vid) => {
           if(vid == video){
             console.log("Apna vdo chal raha hai.....");
@@ -483,14 +360,27 @@
           if (!vid.paused) vid.pause();
         });
 
-        //  Reset all button texts here
-        buttons.forEach((b) => {
-          b.textContent = 'Play';
-        });
+        console.log("Target video -> ", video);
+        console.log("Video paused state -> ", video.paused);
 
-      }); // btn evnt
-    }); // btns foreach
-  } // fnc
+        try {
+          if (video.paused) {
+            console.log("Button clicked when vdo is paused");
+
+            await video.play();
+            btn.textContent = "Pause";
+          } else {
+            console.log("Button clicked when vdo is playing");
+            video.pause();
+            btn.textContent = "Play";
+          }
+        } catch (error) {
+          console.error("Error playing the video.......", error);
+          return;
+        }
+      }); // click handler ends
+    }); // buttons loop ends
+  } // init ends
 </script>
 
 {% comment %} VIDEO PLAY-PAUSE ON SCROLL EDGE CASE SCRIPT {% endcomment %}
