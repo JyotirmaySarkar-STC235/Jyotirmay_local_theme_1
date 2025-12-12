@@ -104,8 +104,6 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-  
-    
   }
 
 
@@ -301,137 +299,137 @@
   /* ------------------------------------------------------
    TABLETS (max-width: 1024px)
 ------------------------------------------------------ */
-@media (max-width: 1024px) {
-  .know-our-story-section__row-1 {
-    gap: 1.5rem;
+  @media (max-width: 1024px) {
+    .know-our-story-section__row-1 {
+      gap: 1.5rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 50%;
+    }
+
+    .quality-card {
+      padding: 20px;
+    }
+
+    .quality-card__text {
+      max-width: 100%;
+    }
   }
 
-  .know-our-story-section__row-1-video-wrapper,
-  .know-our-story-section__row-1-content-wrapper {
-    width: 50%;
+
+  /* ------------------------------------------------------
+    LARGE MOBILE (max-width: 768px)
+  ------------------------------------------------------ */
+  @media (max-width: 768px) {
+
+    .know-our-story-section-wrapper {
+      padding: 1.5rem;
+    }
+
+    .know-our-story-section__row-1 {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 100%;
+    }
+
+    .know-our-story-section__row-1-content__heading {
+      font-size: 1.6rem;
+    }
+
+    .know-our-story-section__row-1-content__btn {
+      width: auto;
+      padding: 0.6rem 1.4rem;
+    }
+
+    .policy-card__text {
+      font-size: 12px;
+    }
+
+    /* Row 2 - Policy cards */
+    .know-our-story-section__row-2 {
+      gap: 12px;
+    }
   }
 
-  .quality-card {
-    padding: 20px;
+
+  /* ------------------------------------------------------
+    SMALL MOBILE (max-width: 576px)
+  ------------------------------------------------------ */
+  @media (max-width: 576px) {
+
+    .know-our-story-section-wrapper {
+      padding: 1rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper {
+      height: auto;
+    }
+
+    .video-toggle-btn {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+
+    .quality-card {
+      padding: 16px;
+    }
+
+    .quality-card__heading {
+      font-size: 18px;
+    }
+
+    .quality-card__text {
+      font-size: 14px;
+    }
+
+    .policy-card__icon-wrapper {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    .policy-card__text {
+      font-size: 12px;
+    }
   }
 
-  .quality-card__text {
-    max-width: 100%;
+
+  /* ------------------------------------------------------
+    EXTRA SMALL MOBILE (max-width: 420px)
+  ------------------------------------------------------ */
+  @media (max-width: 420px) {
+
+    .know-our-story-section__row-1-content__heading {
+      font-size: 1.4rem;
+    }
+
+    .know-our-story-section__row-1-content__content p {
+      font-size: 0.95rem;
+    }
+
+    .quality-card {
+      padding: 14px;
+      gap: 10px;
+    }
+
+    .quality-card__heading {
+      font-size: 16px;
+    }
+
+    .quality-card__text {
+      font-size: 13px;
+    }
+
+    .policy-card {
+      gap: 0.5rem;
+    }
   }
-}
-
-
-/* ------------------------------------------------------
-   LARGE MOBILE (max-width: 768px)
------------------------------------------------------- */
-@media (max-width: 768px) {
-
-  .know-our-story-section-wrapper {
-    padding: 1.5rem;
-  }
-
-  .know-our-story-section__row-1 {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
-
-  .know-our-story-section__row-1-video-wrapper,
-  .know-our-story-section__row-1-content-wrapper {
-    width: 100%;
-  }
-
-  .know-our-story-section__row-1-content__heading {
-    font-size: 1.6rem;
-  }
-
-  .know-our-story-section__row-1-content__btn {
-    width: auto;
-    padding: 0.6rem 1.4rem;
-  }
-
-  .policy-card__text {
-    font-size: 12px;
-  }
-
-  /* Row 2 - Policy cards */
-  .know-our-story-section__row-2 {
-    gap: 12px;
-  }
-}
-
-
-/* ------------------------------------------------------
-   SMALL MOBILE (max-width: 576px)
------------------------------------------------------- */
-@media (max-width: 576px) {
-
-  .know-our-story-section-wrapper {
-    padding: 1rem;
-  }
-
-  .know-our-story-section__row-1-video-wrapper {
-    height: auto;
-  }
-
-  .video-toggle-btn {
-    font-size: 1rem;
-    padding: 0.6rem 1.2rem;
-  }
-
-  .quality-card {
-    padding: 16px;
-  }
-
-  .quality-card__heading {
-    font-size: 18px;
-  }
-
-  .quality-card__text {
-    font-size: 14px;
-  }
-
-  .policy-card__icon-wrapper {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-
-  .policy-card__text {
-    font-size: 12px;
-  }
-}
-
-
-/* ------------------------------------------------------
-   EXTRA SMALL MOBILE (max-width: 420px)
------------------------------------------------------- */
-@media (max-width: 420px) {
-
-  .know-our-story-section__row-1-content__heading {
-    font-size: 1.4rem;
-  }
-
-  .know-our-story-section__row-1-content__content p {
-    font-size: 0.95rem;
-  }
-
-  .quality-card {
-    padding: 14px;
-    gap: 10px;
-  }
-
-  .quality-card__heading {
-    font-size: 16px;
-  }
-
-  .quality-card__text {
-    font-size: 13px;
-  }
-
-  .policy-card {
-    gap: 0.5rem;
-  }
-}
 
 </style>
 
@@ -478,10 +476,11 @@
 
         // Pausing previously played videos
         allVideos.forEach((vid) => {
-          console.log('Checking video -> ', vid);
-          if (!vid.paused) {
-            vid.pause();
+          if(vid == video){
+            console.log("Apna vdo chal raha hai.....");
+            return;
           }
+          if (!vid.paused) vid.pause();
         });
 
         //  Reset all button texts here
