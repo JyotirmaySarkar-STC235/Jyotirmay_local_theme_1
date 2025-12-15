@@ -457,10 +457,10 @@
   document.addEventListener('shopify:section:load', initVideoController);
 
   function initVideoController() {
-    console.log('SECTION ---->');
+    // console.log('SECTION ---->');
 
     const allVideos = Array.from(document.querySelectorAll('video'));
-    console.log('All videos: ', allVideos);
+    // console.log('All videos: ', allVideos);
 
     const buttons = Array.from(document.querySelectorAll('.video-toggle-btn'));
     // console.log("All buttons: ", buttons);
@@ -484,23 +484,23 @@
         // Pause all other videos
         allVideos.forEach((vid) => {
           if (vid == video) {
-            console.log('Apna vdo chal raha hai.....');
+            // console.log('Apna vdo chal raha hai.....');
             return;
           }
           if (!vid.paused) vid.pause();
         });
 
-        console.log('Target video -> ', video);
-        console.log('Video paused state -> ', video.paused);
+        // console.log('Target video -> ', video);
+        // console.log('Video paused state -> ', video.paused);
 
         try {
           if (video.paused) {
-            console.log('Button clicked when vdo is paused');
+            // console.log('Button clicked when vdo is paused');
 
             await video.play();
             btn.textContent = 'Pause';
           } else {
-            console.log('Button clicked when vdo is playing');
+            // console.log('Button clicked when vdo is playing');
             video.pause();
             btn.textContent = 'Play';
           }
