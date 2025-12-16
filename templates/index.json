@@ -446,6 +446,13 @@
         "story_read_more_button_label_arrow": "shopify://shop_images/Vector.png",
         "story_read_more_button_url": "shopify://blogs/news"
       }
+    },
+    "section_limited_products_Tcnwpm": {
+      "type": "section-limited-products",
+      "name": "Limited products",
+      "settings": {
+        "limited_products_collection": "backpacks"
+      }
     }
   },
   "order": [
@@ -456,6 +463,7 @@
     "section_know_our_story_zKVjaY",
     "section_know_our_story_cnFHMq",
     "section_know_our_story_gV8bCd",
-    "section_know_our_story_ttx8PX"
+    "section_know_our_story_ttx8PX",
+    "section_limited_products_Tcnwpm"
   ]
 }
