@@ -1,8 +1,7 @@
-console.log("Hello world.....");
-const API_Access_Token = '1bfb25e9e643afa7eb514b2a3f5f84a5';
+const API_Access_Token = "1bfb25e9e643afa7eb514b2a3f5f84a5";
 
-const STOREFRONT_TOKEN = '1bfb25e9e643afa7eb514b2a3f5f84a5';
-const SHOP_DOMAIN = 'training-playground.myshopify.com';
+const STOREFRONT_TOKEN = "1bfb25e9e643afa7eb514b2a3f5f84a5";
+const SHOP_DOMAIN = "training-playground.myshopify.com";
 
 const query = `
     query getCollectionProducts($handle: String!) {
@@ -53,58 +52,61 @@ const query = `
   `;
 
 async function fetchCollectionProducts(collectionHandle) {
-    try {
-        const response = await fetch(`https://${SHOP_DOMAIN}/api/2025-10/graphql.json`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Shopify-Storefront-Access-Token': STOREFRONT_TOKEN,
-            },
-            body: JSON.stringify({
-                query,
-                variables: {
-                    handle: collectionHandle,
-                },
-            }),
-        });
+  try {
+    const response = await fetch(
+      `https://${SHOP_DOMAIN}/api/2025-10/graphql.json`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Shopify-Storefront-Access-Token": STOREFRONT_TOKEN,
+        },
+        body: JSON.stringify({
+          query,
+          variables: {
+            handle: collectionHandle,
+          },
+        }),
+      }
+    );
 
-        const data = await response.json();
+    const data = await response.json();
 
-        if (data.errors) {
-            console.error('GraphQL errors:', data.errors);
-            return;
-        }
-
-        console.log('Products:', data.data.collection.products.edges);
-        return data.data.collection.products.edges;
-    } catch (error) {
-        console.error('Fetch error:', error);
+    if (data.errors) {
+      console.error("GraphQL errors:", data.errors);
+      return;
     }
+
+    // console.log('Products:', data.data.collection.products.edges);
+    return data.data.collection.products.edges;
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
 }
 
 //   Products card loop
 
 function renderProductCards(products) {
-    const cardList = document.querySelector('.limited-products__card-list');
-    if (!cardList) {
-        console.log('Card list nhi hai');
-        return;
-    }
+  const cardList = document.querySelector(".limited-products__card-list");
+  if (!cardList) {
+    // console.log('Card list nhi hai');
+    return;
+  }
 
-    cardList.innerHTML = '';
+  cardList.innerHTML = "";
 
-    products.forEach(({ node: product }) => {
-        const { title, handle, featuredImage, priceRange, variants } = product;
+  products.forEach(({ node: product }) => {
+    const { title, handle, featuredImage, priceRange, variants } = product;
 
-        const hasMultipleVariants = variants.edges.length > 1;
-        const firstVariant = variants.edges[0]?.node;
+    const hasMultipleVariants = variants.edges.length > 1;
+    const firstVariant = variants.edges[0]?.node;
 
-        const cardHTML = `
+    const cardHTML = `
         <div class="limited-product-card">
           
           <a href="/products/${handle}" class="limited-product-card__image">
             <img 
-              src="${featuredImage?.url || ''}" 
+              src="${featuredImage?.url || ""}" 
               alt="${featuredImage?.altText || title}"
               loading="lazy"
             />
@@ -120,7 +122,8 @@ function renderProductCards(products) {
               ${priceRange.minVariantPrice.currencyCode}
             </p>
 
-            ${hasMultipleVariants
+            ${
+              hasMultipleVariants
                 ? `<a href="/products/${handle}" class="limited-product-card__btn" data-handle="${handle}">
                     Check the product
                   </a>`
@@ -135,19 +138,18 @@ function renderProductCards(products) {
         </div>
       `;
 
-        cardList.insertAdjacentHTML('beforeend', cardHTML);
-    });
+    cardList.insertAdjacentHTML("beforeend", cardHTML);
+  });
 }
 
 // INIT
 
 async function initLimitedProducts() {
-    const section = document.querySelector('.limited-products__wrapper');
-    const collectionHandle = section.dataset.collectionHandle;
-    console.log('Collection handle', collectionHandle);
-    const products = await fetchCollectionProducts(collectionHandle);
-    renderProductCards(products);
-    console.log('kam hua ki nhi');
+  const section = document.querySelector(".limited-products__wrapper");
+  const collectionHandle = section.dataset.collectionHandle;
+  // console.log('Collection handle', collectionHandle);
+  const products = await fetchCollectionProducts(collectionHandle);
+  renderProductCards(products);
 }
 
 initLimitedProducts();

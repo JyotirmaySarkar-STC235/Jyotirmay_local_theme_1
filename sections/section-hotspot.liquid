@@ -18,13 +18,14 @@
             data-product-price="{{block.settings.hotspot_product.price}}"
             data-product-image="{{block.settings.hotspot_product.featured_image  |  image_url: width: 200}}"
             data-product-url="{{block.settings.hotspot_product.url}}"
+            data-variant-id="{{block.settings.hotspot_product.selected_or_first_available_variant.id}}"
             data-x-axis="{{block.settings.x_position}}"
             data-y-axis="{{block.settings.y_position}}"
           >
             +
           </button>
         {% else %}
-          <p>Target Product is blank</p>
+          <p>Product is blank</p>
         {% endif %}
       {% endif %}
     {% endfor %}
@@ -83,8 +84,6 @@
   /* Modal container - positioned relative to image */
   #hotspot-modal {
     position: absolute;
-    /* bottom: 50px;
-    left: 20px; */
     z-index: 100;
     opacity: 0;
     visibility: hidden;
@@ -105,7 +104,7 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     padding: 12px;
     width: 300px;
-    height: 153px;
+    height: 130px;
     position: relative;
     overflow: hidden;
   }
@@ -189,11 +188,7 @@
     gap: 6px;
   }
 
-  #hotspot-modal__body .actions form {
-    margin: 0;
-  }
-
-  #hotspot-modal__body .actions button[type='submit'] {
+  #hotspot-modal__body .actions button[data-add-to-cart] {
     width: 100%;
     padding: 6px 12px;
     background: #000;
@@ -206,8 +201,13 @@
     transition: background 0.2s ease;
   }
 
-  #hotspot-modal__body .actions button[type='submit']:hover {
+  #hotspot-modal__body .actions button[data-add-to-cart]:hover {
     background: #333;
+  }
+
+  #hotspot-modal__body .actions button[data-add-to-cart]:disabled {
+    background: #999;
+    cursor: not-allowed;
   }
 
   #hotspot-modal__body .actions a {
@@ -229,14 +229,15 @@
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
-    #hotspot-modal {
-      bottom: 10px;
-      left: 10px;
+    #hotspot-modal__card {
+      width: 280px;
     }
   }
 </style>
 
 <script>
+  console.log("HOTSPOT TEST SECTION .........");
+  
   const hotspotButtons = document.querySelectorAll('.hotspot-btn');
   const modal = document.querySelector('#hotspot-modal');
   const modalCard = document.querySelector('#hotspot-modal__card');
@@ -245,7 +246,7 @@
 
   hotspotButtons.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const { productId, productTitle, productPrice, productImage, productUrl, xAxis, yAxis } = btn.dataset;
+      const { productId, productTitle, productPrice, productImage, productUrl, variantId, xAxis, yAxis } = btn.dataset;
 
       /* 1. Clear modal content */
       modalBody.innerHTML = '';
@@ -259,20 +260,22 @@
             <div class="price">${formatMoney(productPrice)}</div>
           </div>
           <div class="actions">
-            <form method="post" action="/cart/add">
-              <input type="hidden" name="id" value="${productId}">
-              <button type="submit">Add to cart</button>
-            </form>
+            <button type="button" data-add-to-cart data-variant-id="${variantId}">Add to cart</button>
             <a href="${productUrl}">View product</a>
           </div>
         </div>
       `;
 
-      /* 3. Show modal */
+      /* 3. Attach event listener to add to cart button */
+      const addToCartBtn = modalBody.querySelector('[data-add-to-cart]');
+      addToCartBtn.addEventListener('click', () => handleAddToCart(variantId, addToCartBtn));
+
+      /* 4. Position modal based on button location */
+      positionModal(xAxis, yAxis);
+
+      /* 5. Show modal */
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
-
-      positionTheModal(xAxis, yAxis, modal)
     });
   });
 
@@ -285,38 +288,94 @@
 
   /* ---------------- Helpers ---------------- */
 
+  async function handleAddToCart(variantId, button) {
+    if(!variantId){
+      console.log("Variant ID nhi mili.....");
+      return;
+      
+    }
+    console.log("Variant ID ->", variantId);
+    
+    // Disable button during request
+    button.disabled = true;
+    const originalText = button.textContent;
+    button.textContent = 'Adding...';
+
+    try {
+      const response = await fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: variantId,
+          quantity: 1
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add to cart');
+      }
+
+      const data = await response.json();
+      
+      // Success feedback
+      button.textContent = 'Added ✓';
+      
+      // Optional: Trigger cart drawer or update cart count
+      // You can dispatch a custom event here if your theme has a cart drawer
+      document.dispatchEvent(new CustomEvent('cart:updated'));
+
+      // Reset button after 2 seconds
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 2000);
+
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+      button.textContent = 'Error - Try again';
+      
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 2000);
+    }
+  }
+
+  function positionModal(xAxis, yAxis) {
+    const x = parseFloat(xAxis);
+    const y = parseFloat(yAxis);
+
+    // Reset all position properties first
+    modal.style.left = '';
+    modal.style.right = '';
+    modal.style.top = '';
+    modal.style.bottom = '';
+
+    // Determine quadrant and position accordingly
+    if (x <= 50 && y <= 50) {
+      // Top Left
+      modal.style.left = '20px';
+      modal.style.top = '50px';
+    } else if (x <= 50 && y > 50) {
+      // Bottom Left
+      modal.style.left = '20px';
+      modal.style.bottom = '50px';
+    } else if (x > 50 && y <= 50) {
+      // Top Right
+      modal.style.right = '20px';
+      modal.style.top = '50px';
+    } else {
+      // Bottom Right
+      modal.style.right = '20px';
+      modal.style.bottom = '50px';
+    }
+  }
+
   function formatMoney(cents) {
     if (!cents) return '';
     return `₹${Number(cents).toFixed(2)}`;
-  }
-
-  function positionTheModal (x, y, target){
-    console.log("Target is =>", target);
-    target.style.width = "300px"
-    
-    
-    if(x < 50 && y < 50 ) {
-      // TOP - LEFT
-      console.log("TOP - LEFT");
-      target.style.top = "50px"
-      target.style.left = "20px"
-      
-    } else if (x < 50 && y > 50) {
-      // BOTTOM - LEFT
-      console.log("BOTTOM - LEFT");
-      target.style.bottom = "50px"
-      target.style.left = "20px"
-    } else if (x > 50 && y < 50) {
-      // TOP - RIGHT
-      console.log("TOP - RIGHT");
-      target.style.top = "50px"
-      target.style.right = "20px"
-    } else {
-      // BOTTOM - RIGHT
-      console.log("BOTTOM - RIGHT");
-      target.style.bottom = "50px"
-      target.style.right = "20px"
-    }
   }
 </script>
 
@@ -365,7 +424,7 @@
   ],
   "presets": [
     {
-      "name": "Hotspot Section TEST"
+      "name": "Hotspot Section"
     }
   ]
 }
