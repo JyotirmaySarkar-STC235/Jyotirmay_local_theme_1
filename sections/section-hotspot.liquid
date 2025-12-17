@@ -236,8 +236,6 @@
 </style>
 
 <script>
-  console.log("HOTSPOT TEST SECTION .........");
-  
   const hotspotButtons = document.querySelectorAll('.hotspot-btn');
   const modal = document.querySelector('#hotspot-modal');
   const modalCard = document.querySelector('#hotspot-modal__card');
@@ -289,13 +287,10 @@
   /* ---------------- Helpers ---------------- */
 
   async function handleAddToCart(variantId, button) {
-    if(!variantId){
-      console.log("Variant ID nhi mili.....");
+    if (!variantId) {
       return;
-      
     }
-    console.log("Variant ID ->", variantId);
-    
+
     // Disable button during request
     button.disabled = true;
     const originalText = button.textContent;
@@ -309,8 +304,8 @@
         },
         body: JSON.stringify({
           id: variantId,
-          quantity: 1
-        })
+          quantity: 1,
+        }),
       });
 
       if (!response.ok) {
@@ -318,10 +313,10 @@
       }
 
       const data = await response.json();
-      
+
       // Success feedback
       button.textContent = 'Added ✓';
-      
+
       // Optional: Trigger cart drawer or update cart count
       // You can dispatch a custom event here if your theme has a cart drawer
       document.dispatchEvent(new CustomEvent('cart:updated'));
@@ -332,10 +327,58 @@
         button.disabled = false;
       }, 2000);
 
+      // FETCH UPDATED CART DRAWER HTML
+      const cartResponse = await fetch('/cart?section_id=cart-drawer');
+      const cartText = await cartResponse.text();
+
+      const dom = new DOMParser();
+      const content = dom.parseFromString(cartText, 'text/html');
+
+      // GRAB UPDATED CART DRAWER CONTENT
+      const requiredHTML = content.querySelector('#CartDrawer');
+      if (!requiredHTML) return;
+
+      // IF CART HAS NOTHING THEN DO THIS....````````````````````````````
+      
+      if(document.querySelector(".is-empty")){
+        document.querySelector(".drawer__inner-empty").remove()
+        document.querySelector(".is-empty").classList.remove("is-empty")
+      }
+
+      // REPLACE INNER CONTENT
+      document.querySelector('#CartDrawer').innerHTML = requiredHTML.innerHTML;
+
+      // OPEN CART DRAWER
+      document.querySelector('cart-drawer').classList.add('active');
+
+      // RE-ATTACH EVENT ON OVERLAY
+      document.querySelector("#CartDrawer-Overlay").addEventListener("click", (e)=>{
+        document.querySelector('cart-drawer').classList.remove('active')
+      })
+
+      // UPDATE CART BUBBLE COUNT
+
+      const cartRes = await fetch('/cart.js');
+      const cart = await cartRes.json();
+      const updatedCartCount = cart?.item_count || 1;
+      
+      let bubble = document.querySelector(".cart-count-bubble");
+      if(bubble) {
+        document.querySelector(".cart-count-bubble").querySelector("span").innerText = updatedCartCount
+      } else {
+        let myBuble = document.createElement("div")
+        myBuble.classList.add("cart-count-bubble")
+        myBuble.innerHTML = `
+          <span aria-hidden="true">1</span><span class="visually-hidden">1 item</span>
+        `
+        document.querySelector("#cart-icon-bubble").appendChild(myBuble)
+      }
+
+      
     } catch (error) {
       console.error('Error adding to cart:', error);
       button.textContent = 'Error - Try again';
-      
+
       setTimeout(() => {
         button.textContent = originalText;
         button.disabled = false;
@@ -375,7 +418,7 @@
 
   function formatMoney(cents) {
     if (!cents) return '';
-    return `₹${Number(cents).toFixed(2)}`;
+    return `₹${(Number(cents)/100).toFixed(2)}`;
   }
 </script>
 
