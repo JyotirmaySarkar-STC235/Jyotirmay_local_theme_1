@@ -457,6 +457,14 @@
     "section_hotspot_aHR8wC": {
       "type": "section-hotspot",
       "blocks": {
+        "hotspot_ncJYk4": {
+          "type": "hotspot",
+          "settings": {
+            "x_position": 8,
+            "y_position": 48,
+            "hotspot_product": "levis-commuter-504-regular-straight-jeans"
+          }
+        },
         "hotspot_XXWqcB": {
           "type": "hotspot",
           "settings": {
@@ -467,6 +475,7 @@
         }
       },
       "block_order": [
+        "hotspot_ncJYk4",
         "hotspot_XXWqcB"
       ],
       "name": "Hotspot Section",
