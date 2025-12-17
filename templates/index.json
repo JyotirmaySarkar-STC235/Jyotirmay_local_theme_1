@@ -453,6 +453,26 @@
       "settings": {
         "limited_products_collection": "backpacks"
       }
+    },
+    "section_hotspot_aHR8wC": {
+      "type": "section-hotspot",
+      "blocks": {
+        "hotspot_XXWqcB": {
+          "type": "hotspot",
+          "settings": {
+            "x_position": 20,
+            "y_position": 20,
+            "hotspot_product": "the-explorer"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_XXWqcB"
+      ],
+      "name": "Hotspot Section",
+      "settings": {
+        "hotspot_section_image": "shopify://shop_images/Hero_66b66aa2-9967-4141-943d-8b974e654cda.jpg"
+      }
     }
   },
   "order": [
@@ -464,6 +484,7 @@
     "section_know_our_story_cnFHMq",
     "section_know_our_story_gV8bCd",
     "section_know_our_story_ttx8PX",
-    "section_limited_products_Tcnwpm"
+    "section_limited_products_Tcnwpm",
+    "section_hotspot_aHR8wC"
   ]
 }
