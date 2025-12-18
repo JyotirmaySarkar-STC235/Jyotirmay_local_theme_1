@@ -13,8 +13,8 @@
   </div>
 
   {% comment %} rows for cards sliders {% endcomment %}
-  <div id="conditional-row-2-{{ section.id }}" class="home__conditional-collection-row-2 mySwiper swiper ">
-    <div class="home__conditional-collection-row-2 swiper-wrapper">
+  <div id="conditional-row-2-{{ section.id }}" class="home__conditional-collection-row-2 mySwiper swiper">
+    <div class="swiper-wrapper">
       {% for product in section.settings.toggle_collection_1.products %}
         <div class="conditional-product-card swiper-slide">
           {% render 'card-product' card_product: product %}

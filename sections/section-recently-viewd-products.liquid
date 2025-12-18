@@ -7,21 +7,48 @@
 </div>
 
 <style>
+  .recently-viewed{
+    background-color: rgb(222, 193, 124);
+    padding: 1rem;
+    
+  }
+  .recently-viewed__heading {
+    text-align: center;
+  }
   .recently-viewed__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 16px;
+    overflow: auto;
+    justify-items: center;
+    align-items: center;
+    padding: 2rem;
   }
 
   .recently-viewed-card {
     text-decoration: none;
     color: inherit;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgb(200, 0, 0);
+  }
+  .recently-viewed-card:hover {
+     box-shadow: 0px 3px 7px;
+     transform: scale(1.1)
   }
 
   .recently-viewed-card img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .recently-viewed-peoduct__title {
+    font-size: 1.1rem;
   }
 
   .price {
@@ -134,7 +161,7 @@
               : ``
           }
 
-          <h3>${product.title}</h3>
+          <h3 class="recently-viewed-peoduct__title">${product.title}</h3>
 
           <p class="price">
             ${price.amount} ${price.currencyCode}

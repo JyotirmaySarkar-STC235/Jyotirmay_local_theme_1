@@ -1,0 +1,165 @@
+{% comment %}
+  Video Section using <video-player> Web Component
+{% endcomment %}
+
+<section class="video-section">
+  {% if section.settings.heading != blank %}
+    <h2 class="video-section__heading">
+      {{ section.settings.heading }}
+    </h2>
+  {% endif %}
+
+  <div class="video-section__list">
+    {% for block in section.blocks %}
+      {% if block.type == 'video' %}
+        <video-player
+          video-src="{{ block.settings.video_url }}"
+          video-poster="{{ block.settings.poster | image_url }}"
+        ></video-player>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+{% javascript %}
+  if (!customElements.get('video-player')) {
+    class VideoComponent extends HTMLElement {
+      static currentlyPlaying = null;
+
+      constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
+
+        this.handleClick = this.togglePlay.bind(this);
+        this.handlePlay = this.onPlay.bind(this);
+        this.handlePause = this.onPause.bind(this);
+
+        this.shadowRoot.innerHTML = `
+          <style>
+            :host {
+              display: block;
+              max-width: 800px;
+            }
+            .wrapper {
+              position: relative;
+            }
+            video {
+              width: 100%;
+              display: block;
+            }
+            button {
+              position: absolute;
+              inset: auto auto 1rem 1rem;
+              padding: 0.5rem 1rem;
+              background: black;
+              color: white;
+              border: none;
+              cursor: pointer;
+            }
+          </style>
+
+          <div class="wrapper">
+            <video playsinline></video>
+            <button type="button">Play</button>
+          </div>
+        `;
+      }
+
+      connectedCallback() {
+        this.video = this.shadowRoot.querySelector("video");
+        this.button = this.shadowRoot.querySelector("button");
+
+        const src = this.getAttribute("video-src");
+        const poster = this.getAttribute("video-poster");
+
+        if (src) this.video.src = src;
+        if (poster) this.video.poster = poster;
+
+        this.button.addEventListener("click", this.handleClick);
+        this.video.addEventListener("play", this.handlePlay);
+        this.video.addEventListener("pause", this.handlePause);
+      }
+
+      disconnectedCallback() {
+        this.button.removeEventListener("click", this.handleClick);
+        this.video.removeEventListener("play", this.handlePlay);
+        this.video.removeEventListener("pause", this.handlePause);
+
+        if (VideoComponent.currentlyPlaying === this.video) {
+          VideoComponent.currentlyPlaying = null;
+        }
+      }
+
+      handleClick() {
+        this.togglePlay();
+      }
+
+      togglePlay() {
+        if (this.video.paused) {
+          this.video.play();
+        } else {
+          this.video.pause();
+        }
+      }
+
+      onPlay() {
+        if (
+          VideoComponent.currentlyPlaying &&
+          VideoComponent.currentlyPlaying !== this.video
+        ) {
+          VideoComponent.currentlyPlaying.pause();
+        }
+
+        VideoComponent.currentlyPlaying = this.video;
+        this.button.textContent = "Pause";
+      }
+
+      onPause() {
+        if (VideoComponent.currentlyPlaying === this.video) {
+          VideoComponent.currentlyPlaying = null;
+        }
+
+        this.button.textContent = "Play";
+      }
+    }
+
+    customElements.define("video-player", VideoComponent);
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "My Video Section ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Videos"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video_url",
+          "label": "Video URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "My Video Section"
+    }
+  ]
+}
+{% endschema %}
