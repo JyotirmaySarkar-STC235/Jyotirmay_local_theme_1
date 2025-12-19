@@ -503,76 +503,6 @@
       "settings": {
         "custom_component_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4"
       }
-    },
-    "featured_product_ahrypg": {
-      "type": "featured-product",
-      "blocks": {
-        "text_3Na9tr": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_j9cyi3": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "price_CmrFPq": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_qcUXFh": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_cCXjVK": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_CJf67D": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "share_yfQYjj": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_3Na9tr",
-        "title_j9cyi3",
-        "price_CmrFPq",
-        "variant_picker_qcUXFh",
-        "quantity_selector_cCXjVK",
-        "buy_buttons_CJf67D",
-        "share_yfQYjj"
-      ],
-      "name": "t:sections.featured-product.presets.name",
-      "settings": {
-        "product": "",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -587,7 +517,6 @@
     "section_limited_products_Tcnwpm",
     "section_hotspot_aHR8wC",
     "section_video_component_test_t8H3TD",
-    "section_video_component_test_bL6iPx",
-    "featured_product_ahrypg"
+    "section_video_component_test_bL6iPx"
   ]
 }
