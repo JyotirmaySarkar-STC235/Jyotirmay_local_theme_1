@@ -1,6 +1,4 @@
-{% comment %} <div class="my-video-wrapper">
-  <video class="my-video" src="{{ section.settings.custom_component_video.sources[0].url }}"></video>
-</div> {% endcomment %}
+
 
 <my-video-player
     video-src="{{ section.settings.custom_component_video.sources[0].url }}"
@@ -8,18 +6,6 @@
 
 
 
-{% comment %} <style>
-  .my-video-wrapper {
-    width: 400px;
-    height: 400px;
-  }
-
-  .my-video {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-</style> {% endcomment %}
 
 <script>
   class MyVideoComponent extends HTMLElement {
@@ -82,7 +68,23 @@
         })
 
         // ATTACH A PLAY EVENT IN THE VIDEO AND WHEN A VIDEO IS PLAYING DISPATCH A CUSTOM EVENT 
+        this.video.addEventListener("play", ()=>{
+            const videoPlayingEvent = new CustomEvent("video-playing", {
+                bubbles: true,
+                composed: true,
+                detail: {
+                    videoElement: this.video
+                }
+            })
+            this.dispatchEvent(videoPlayingEvent)
+        })
         // ATTACH A EVENT LISTENER IN THE DOCUMENT LEVEL AND FROM THERE PAUSE THE VIDEO
+        document.addEventListener("video-playing", (event)=>{
+            if(event.detail.videoElement !== this.video){
+                this.video.pause()
+                this.button.innerText = "Play"
+            }
+        })
 
     }
     disconnectedCallback() {}
