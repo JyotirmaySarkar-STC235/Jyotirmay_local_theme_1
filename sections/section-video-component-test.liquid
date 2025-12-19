@@ -1,13 +1,9 @@
-
-
 <my-video-player
-    video-src="{{ section.settings.custom_component_video.sources[0].url }}"
+  video-src="{{ section.settings.custom_component_video.sources[0].url }}"
 ></my-video-player>
 
-
-
-
 <script>
+    if(!customElements.get('my-video-player')){
   class MyVideoComponent extends HTMLElement {
     constructor() {
       super();
@@ -47,50 +43,79 @@
     }
 
     connectedCallback() {
-        // GETTING THE VIDEO  AND BUTOTN
-        this.video = this.shadowRoot.querySelector("video")
-        this.button = this.shadowRoot.querySelector("button")
+      // GETTING THE VIDEO  AND BUTOTN
+      this.video = this.shadowRoot.querySelector('video');
+      this.button = this.shadowRoot.querySelector('button');
 
-        // GETTING THE SRC FOR THE VIDEO PASSED FROM SCHEMA INPUT
-        this.videoSrc = this.getAttribute("video-src")
+      // GETTING THE SRC FOR THE VIDEO PASSED FROM SCHEMA INPUT
+      this.videoSrc = this.getAttribute('video-src');
 
-        // SET THE SRC FOR THE VIDEO
-        this.video.setAttribute("src", this.videoSrc)
+      // SET THE SRC FOR THE VIDEO
+      this.video.setAttribute('src', this.videoSrc);
 
-        this.button.addEventListener("click", ()=>{
-            if(this.video.paused){
-                this.video.play()
-                this.button.innerText = "Pause"
-            } else {
-                this.video.pause()
-                this.button.innerText = "Play"
-            }
-        })
+      this.button.addEventListener('click', this.togglePlay.bind(this));
 
-        // ATTACH A PLAY EVENT IN THE VIDEO AND WHEN A VIDEO IS PLAYING DISPATCH A CUSTOM EVENT 
-        this.video.addEventListener("play", ()=>{
-            const videoPlayingEvent = new CustomEvent("video-playing", {
-                bubbles: true,
-                composed: true,
-                detail: {
-                    videoElement: this.video
-                }
-            })
-            this.dispatchEvent(videoPlayingEvent)
-        })
-        // ATTACH A EVENT LISTENER IN THE DOCUMENT LEVEL AND FROM THERE PAUSE THE VIDEO
-        document.addEventListener("video-playing", (event)=>{
-            if(event.detail.videoElement !== this.video){
-                this.video.pause()
-                this.button.innerText = "Play"
-            }
-        })
+      // ATTACH A PLAY EVENT IN THE VIDEO AND WHEN A VIDEO IS PLAYING DISPATCH A CUSTOM EVENT
+      this.video.addEventListener('play', this.videoPlayHandler.bind(this));
 
+      // ATTACH A EVENT LISTENER IN THE DOCUMENT LEVEL AND FROM THERE PAUSE THE VIDEO
+      document.addEventListener('video-playing', this.videoPlayinghandler.bind(this));
     }
-    disconnectedCallback() {}
+    
+    disconnectedCallback() {
+      // REMOVE EVENT LISTNER FROM THE DOCUMENT LEVEL
+      document.removeEventListener('video-playing', this.videoPlayinghandler);
+      // REMOVE EVENT LISTENER FROM THE BUTTON
+      this.button.removeEventListener('click', this.togglePlay);
+      // REMOVE EVENT LISTENER FROM THE VIDEO
+      this.video.removeEventListener('play', this.videoPlayHandler);
+    }
+
+    // EVENT HANDLERS
+    togglePlay() {
+      console.log(`video is in paused state: ${this.video.paused}`);
+
+      if (this.video.paused) {
+        this.video.play();
+        this.button.innerText = 'Pause';
+      } else {
+        this.video.pause();
+        this.button.innerText = 'Play';
+      }
+    }
+
+    videoPlayHandler() {
+      console.log(`Video play handler running....`);
+        // PAUSE ALL THE OTHER VIDEOS IN THE DOCUMENT
+      let allVideos = document.querySelectorAll("video")
+      allVideos.forEach(vid => {
+        vid.pause()
+        let btn = vid.parentElement.querySelector("button")
+        if(btn){
+          btn.innerText = "Play"
+        }
+      })
+
+      const videoPlayingEvent = new CustomEvent('video-playing', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          videoElement: this.video,
+        },
+      });
+      this.dispatchEvent(videoPlayingEvent);
+    }
+
+    videoPlayinghandler(e) {
+      if (e.detail.videoElement !== this.video) {
+        this.video.pause();
+        this.button.innerText = 'Play';
+      }
+    }
   }
 
-  customElements.define("my-video-player", MyVideoComponent)
+  customElements.define('my-video-player', MyVideoComponent);
+}
 </script>
 
 {% schema %}
