@@ -17,7 +17,7 @@
     <div class="swiper-wrapper">
       {% for product in section.settings.toggle_collection_1.products %}
         <div class="conditional-product-card swiper-slide">
-          {% render 'card-product' card_product: product %}
+          {% comment %} {% render 'card-product' card_product: product %} {% endcomment %}
           {% comment %} card content {% endcomment %}
           <a href="{{ product.url }}" class="conditional-product-card__image-wrapper">
             {% if product.featured_image != blank %}
