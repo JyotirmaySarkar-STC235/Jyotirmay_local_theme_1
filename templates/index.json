@@ -489,6 +489,20 @@
       "settings": {
         "hotspot_section_image": "shopify://shop_images/Hero_66b66aa2-9967-4141-943d-8b974e654cda.jpg"
       }
+    },
+    "section_video_component_test_t8H3TD": {
+      "type": "section-video-component-test",
+      "name": "Video component test",
+      "settings": {
+        "custom_component_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4"
+      }
+    },
+    "section_video_component_test_bL6iPx": {
+      "type": "section-video-component-test",
+      "name": "Video component test",
+      "settings": {
+        "custom_component_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4"
+      }
     }
   },
   "order": [
@@ -501,6 +515,8 @@
     "section_know_our_story_gV8bCd",
     "section_know_our_story_ttx8PX",
     "section_limited_products_Tcnwpm",
-    "section_hotspot_aHR8wC"
+    "section_hotspot_aHR8wC",
+    "section_video_component_test_t8H3TD",
+    "section_video_component_test_bL6iPx"
   ]
 }
