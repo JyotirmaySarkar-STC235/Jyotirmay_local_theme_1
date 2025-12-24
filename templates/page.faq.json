@@ -64,10 +64,10 @@
       "blocks": {
         "collapsible_row_PBXDdQ": {
           "type": "collapsible_row",
-          "repeater": "{{ page.metafields.custom.qna.value }}",
+          "repeater": "{{ page.metafields.custom.queries.value }}",
           "settings": {
-            "heading": "{{ block.repeater.question.value }}",
-            "row_content": "{{ block.repeater.answer | metafield_tag }}"
+            "heading": "{{ block.repeater.issue.value }}",
+            "row_content": "{{ block.repeater.solution | metafield_tag }}"
           }
         }
       },
