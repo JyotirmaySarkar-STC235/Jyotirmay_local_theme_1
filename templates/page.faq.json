@@ -62,7 +62,7 @@
     "collapsible_content_Y9aURV": {
       "type": "collapsible-content",
       "blocks": {
-        "collapsible_row_akUxcX": {
+        "collapsible_row_PBXDdQ": {
           "type": "collapsible_row",
           "repeater": "{{ page.metafields.custom.qna.value }}",
           "settings": {
@@ -72,7 +72,7 @@
         }
       },
       "block_order": [
-        "collapsible_row_akUxcX"
+        "collapsible_row_PBXDdQ"
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
