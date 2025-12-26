@@ -496,6 +496,11 @@
       "settings": {
         "custom_component_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4"
       }
+    },
+    "section_recently_viewd_products_PamV8w": {
+      "type": "section-recently-viewd-products",
+      "name": "Recently viewed products",
+      "settings": {}
     }
   },
   "order": [
@@ -510,6 +515,7 @@
     "section_limited_products_Tcnwpm",
     "section_hotspot_aHR8wC",
     "section_video_component_test_ifdXgg",
-    "section_video_component_test_gW6kEB"
+    "section_video_component_test_gW6kEB",
+    "section_recently_viewd_products_PamV8w"
   ]
 }
