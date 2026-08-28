@@ -1,0 +1,171 @@
+[section.settings.toggle_collection_1] - {{ section.settings.toggle_collection_1 }}
+
+<div class="home__featured-collection-toggler-wrapper">
+
+  <div class="home__featured-collection-toggler-container">
+    {% comment %} Options {% endcomment %}
+    <div class="home__featured-collection-toggler-options-container">
+      <button id="toggle-option-btn-1" class="option-btn">{{ section.settings.toggle_collection_1.title }}</button>
+      <button id="toggle-option-btn-2" class="option-btn active-option">
+        {{ section.settings.toggle_collection_2.title }}
+      </button>
+    </div>
+
+    {% comment %} Conditional Cards {% endcomment %}
+    {% comment %} Cards of Collection 1 {% endcomment %}
+    <div id="toggler-card-list-1" class="home__featured-collection-toggler-cards-list">
+        {% for product in section.settings.toggle_collection_1.products limit:3 %}
+            <div class="home__featured-collection-toggler-card">
+                {% comment %} <p>{{ product.title }}</p> {% endcomment %}
+                {% comment %} render card section {% endcomment %}
+                {% render 'card-product', card_product: product %}
+            </div>
+        {% endfor %}
+    </div>
+
+
+    {% comment %} Cards of Collection 2 {% endcomment %}
+    <div id="toggler-card-list-2" class="home__featured-collection-toggler-cards-list">
+        {% for product in section.settings.toggle_collection_2.products limit: 3 %}
+            <div class="home__featured-collection-toggler-card">
+                {% comment %} <p>{{ product.title }}</p> {% endcomment %}
+                {% render 'card-product', card_product: product %}
+            </div>
+        {% endfor %}
+    </div>
+    
+  </div>
+
+</div>
+
+<style>
+  .home__featured-collection-toggler {
+      box-sizing: border-box;
+      width: 100%;
+      min-height: 400px;
+  }
+
+  .home__featured-collection-toggler-wrapper {
+      width: 100%;
+      min-height: 400px;
+      padding: 2rem;
+      background-image: url("{{ section.settings.toggle_collection_bg_img | image_url }}");
+      background-position: top left;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row-reverse;
+  }
+
+  .home__featured-collection-toggler-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .home__featured-collection-toggler-options-container {
+      background-color: #F7841D;
+      color: #FFFFFF;
+      width: 280px;
+      height: 80px;
+      border-radius: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+  }
+
+  .option-btn{
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: #FFFFFF;
+      font-size: 1.8rem;
+      font-weight: 500;
+      cursor: pointer;
+
+  }
+
+  .active-option {
+      background-color: #FFFFFF;
+      color:  #F7841D;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+  }
+</style>
+
+<script>
+    let buttons = document.getElementsByClassName("option-btn");
+    let button1 = document.getElementById("toggle-option-btn-1");
+    let button2 = document.getElementById("toggle-option-btn-2");
+
+    let collection1 = document.getElementById("toggler-card-list-1");
+    let collection2 = document.getElementById("toggler-card-list-2");
+
+    for (let i = 0; i < buttons.length; i++) {
+        let button = buttons[i];
+
+        button.addEventListener("click", () => {
+            
+            // Remove active class from both buttons
+            button1.classList.remove("active-option");
+            button2.classList.remove("active-option");
+
+            // Add active class to clicked one
+            button.classList.add("active-option");
+
+            if(button1.classList.contains("active-option")){
+                // grab the second options cards and make their display none
+                collection2.style.display = "none";
+                // grab the first options cards and make their display flex/block
+                collection1.style.display = "flex";
+            } else {
+                // grab the first options cards and make their display none
+                collection1.style.display = "none";
+                // grab the second options cards and make their display flex/block
+                collection2.style.display = "flex";
+            }
+
+        });
+    }
+
+</script>
+
+{% schema %}
+{
+  "name": "Collection toggler",
+  "tag": "section",
+  "class": "home__featured-collection-toggler",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "toggle_collection_bg_img",
+      "label": "Select image"
+    },
+    {
+      "type": "collection",
+      "id": "toggle_collection_1",
+      "label": "Select a collection"
+    },
+    {
+      "type": "collection",
+      "id": "toggle_collection_2",
+      "label": "Select a collection"
+    },
+    {
+      "type": "color_scheme",
+      "id": "toggle_collection_color_scheme",
+      "label": "Select color scheme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection toggler"
+    }
+  ]
+}
+{% endschema %}

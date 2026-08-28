@@ -1,0 +1,188 @@
+<div class="recently-viewed">
+  <h2 class="recently-viewed__heading">Recently Viewed Products</h2>
+
+  <div class="recently-viewed__empty" hidden>No products viewed recently.</div>
+
+  <div class="recently-viewed__grid"></div>
+</div>
+
+<style>
+  .recently-viewed{
+    background-color: rgb(222, 193, 124);
+    padding: 1rem;
+    
+  }
+  .recently-viewed__heading {
+    text-align: center;
+  }
+  .recently-viewed__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+    overflow: auto;
+    justify-items: center;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .recently-viewed-card {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgb(200, 0, 0);
+  }
+  .recently-viewed-card:hover {
+     box-shadow: 0px 3px 7px;
+     transform: scale(1.1)
+  }
+
+  .recently-viewed-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .recently-viewed-peoduct__title {
+    font-size: 1.1rem;
+  }
+
+  .price {
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  // let recentlyViewedProductIds = JSON.parse(localStorage.getItem("recentlyViewedProducts"))
+
+  // if(recentlyViewedProductIds.length === 0){
+  //     console.log("NO PRODUCTS VIEWED YET");
+  // } else {
+  //     console.log("RECENTLY VIUEWED PRODUCTS IDs -> ", recentlyViewedProductIds);
+  // }
+
+ function setrecentlyViewedCards () {
+     const RECENTLY_VIEWED_QUERY = `
+  query RecentlyViewedProducts($ids: [ID!]!) {
+    nodes(ids: $ids) {
+      ... on Product {
+        id
+        title
+        handle
+        tags
+        featuredImage {
+          url
+          altText
+        }
+        priceRange {
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+        }
+      }
+    }
+  }
+`;
+
+  const STORAGE_KEY = 'recentlyViewedProducts';
+  const container = document.querySelector('.recently-viewed__grid');
+  const emptyState = document.querySelector('.recently-viewed__empty');
+
+  const storedIds = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+  if (!storedIds.length) {
+    emptyState.hidden = false;
+    return;
+  }
+
+  // Convert numeric IDs → GIDs
+  const productGids = storedIds.map((id) => `gid://shopify/Product/${id}`);
+
+  fetch('/api/2024-04/graphql.json', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Shopify-Storefront-Access-Token': '1bfb25e9e643afa7eb514b2a3f5f84a5',
+    },
+    body: JSON.stringify({
+      query: RECENTLY_VIEWED_QUERY,
+      variables: {
+        ids: productGids,
+      },
+    }),
+  })
+    .then((res) => res.json())
+    .then(({ data }) => {
+      if (!data || !data.nodes.length) {
+        emptyState.hidden = false;
+        return;
+      }
+
+      // Reorder products based on localStorage order
+      const orderMap = storedIds.reduce((acc, id, index) => {
+        acc[id] = index;
+        return acc;
+      }, {});
+
+      const products = data.nodes.filter(Boolean).sort((a, b) => {
+        const aId = a.id.split('/').pop();
+        const bId = b.id.split('/').pop();
+        return orderMap[aId] - orderMap[bId];
+      });
+
+      renderProducts(products);
+    })
+    .catch(() => {
+      emptyState.hidden = false;
+    });
+
+  function renderProducts(products) {
+    container.innerHTML = products
+      .map((product) => {
+        const price = product.priceRange.minVariantPrice;
+        const image = product.featuredImage;
+
+        return `
+        <a href="/products/${product.handle}" class="recently-viewed-card">
+          ${
+            image
+              ? `
+            <img
+              src="${image.url}"
+              alt="${image.altText || product.title}"
+              loading="lazy"
+            >
+          `
+              : ``
+          }
+
+          <h3 class="recently-viewed-peoduct__title">${product.title}</h3>
+
+          <p class="price">
+            ${price.amount} ${price.currencyCode}
+          </p>
+        </a>
+      `;
+      })
+      .join('');
+  }
+ }
+ setrecentlyViewedCards()
+</script>
+
+{% schema %}
+{
+  "name": "Recently viewed products",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Recently viewed products"
+    }
+  ]
+}
+{% endschema %}

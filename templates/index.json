@@ -1,1 +1,521 @@
-{"sections":{"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"Browse our latest products","heading_size":"h0"}},"button":{"type":"buttons","settings":{"button_label_1":"Go to shopping","button_link_1":"shopify:\/\/collections\/all","button_style_secondary_1":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading","button"],"settings":{"image":"shopify:\/\/shop_images\/Bradley_MG_0023_500be83c-9991-4333-8239-ebd8aaa8d13c.jpg","image_overlay_opacity":20,"image_height":"large","image_behavior":"none","desktop_content_position":"bottom-center","desktop_content_alignment":"center","show_text_box":false,"color_scheme":"scheme-4","stack_images_on_mobile":false,"mobile_content_alignment":"center","show_text_below":false}},"featured_collection":{"type":"featured-collection","settings":{"collection":"shoes-copy","products_to_show":8,"title":"Featured products","heading_size":"h2","description":"","show_description":false,"description_style":"body","columns_desktop":4,"enable_desktop_slider":false,"full_width":false,"show_view_all":true,"view_all_style":"solid","color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":false,"quick_add":"none","columns_mobile":"2","swipe_on_mobile":false,"padding_top":44,"padding_bottom":36}},"rich_text_rFwfPq":{"type":"rich-text","blocks":{"heading_WXPckE":{"type":"heading","settings":{"heading":"Be the first one to get...","heading_size":"h1"}},"text_wjhXaA":{"type":"text","settings":{"text":"<p>Go bellow and grab your dream item.<\/p>"}},"button_jMJyXd":{"type":"button","settings":{"button_label":"","button_link":"","button_style_secondary":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading_WXPckE","text_wjhXaA","button_jMJyXd"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"scheme-4","full_width":true,"padding_top":40,"padding_bottom":52}},"slideshow_9PY7YE":{"type":"slideshow","blocks":{"slide_fiAYaK":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/peter-shire-bike.jpg","image_overlay_opacity":0,"heading":"","heading_size":"h1","subheading":"","button_label":"Let's grab it","link":"shopify:\/\/collections\/new-arrivals","button_style_secondary":false,"show_text_box":false,"box_align":"middle-center","text_alignment":"left","text_alignment_mobile":"left","color_scheme":""}}},"block_order":["slide_fiAYaK"],"name":"t:sections.slideshow.presets.name","settings":{"layout":"full_bleed","slide_height":"medium","slider_visual":"counter","auto_rotate":false,"change_slides_speed":5,"image_behavior":"none","show_text_below":true,"accessibility_info":"Slideshow about our brand"}},"multirow_zU9GDj":{"type":"multirow","blocks":{"row_JCy6Ne":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/Bradeley-charlie-lifestyle-brick-web.jpg","caption":"By-cycle","heading":"The best bikes","text":"","button_label":"Check it out","button_link":"shopify:\/\/collections\/shoes-copy"}},"row_YwjjJM":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/50mm-Wheels_Celest_Front_WEB_b2dddd1c-aab8-4d90-ad55-9a211769c171.jpg","caption":"","heading":"Look at our wheels","text":"","button_label":"Click to visit store","button_link":"shopify:\/\/collections\/wheels"}},"row_eTJpKR":{"type":"row","settings":{"image":"shopify:\/\/shop_images\/siva-lifestyle-1.jpg","caption":"Look at the store","heading":"Get your identity","text":"","button_label":"Visit store","button_link":"shopify:\/\/collections\/all"}}},"block_order":["row_JCy6Ne","row_YwjjJM","row_eTJpKR"],"name":"t:sections.multirow.presets.name","settings":{"image_height":"medium","desktop_image_width":"medium","image_layout":"alternate-left","heading_size":"h1","text_style":"body","button_style":"secondary","desktop_content_position":"middle","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"","row_color_scheme":"","padding_top":36,"padding_bottom":36}},"multicolumn_MJqjMh":{"type":"multicolumn","blocks":{"column_xkpDPG":{"type":"column","settings":{"title":"Quality","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}},"column_FEweVb":{"type":"column","settings":{"title":"24 x 7 Customer service","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}},"column_NHmHFq":{"type":"column","settings":{"title":"Fast delivery","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}}},"block_order":["column_xkpDPG","column_FEweVb","column_NHmHFq"],"name":"t:sections.multicolumn.presets.name","settings":{"title":"Why us?","heading_size":"h1","image_width":"full","image_ratio":"adapt","button_label":"Try our products","button_link":"shopify:\/\/collections\/all","columns_desktop":3,"column_alignment":"left","background_style":"primary","color_scheme":"scheme-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"custom_banner_4fAdJr":{"type":"custom-banner","blocks":{"button_y4bUqX":{"type":"button","settings":{"button_text":"Shop All","button_link":"shopify:\/\/collections\/all"}},"button_PpRiei":{"type":"button","settings":{"button_text":"Hello, world!","button_link":""}},"button_KnAQ4f":{"type":"button","settings":{"button_text":"Hello, world!","button_link":""}},"button_RwHMie":{"type":"button","settings":{"button_text":"Hello, world!","button_link":""}}},"block_order":["button_y4bUqX","button_PpRiei","button_KnAQ4f","button_RwHMie"],"name":"Custom banner","settings":{"bgimage":"shopify:\/\/shop_images\/Hero.jpg","heading":"Add your heading here.","subheading":"Add your subheading heading here.","content_text":"Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go. Lorem ipsum dollar go.","horizontal_alignment":"flex-start","vertical_alignment":"flex-start","color_scheme":"scheme-4"}}},"order":["image_banner","featured_collection","rich_text_rFwfPq","slideshow_9PY7YE","multirow_zU9GDj","multicolumn_MJqjMh","custom_banner_4fAdJr"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Browse our latest products",
+            "heading_size": "h0"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Go to shopping",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Muri_Lelu_1.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "top-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4182fafc-8f8a-49eb-a364-218d2a8b7ac8",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "home_page_featured_collection_T6dqxB": {
+      "type": "home-page-featured-collection",
+      "blocks": {
+        "collection_block_pD6mN3": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "seats"
+          }
+        },
+        "collection_block_AnKBb4": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "bike-rack"
+          }
+        },
+        "collection_block_nzLiyU": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "best-seller"
+          }
+        },
+        "collection_block_MwQPwx": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "trousers-pants-copy"
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_pD6mN3",
+        "collection_block_AnKBb4",
+        "collection_block_nzLiyU",
+        "collection_block_MwQPwx"
+      ],
+      "name": "Home page featured collection",
+      "settings": {
+        "section_heading": "GET STARTED",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "section_home_positive_branding_NUbymA": {
+      "type": "section-home-positive-branding",
+      "blocks": {
+        "image_text_block_htAhXz": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/recyclable-packaging.png",
+            "image_text": "Recyclable packaging"
+          }
+        },
+        "image_text_block_tmPAK8": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/cruelty-free-croped.png",
+            "image_text": "Cruelty Free"
+          }
+        },
+        "image_text_block_LA7k9h": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/clean-beauty.png",
+            "image_text": "Clean Beauty"
+          }
+        },
+        "image_text_block_hkmQqj": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/vegan.png",
+            "image_text": "Vegan"
+          }
+        },
+        "image_text_block_ba4VnY": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/sulphate-free.png",
+            "image_text": "Sulphate Free"
+          }
+        },
+        "image_text_block_GewgRb": {
+          "type": "image_text_block",
+          "settings": {
+            "image": "shopify://shop_images/non-toxic.png",
+            "image_text": "Non Toxic"
+          }
+        }
+      },
+      "block_order": [
+        "image_text_block_htAhXz",
+        "image_text_block_tmPAK8",
+        "image_text_block_LA7k9h",
+        "image_text_block_hkmQqj",
+        "image_text_block_ba4VnY",
+        "image_text_block_GewgRb"
+      ],
+      "name": "Home positive branding",
+      "settings": {
+        "section_heading": "Make a good choice",
+        "color_scheme_1": "scheme-95b4c094-4c34-4734-9109-fa86a8ad3091"
+      }
+    },
+    "section_conditional_collection_QPxnNY": {
+      "type": "section-conditional-collection",
+      "name": "Conditional collections",
+      "settings": {
+        "toggle_collection_bg_img": "shopify://shop_images/skincare-essentials-bg.png",
+        "toggle_collection_1": "featured-products",
+        "toggle_collection_2": "seats",
+        "toggle_collection_color_scheme": ""
+      }
+    },
+    "section_know_our_story_zKVjaY": {
+      "type": "section-know-our-story",
+      "blocks": {
+        "policy_item_Ytca46": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/cube.png",
+            "text": "Discrit Packaging",
+            "url": "shopify://policies/shipping-policy"
+          }
+        },
+        "policy_item_3J88e4": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/arrow_back_left_icon_123728_1.png",
+            "text": "15 day return",
+            "url": ""
+          }
+        },
+        "policy_item_m8dEEe": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/Group_236.png",
+            "text": "100% Secure payment",
+            "url": ""
+          }
+        },
+        "quality_card_HWU6WD": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 1",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "quality_card_7FL6pz": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 2",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "quality_card_LzPUtF": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 3",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        }
+      },
+      "block_order": [
+        "policy_item_Ytca46",
+        "policy_item_3J88e4",
+        "policy_item_m8dEEe",
+        "quality_card_HWU6WD",
+        "quality_card_7FL6pz",
+        "quality_card_LzPUtF"
+      ],
+      "name": "Know our story section",
+      "settings": {
+        "know_our_story_color_scheme": "scheme-95b4c094-4c34-4734-9109-fa86a8ad3091",
+        "know_our_story_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4",
+        "know_our_story_heading": "Know our story",
+        "know_our_story_text_1": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured.",
+        "know_our_story_text_2": "Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes.",
+        "story_read_more_button_label": "Read more",
+        "story_read_more_button_label_arrow": "shopify://shop_images/Vector.png",
+        "story_read_more_button_url": "shopify://blogs/news"
+      }
+    },
+    "section_know_our_story_cnFHMq": {
+      "type": "section-know-our-story",
+      "blocks": {
+        "policy_item_dqNkmb": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/cube.png",
+            "text": "Discrit Packaging",
+            "url": "shopify://policies/shipping-policy"
+          }
+        },
+        "policy_item_EFmTqE": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/arrow_back_left_icon_123728_1.png",
+            "text": "15 day return",
+            "url": ""
+          }
+        },
+        "policy_item_hyYWLx": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/Group_236.png",
+            "text": "100% Secure payment",
+            "url": ""
+          }
+        },
+        "quality_card_6yPp4D": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 1",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "quality_card_jtzmJR": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 2",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "quality_card_bRwGMH": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 3",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        }
+      },
+      "block_order": [
+        "policy_item_dqNkmb",
+        "policy_item_EFmTqE",
+        "policy_item_hyYWLx",
+        "quality_card_6yPp4D",
+        "quality_card_jtzmJR",
+        "quality_card_bRwGMH"
+      ],
+      "name": "Know our story section",
+      "settings": {
+        "know_our_story_color_scheme": "scheme-95b4c094-4c34-4734-9109-fa86a8ad3091",
+        "know_our_story_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4",
+        "know_our_story_heading": "Know our story",
+        "know_our_story_text_1": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured.",
+        "know_our_story_text_2": "Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes.",
+        "story_read_more_button_label": "Read more",
+        "story_read_more_button_label_arrow": "shopify://shop_images/Vector.png",
+        "story_read_more_button_url": "shopify://blogs/news"
+      }
+    },
+    "section_know_our_story_gV8bCd": {
+      "type": "section-know-our-story",
+      "blocks": {
+        "policy_item_XzMfek": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/cube.png",
+            "text": "Discrit Packaging",
+            "url": "shopify://policies/shipping-policy"
+          }
+        },
+        "policy_item_egLRC6": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/arrow_back_left_icon_123728_1.png",
+            "text": "15 day return",
+            "url": ""
+          }
+        },
+        "policy_item_9ezGTe": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/Group_236.png",
+            "text": "100% Secure payment",
+            "url": ""
+          }
+        },
+        "quality_card_4Ci3mi": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 1",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "quality_card_JtTRVk": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 2",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "quality_card_APAMpk": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 3",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        }
+      },
+      "block_order": [
+        "policy_item_XzMfek",
+        "policy_item_egLRC6",
+        "policy_item_9ezGTe",
+        "quality_card_4Ci3mi",
+        "quality_card_JtTRVk",
+        "quality_card_APAMpk"
+      ],
+      "name": "Know our story section",
+      "settings": {
+        "know_our_story_color_scheme": "scheme-95b4c094-4c34-4734-9109-fa86a8ad3091",
+        "know_our_story_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4",
+        "know_our_story_heading": "Know our story",
+        "know_our_story_text_1": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured.",
+        "know_our_story_text_2": "Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes.",
+        "story_read_more_button_label": "Read more",
+        "story_read_more_button_label_arrow": "shopify://shop_images/Vector.png",
+        "story_read_more_button_url": "shopify://blogs/news"
+      }
+    },
+    "section_know_our_story_ttx8PX": {
+      "type": "section-know-our-story",
+      "blocks": {
+        "policy_item_XFeGkt": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/cube.png",
+            "text": "Discrit Packaging",
+            "url": "shopify://policies/shipping-policy"
+          }
+        },
+        "policy_item_C4a8LF": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/arrow_back_left_icon_123728_1.png",
+            "text": "15 day return",
+            "url": ""
+          }
+        },
+        "policy_item_bMEqLi": {
+          "type": "policy_item",
+          "settings": {
+            "icon": "shopify://shop_images/Group_236.png",
+            "text": "100% Secure payment",
+            "url": ""
+          }
+        },
+        "quality_card_B3zVMg": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 1",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "quality_card_fTmzpk": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 2",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        },
+        "quality_card_DBfLGW": {
+          "type": "quality_card",
+          "settings": {
+            "quality_card_image": "shopify://shop_images/quality-image.png",
+            "quality_card_heading": "Quality 3",
+            "quality_card_text_content": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+          }
+        }
+      },
+      "block_order": [
+        "policy_item_XFeGkt",
+        "policy_item_C4a8LF",
+        "policy_item_bMEqLi",
+        "quality_card_B3zVMg",
+        "quality_card_fTmzpk",
+        "quality_card_DBfLGW"
+      ],
+      "name": "Know our story section",
+      "settings": {
+        "know_our_story_color_scheme": "scheme-95b4c094-4c34-4734-9109-fa86a8ad3091",
+        "know_our_story_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4",
+        "know_our_story_heading": "Know our story",
+        "know_our_story_text_1": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured.",
+        "know_our_story_text_2": "Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes.",
+        "story_read_more_button_label": "Read more",
+        "story_read_more_button_label_arrow": "shopify://shop_images/Vector.png",
+        "story_read_more_button_url": "shopify://blogs/news"
+      }
+    },
+    "section_limited_products_Tcnwpm": {
+      "type": "section-limited-products",
+      "name": "Limited products",
+      "settings": {
+        "limited_products_collection": "backpacks"
+      }
+    },
+    "section_hotspot_aHR8wC": {
+      "type": "section-hotspot",
+      "blocks": {
+        "hotspot_ncJYk4": {
+          "type": "hotspot",
+          "settings": {
+            "x_position": 8,
+            "y_position": 48,
+            "hotspot_product": "levis-commuter-504-regular-straight-jeans"
+          }
+        },
+        "hotspot_XXWqcB": {
+          "type": "hotspot",
+          "settings": {
+            "x_position": 20,
+            "y_position": 20,
+            "hotspot_product": "the-explorer"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_ncJYk4",
+        "hotspot_XXWqcB"
+      ],
+      "name": "Hotspot Section",
+      "settings": {
+        "hotspot_section_image": "shopify://shop_images/Hero_66b66aa2-9967-4141-943d-8b974e654cda.jpg"
+      }
+    },
+    "section_video_component_test_ifdXgg": {
+      "type": "section-video-component-test",
+      "name": "Video component test",
+      "settings": {
+        "custom_component_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4"
+      }
+    },
+    "section_video_component_test_gW6kEB": {
+      "type": "section-video-component-test",
+      "name": "Video component test",
+      "settings": {
+        "custom_component_video": "shopify://files/videos/0_Christmas_Fireplace_3840x2160.mp4"
+      }
+    },
+    "section_recently_viewd_products_PamV8w": {
+      "type": "section-recently-viewd-products",
+      "name": "Recently viewed products",
+      "settings": {}
+    }
+  },
+  "order": [
+    "image_banner",
+    "home_page_featured_collection_T6dqxB",
+    "section_home_positive_branding_NUbymA",
+    "section_conditional_collection_QPxnNY",
+    "section_know_our_story_zKVjaY",
+    "section_know_our_story_cnFHMq",
+    "section_know_our_story_gV8bCd",
+    "section_know_our_story_ttx8PX",
+    "section_limited_products_Tcnwpm",
+    "section_hotspot_aHR8wC",
+    "section_video_component_test_ifdXgg",
+    "section_video_component_test_gW6kEB",
+    "section_recently_viewd_products_PamV8w"
+  ]
+}

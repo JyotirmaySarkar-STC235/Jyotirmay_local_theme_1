@@ -1,0 +1,33 @@
+{{ 'limited-products.css' | asset_url | stylesheet_tag }}
+
+<div class="limited-products__wrapper" data-collection-handle="{{section.settings.limited_products_collection.handle}}">
+  <h2 class="limited-products__heading">Limited products</h2>
+
+  <div class="limited-products__card-list">
+    <h1>{{ section.settings.limited_products_collection.title }}</h1>
+  </div>
+</div>
+
+{{ 'limited-products.js' | asset_url | script_tag }}
+
+
+
+{% schema %}
+{
+  "name": "Limited products",
+  "tag": "section",
+  "class": "limited-products",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "limited_products_collection",
+      "label": "Add a collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Limited products"
+    }
+  ]
+}
+{% endschema %}

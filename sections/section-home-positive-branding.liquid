@@ -1,0 +1,189 @@
+<section class="home__positive-branding-container color-{{ section.settings.color_scheme_1 }}">
+  <h2 class="home__positive-branding__heading">{{ section.settings.section_heading }}</h2>
+
+  <div class="home__positive-branding__card-list">
+    {% for block in section.blocks %}
+      <div class="home__positive-branding__card">
+        {% if block.settings.image != blank %}
+          {{
+            block.settings.image
+            | image_url: width: 97, height: 102
+            | image_tag: class: 'home__positive-branding-container__card-image'
+          }}
+        {% endif %}
+
+        {% if block.settings.image_text != blank %}
+          <p class="home__positive-branding-container__card-text">{{ block.settings.image_text }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+    .home__positive-branding{
+        min-height: 400px
+        box-sizing: border-box;
+        {% comment %} overflow-y: hidden;
+        overflow-x: scroll; {% endcomment %}
+    }
+
+    .home__positive-branding-container{
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .home__positive-branding__heading{
+        font-weight: 500;
+        fint-size: 28px;
+    }
+
+    .home__positive-branding__card-list{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 70px;
+    }
+
+    .home__positive-branding__card{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home__positive-branding__card > img{
+        object-fit: contain;
+    }
+
+    .home__positive-branding-container__card-text{
+        font-weight: 400;
+        font-size: 21px;
+        text-align: center;
+  }
+ 
+
+
+/* ===========================
+   📌 768px and below (Tablet)
+   =========================== */
+@media (max-width: 800px) {
+    .home__positive-branding {
+        min-height: auto;
+    }
+
+    .home__positive-branding__card-list {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .home__positive-branding__heading {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .home__positive-branding__card > img {
+        width: 200px;
+    }
+
+    .home__positive-branding-container__card-text {
+        font-size: 18px;
+    }
+}
+
+
+/* ===========================
+   📌 400px and below (Mobile)
+   =========================== */
+@media (max-width: 400px) {
+    .home__positive-branding__card-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .home__positive-branding__heading {
+        font-size: 22px;
+    }
+
+    .home__positive-branding__card > img {
+        width: 160px;
+    }
+
+    .home__positive-branding-container__card-text {
+        font-size: 16px;
+    }
+}
+
+
+/* ===========================
+   📌 350px and below — ensure stability
+   =========================== */
+@media (max-width: 350px) {
+    .home__positive-branding__heading {
+        font-size: 20px;
+    }
+
+    .home__positive-branding__card > img {
+        width: 140px;
+    }
+
+    .home__positive-branding-container__card-text {
+        font-size: 15px;
+    }
+}
+
+</style>
+
+{% schema %}
+{
+  "name": "Home positive branding",
+  "class": "home__positive-branding",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section heading",
+      "default": "Make a good choice"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme_1",
+      "label": "Select color scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_text_block",
+      "name": "Image + Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_text",
+          "label": "Text",
+          "default": "Text for card"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home positive branding"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %}  {% endcomment %}

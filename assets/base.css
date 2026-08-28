@@ -3596,11 +3596,21 @@ details-disclosure > details {
   }
 }
 
-@font-face {
+/* @font-face {
   font-family: My-custom-font;
   src: url(https://cdn.shopify.com/s/files/1/0721/6264/0063/files/junegull.ttf?v=1764999714);
 }
 
 h1, h2, h3 {
   font-family: My-custom-font !important;
+} */
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+::-webkit-scrollbar-track {
+  background: #FFE2D2;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
 }

@@ -1,5 +1,7 @@
 {{ 'section-custom-banner.css' | asset_url | stylesheet_tag }}
 
+{% comment %} Added liquid comment for module 2 day 4 task {% endcomment %}
+
 <div class="custom-banner-wrapper color-{{ section.settings.color_scheme }}">
   <div class="text-content-wrapper">
     {% if section.settings.heading != blank %}
@@ -14,7 +16,7 @@
       <p>{{ section.settings.content_text }}</p>
     {% endif %}
   </div>
-
+{{ template.name }}
   <div class="custombanner__buttons-wrapper">
     {% for block in section.blocks %}
       <a href="{{ block.settings.button_link }}">{{ block.settings.button_text }}</a>

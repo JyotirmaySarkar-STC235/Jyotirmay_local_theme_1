@@ -1,0 +1,634 @@
+<div
+  id="know-our-story-{{ section.id }}"
+  class="know-our-story-section-wrapper color-{{ section.settings.know_our_story_color_scheme }}"
+>
+  {% comment %} ROW 1 {% endcomment %}
+  <div class="know-our-story-section__row-1">
+    {% comment %} Working on video wraper construction .... {% endcomment %}
+
+    <div class="know-our-story-section__row-1-video-wrapper">
+      {{
+        section.settings.know_our_story_video
+        | video_tag:
+          autoplay: false,
+          controls: false,
+          class: 'know-our-story-section__row-1-video',
+          data-section-id: section.id
+      }}
+      <button class="video-toggle-btn" id="video-toggle-btn-{{ section.id }}" data-video="know-our-story-video">
+        Play
+      </button>
+    </div>
+
+    {% comment %} {% endcomment %}
+
+    <div class="know-our-story-section__row-1-content-wrapper">
+      <h2 class="know-our-story-section__row-1-content__heading">{{ section.settings.know_our_story_heading }}</h2>
+
+      <div class="know-our-story-section__row-1-content__content">
+        <p>{{ section.settings.know_our_story_text_1 }}</p>
+        <p>{{ section.settings.know_our_story_text_2 }}</p>
+      </div>
+
+      <a class="know-our-story-section__row-1-content__btn" href="{{ section.settings.story_read_more_button_url }}">
+        <span>
+          {{- section.settings.story_read_more_button_label -}}
+        </span>
+        {% if section.settings.story_read_more_button_label_arrow != blank %}
+          <span>
+            {{ section.settings.story_read_more_button_label_arrow | image_url: width: 18 | image_tag }}
+          </span>
+        {% endif %}
+      </a>
+
+      <div id="quality-cards-list-{{ section.id }}" class="quality-cards-list swiper mySwiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% if block.type == 'quality_card' %}
+              {% comment %} card {% endcomment %}
+              <div class="quality-card swiper-slide">
+                {% comment %} fill {% endcomment %}
+                {% if block.settings.quality_card_image != blank %}
+                  <div class="quality-card__icon-wrapper">
+                    {{
+                      block.settings.quality_card_image
+                      | image_url: width: 200
+                      | image_tag: class: 'quality-card__icon', alt: block.settings.quality_card_heading
+                    }}
+                  </div>
+                {% endif %}
+
+                <h2 class="quality-card__heading">
+                  {{ block.settings.quality_card_heading }}
+                </h2>
+
+                <p class="quality-card__text">
+                  {{ block.settings.quality_card_text_content }}
+                </p>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div id="swiper-button-prev-{{section.id }}" class="swiper-button-prev"></div>
+        <div id="swiper-button-next-{{section.id }}" class="swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+
+  {% comment %} ROW 2 {% endcomment %}
+
+  <div class="know-our-story-section__row-2">
+    {% for block in section.blocks %}
+      {% if block.type == 'policy_item' %}
+        <a href="{{ block.settings.url | default: '#' }}" class="policy-card">
+          {% if block.settings.icon != blank %}
+            <div class="policy-card__icon-wrapper">
+              {{ block.settings.icon | image_url: width: 32, height: 32 | image_tag: class: 'policy-card__icon' }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.text != blank %}
+            <span class="policy-card__text">
+              {{ block.settings.text }}
+            </span>
+          {% endif %}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+    .know-our-story-section-wrapper {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      box-sizing: border-box;
+    }
+
+
+    .know-our-story-section__row-1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper {
+      /* height: 400px !important; */
+      height: auto !important;
+      position: relative;
+    }
+
+    /* Construction.... */
+    .video-toggle-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0.8rem 1.6rem;
+      font-size: 1.2rem;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      
+    }
+
+    .video-toggle-btn:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    /* */
+
+    /* Make video automatically scale & match height */
+    .know-our-story-section__row-1-video {
+      width: 100%;
+      /* height: 100%; */
+      object-fit: cover;
+      /* Video fills area properly */
+    }
+
+    .know-our-story-section__row-1-content__heading {
+      font-size: 2rem;
+      font-weight: 400;
+      margin: 0 !important
+    }
+
+    /* Optional: Style content elements neatly */
+    .know-our-story-section__row-1-content__content p {
+      margin: 1rem 0;
+      font-size: 1.1 rem;
+      font-weight: 400;
+    }
+
+    /* Read more butotn */
+    .know-our-story-section__row-1-content__btn {
+      text-decoration: none;
+      color: #FFFFFF;
+      border: none;
+      outline: none;
+      background-color: #DB763F;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      width: 160px;
+    }
+
+    .know-our-story-section__row-1-content__btn span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .know-our-story-section__row-1-content__btn img {
+      display: inline-block;
+    }
+
+    /* SLIDES */
+    .quality-cards-list {
+      width: 100%;
+
+    }
+
+    /* QUALITY CARD */
+    .quality-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+      height: auto;
+      /* Swiper will auto-adjust */
+      cursor: pointer !important;
+    }
+
+    .quality-card__icon-wrapper {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quality-card__icon {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .quality-card__heading {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .quality-card__text {
+      font-size: 15px;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 85%;
+    }
+
+    /* POLICY CARDS */
+    .know-our-story-section__row-2 {
+      display: flex;
+      gap: 20px;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .policy-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+
+    }
+
+    #swiper-button-prev-{{section.id }},
+    #swiper-button-next-{{section.id }} {
+      display: block !important;
+    }
+
+    /* Icon container */
+    .policy-card__icon-wrapper {
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Shopify image_tag */
+    .policy-card__icon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* ensures full image visible */
+    }
+
+    /* Text */
+    .policy-card__text {
+      font-size: 14px;
+      color: #E16A28;
+      text-align: center;
+    }
+
+    /* ------------------------------------------------------
+     TABLETS (max-width: 1024px)
+  ------------------------------------------------------ */
+  @media (max-width: 1024px) {
+    .know-our-story-section__row-1 {
+      gap: 1.5rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 50%;
+    }
+
+    .quality-card {
+      padding: 20px;
+    }
+
+    .quality-card__text {
+      max-width: 100%;
+    }
+  }
+
+
+  /* ------------------------------------------------------
+     LARGE MOBILE (max-width: 768px)
+  ------------------------------------------------------ */
+  @media (max-width: 768px) {
+
+    .know-our-story-section-wrapper {
+      padding: 1.5rem;
+    }
+
+    .know-our-story-section__row-1 {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper,
+    .know-our-story-section__row-1-content-wrapper {
+      width: 100%;
+    }
+
+    .know-our-story-section__row-1-content__heading {
+      font-size: 1.6rem;
+    }
+
+    .know-our-story-section__row-1-content__btn {
+      width: auto;
+      padding: 0.6rem 1.4rem;
+    }
+
+    .policy-card__text {
+      font-size: 12px;
+    }
+
+    /* Row 2 - Policy cards */
+    .know-our-story-section__row-2 {
+      gap: 12px;
+    }
+  }
+
+
+  /* ------------------------------------------------------
+     SMALL MOBILE (max-width: 576px)
+  ------------------------------------------------------ */
+  @media (max-width: 576px) {
+
+    .know-our-story-section-wrapper {
+      padding: 1rem;
+    }
+
+    .know-our-story-section__row-1-video-wrapper {
+      height: auto;
+    }
+
+    .video-toggle-btn {
+      font-size: 1rem;
+      padding: 0.6rem 1.2rem;
+    }
+
+    .quality-card {
+      padding: 16px;
+    }
+
+    .quality-card__heading {
+      font-size: 18px;
+    }
+
+    .quality-card__text {
+      font-size: 14px;
+    }
+
+    .policy-card__icon-wrapper {
+      width: 1.8rem;
+      height: 1.8rem;
+    }
+
+    .policy-card__text {
+      font-size: 12px;
+    }
+  }
+
+
+  /* ------------------------------------------------------
+     EXTRA SMALL MOBILE (max-width: 420px)
+  ------------------------------------------------------ */
+  @media (max-width: 420px) {
+
+    .know-our-story-section__row-1-content__heading {
+      font-size: 1.4rem;
+    }
+
+    .know-our-story-section__row-1-content__content p {
+      font-size: 0.95rem;
+    }
+
+    .quality-card {
+      padding: 14px;
+      gap: 10px;
+    }
+
+    .quality-card__heading {
+      font-size: 16px;
+    }
+
+    .quality-card__text {
+      font-size: 13px;
+    }
+
+    .policy-card {
+      gap: 0.5rem;
+    }
+  }
+</style>
+
+{% comment %} SWIPER INITIALIZER {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    var swiper = new Swiper('#quality-cards-list-{{ section.id }}', {
+      cssMode: true,
+      slidesPerView: 1.5,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '#swiper-button-next-{{section.id }}',
+        prevEl: '#swiper-button-prev-{{section.id }}',
+      },
+      {% comment %} pagination: {
+    el: '.swiper-pagination',
+  }, {% endcomment %}
+    mousewheel: true,
+    keyboard: true,
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', initVideoController);
+  document.addEventListener('shopify:section:load', initVideoController);
+
+  function initVideoController() {
+    // console.log('SECTION ---->');
+
+    const allVideos = Array.from(document.querySelectorAll('video'));
+    // console.log('All videos: ', allVideos);
+
+    const buttons = Array.from(document.querySelectorAll('.video-toggle-btn'));
+    // console.log("All buttons: ", buttons);
+
+    buttons.forEach((btn) => {
+      // ❗ Prevent multiple event bindings when section reloads
+      if (btn.dataset.initialized === 'true') {
+        return;
+      }
+      btn.dataset.initialized = 'true';
+
+      btn.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        // console.log("Button clicked -> ", btn);
+
+        // Reset all button labels
+        buttons.forEach((b) => (b.textContent = 'Play'));
+
+        const video = btn.closest('.know-our-story-section__row-1-video-wrapper').querySelector('video');
+
+        // Pause all other videos
+        allVideos.forEach((vid) => {
+          if (vid == video) {
+            // console.log('Apna vdo chal raha hai.....');
+            return;
+          }
+          if (!vid.paused) vid.pause();
+        });
+
+        // `````````````````````````````````````````````````` CONSTRUCTION ``````````````PAUSE ALL COMPONENT VIDEOS``````````````````````````````````````````````
+
+        // GET ALL THE <video-player> and pause there videos by changing their data-state attribute
+        // let allVideoPlayers = document.querySelectorAll("video-player")
+        // if(allVideoPlayers && allVideoPlayers.length !== 0) {
+        //   allVideoPlayers.forEach((vp)=>{
+        //     vp.setAttribute("data-state", "paused")
+        //   })
+        // }
+
+        // ``````````````````````````````````````````````````````````` END CONSTRUCTION ````````````````````````````````````````````````````````````````````
+
+        // console.log('Target video -> ', video);
+        // console.log('Video paused state -> ', video.paused);
+
+        try {
+          if (video.paused) {
+            // console.log('Button clicked when vdo is paused');
+
+            await video.play();
+            btn.textContent = 'Pause';
+          } else {
+            // console.log('Button clicked when vdo is playing');
+            video.pause();
+            btn.textContent = 'Play';
+          }
+        } catch (error) {
+          console.error('Error playing the video.......', error);
+          return;
+        }
+      }); // click handler ends
+    }); // buttons loop ends
+  } // init ends
+</script>
+
+{% comment %} VIDEO PLAY-PAUSE ON SCROLL EDGE CASE SCRIPT {% endcomment %}
+
+{% schema %}
+{
+  "name": "Know our story",
+  "tag": "section",
+  "class": "home__know-our-story-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "know_our_story_color_scheme",
+      "label": "Select color scheme"
+    },
+    {
+      "type": "video",
+      "id": "know_our_story_video",
+      "label": "Add a video"
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_heading",
+      "label": "Enter heading",
+      "default": "Know our story"
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_text_1",
+      "label": "Enter text content",
+      "default": "Amanté is an international intimate wear brand, offering comfort, fashion, and sensuality to the modern South Asian woman. 5 words which describe the amanté woman, and the philosophies embedded in each of our designs are: Spirited. Sensual. Sophisticated. Stylish. Self-assured."
+    },
+    {
+      "type": "text",
+      "id": "know_our_story_text_2",
+      "label": "Enter text content",
+      "default": "Our products are made for the ever evolving modern woman of today who just like fashion, is an ever-evolving canvas. Her tastes, roles, goals, ambitions and even her body are in a constant state of evolution. We at amanté, understand and embrace these changes."
+    },
+    {
+      "type": "text",
+      "id": "story_read_more_button_label",
+      "label": "Enter button label",
+      "default": "Read more"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_read_more_button_label_arrow",
+      "label": "Add the arrow image"
+    },
+    {
+      "type": "url",
+      "id": "story_read_more_button_url",
+      "label": "Enter button label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quality_card",
+      "name": "Quality card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "quality_card_image",
+          "label": "Select image"
+        },
+        {
+          "type": "text",
+          "id": "quality_card_heading",
+          "label": "Enter heading",
+          "default": "Quality"
+        },
+        {
+          "type": "text",
+          "id": "quality_card_text_content",
+          "label": "Enter text content for the card",
+          "default": "Amanté products are made of premium fabrics that undergo rigorous durability testing. Ensuring every piece of lingerie is crafted carefully offering best of comfort and quality"
+        }
+      ]
+    },
+    {
+      "type": "policy_item",
+      "name": "Policy Item",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Policy Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Know our story section"
+    }
+  ]
+}
+{% endschema %}
